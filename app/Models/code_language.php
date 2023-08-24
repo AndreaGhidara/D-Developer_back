@@ -5,11 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class code_language extends Model
+class Code_language extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'technology'
     ];
+    public function projects(){
+        return $this->belongsToMany(User::class);
+    }
 }

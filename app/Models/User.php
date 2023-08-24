@@ -34,6 +34,10 @@ class User extends Authenticatable
         'soft_skill'
     ];
 
+    public function projects(){
+        return $this->belongsToMany(Code_language::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

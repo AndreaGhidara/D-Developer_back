@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Valutation extends Model
 {
     use HasFactory;
+
+    public function user(){
+        return $this->belongsToMany(User::class);
+    }
 }

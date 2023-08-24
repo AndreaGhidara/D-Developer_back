@@ -34,10 +34,13 @@ class User extends Authenticatable
         'soft_skill'
     ];
 
-    public function projects(){
+    public function languages(){
         return $this->belongsToMany(Code_language::class);
     }
 
+    public function valutations(){
+        return $this->belongsToMany(Valutation::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

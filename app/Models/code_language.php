@@ -12,7 +12,7 @@ class Code_language extends Model
     protected $fillable = [
         'technology'
     ];
-    public function projects(){
+    public function user(){
         return $this->belongsToMany(User::class);
     }
 }

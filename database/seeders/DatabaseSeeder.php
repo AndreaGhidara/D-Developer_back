@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Sponsor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ValutationSeeder::class,
             ReviewSeeder::class,
             MessageSeeder::class,
+            SponsorSeeder::class,
         ]);
     }
 }

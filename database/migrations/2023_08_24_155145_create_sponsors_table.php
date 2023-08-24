@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sponsor', function (Blueprint $table) {
+        Schema::create('sponsors', function (Blueprint $table) {
             $table->id();
             $table->string('name',50);
-            $table->decimal('price');
-            $table->decimal('time_sponsor');
+            $table->decimal('price',9,2);
+            $table->bigInteger('time_sponsor');
             $table->timestamps();
         });
     }

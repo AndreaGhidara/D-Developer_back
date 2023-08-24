@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name',50);
             $table->decimal('price');
-            $table->decimal('time_Sponsor');
+            $table->decimal('time_sponsor');
             $table->timestamps();
         });
     }

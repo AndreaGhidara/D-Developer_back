@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
            CodeLanguageSeeder::class,
+           ValutationSeeder::class,
+           ReviewSeeder::class,
            UserSeeder::class
         ]);
     }

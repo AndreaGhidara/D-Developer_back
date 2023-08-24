@@ -41,6 +41,10 @@ class User extends Authenticatable
     public function valutations(){
         return $this->belongsToMany(Valutation::class);
     }
+
+    public function review(){
+        return $this->belongsTo(Review::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

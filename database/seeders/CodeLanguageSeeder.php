@@ -17,7 +17,7 @@ class CodeLanguageSeeder extends Seeder
     {
         $technologies = config('code_languages');
         foreach($technologies as $tecnology){
-             
+            
             $Newtechnology = new code_language();
             $Newtechnology->technology = $tecnology;
             $Newtechnology->save();

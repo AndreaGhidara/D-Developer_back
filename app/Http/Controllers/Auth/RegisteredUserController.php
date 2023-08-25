@@ -43,6 +43,16 @@ class RegisteredUserController extends Controller
         
         $user->fill($data);
 
+        $user = User::create([
+            'name' => $request->name,
+            "surname" => $request->surname,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            "date_of_birth" => $request->date_of_birth,
+            'address' => $request->address,
+            'phone_number' => $request->phone_number,
+        ]);
+
         event(new Registered($user));
 
         //RIMUOVO PER RIDIREZIONARE ===============
@@ -59,8 +69,8 @@ class RegisteredUserController extends Controller
             [
                 "name" => "required|min:3|max:50",
                 "surname" => "required|min:3|max:50",
-                "email" => "required|email:rfc",
-                "password"=>"required|min:5",
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
                 "date_of_birth" => "required|date|before:-18 years",
                 "address" => "required",
                 "img_path" => [

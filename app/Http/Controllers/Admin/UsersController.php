@@ -47,18 +47,24 @@ class UsersController extends Controller{
         if($request->hasFile("img_path")) {
             $img_path = Storage::put("uploads", $data["img_path"]);
             $data['img_path'] = $img_path;
+        } else if (!$request -> has("img_path")){
+            $data['img_path'] = null;
         }
 
         //img bg
         if($request->hasFile("bg_dev")) {
             $img_path = Storage::put("uploads", $data["bg_dev"]);
             $data['bg_dev'] = $img_path;
+        } else if (!$request -> has("bg_dev")){
+            $data['bg_dev'] = null;
         }
 
         //img cv
         if($request->hasFile("cv")) {
             $img_path = Storage::put("uploads", $data["cv"]);
             $data['cv'] = $img_path;
+        } else if (!$request -> has("cv")){
+            $data['cv'] = null;
         }
 
         $user->name = $data['name'];
@@ -95,6 +101,10 @@ class UsersController extends Controller{
             "bg_dev" => [
                 File::image()->dimensions(Rule::dimensions()->maxWidth(2200)->maxHeight(2500)),
             ],
+            "github_link" => "",
+            "linkedin_link" => "",
+            "bio" => "",
+            "vat_number" => "",
             "cv" => [
                 "required",
                 File::types([
@@ -104,6 +114,7 @@ class UsersController extends Controller{
                 ]) ->  max(500000)
             ],
             "phone_number" => "required|numeric",
+            "soft_skill" => "",
             "code_languages" =>"required",
         ], [
             "name.required" => "Il nome è obbligatorio",

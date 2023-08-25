@@ -16,7 +16,7 @@
 
     <div class="row g-4 py-4">
         <div class="col">
-            <form action="{{ route('admin.users.update', $user->id ) }}" method="put" class="needs-validation" enctype="multipart/form-data">
+            <form action="{{ route('admin.users.update', $user ) }}" method="post" class="needs-validation" enctype="multipart/form-data">
                 @csrf
 
                 @method("PUT")

@@ -34,8 +34,8 @@
                     <p>{{ $user->address}}</p>
                     <img width="400px" height="400px" src="{{asset('storage/' . $user->img_path)}}">
                     <img width="400px" height="400px" src="{{asset('storage/' . $user->bg_dev)}}">
-                    <a href="{{ $user->github_link}}"></a>
-                    <a href="{{ $user->linkedin_link}}"></a>
+                    <a href="{{ $user->github_link}}" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="{{ $user->linkedin_link}}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                     <p>{{ $user->bio}}</p>
                     <p>{{ $user->vat_number}}</p>
                     <a href="{{asset('storage/' . $user->cv)}}" download="cv">Scarica il mio CV</a>

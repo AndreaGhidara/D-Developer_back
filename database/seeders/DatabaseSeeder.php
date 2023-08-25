@@ -25,9 +25,10 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CodeLanguageSeeder::class,
             ValutationSeeder::class,
+            SponsorSeeder::class,
             ReviewSeeder::class,
             MessageSeeder::class,
-            SponsorSeeder::class,
+            
         ]);
     }
 }

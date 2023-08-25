@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('user_valutation', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('valutation_id');
+            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('valutation_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

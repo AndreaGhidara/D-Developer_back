@@ -13,6 +13,12 @@ use Illuminate\Validation\Rules\File;
 
 class UsersController extends Controller{
 
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('admin.users.show' , compact('user'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

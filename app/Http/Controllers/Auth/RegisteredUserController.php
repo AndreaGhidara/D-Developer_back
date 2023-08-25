@@ -41,8 +41,10 @@ class RegisteredUserController extends Controller
         //Crea un nuvo user
         $user = new User();
         
+        //Controllo9 campi compilabili
         $user->fill($data);
 
+        //Creazione User
         $user = User::create([
             'name' => $request->name,
             "surname" => $request->surname,

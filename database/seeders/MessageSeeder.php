@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Models\Message;
+use App\Models\User;
 
 class MessageSeeder extends Seeder{
     /**
@@ -15,10 +16,12 @@ class MessageSeeder extends Seeder{
      */
     public function run(Faker $faker){
         
+        $user = User::all();
+
         for ($i=0; $i < 10; $i++) { 
 
             $newMessage = new Message();
-            $newMessage->user_id = $i;
+            $newMessage->user_id = rand(1, count($user));
             $newMessage->name = $faker->word();
             $newMessage->surname = $faker->word();
             $newMessage->email = $faker->email();

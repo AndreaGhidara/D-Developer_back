@@ -45,6 +45,11 @@ class User extends Authenticatable
     public function review(){
         return $this->belongsTo(Review::class);
     }
+
+    public function message(){
+        return $this->belongsTo(Message::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

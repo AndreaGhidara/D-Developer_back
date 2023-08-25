@@ -27,9 +27,9 @@ return new class extends Migration
             $table->text('bg_dev')->nullable();
             $table->text('github_link')->nullable();
             $table->text('linkedin_link')->nullable();
-            $table->string('vat_number')->unique();
+            $table->string('vat_number')->unique()->nullable();
             $table->text('cv')->nullable();
-            $table->string('phone_number');
+            $table->string('phone_number')->nullable();
             $table->text('soft_skill')->nullable();
             $table->rememberToken();
             $table->timestamps();

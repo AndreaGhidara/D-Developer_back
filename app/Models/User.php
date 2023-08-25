@@ -19,19 +19,20 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'password',
         'surname',
         'email',
         'date_of_birth',
         'address',
         'bio',
-        'img_path',
-        'bg_dev',
         'github_link',
         'linkedin_link',
         'vat_number',
-        'cv',
         'phone_number',
         'soft_skill'
+        // 'img_path',
+        // 'bg_dev',
+        // 'cv',
     ];
 
     public function languages(){

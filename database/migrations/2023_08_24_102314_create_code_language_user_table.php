@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_languages', function (Blueprint $table) {
+        Schema::create('code_language_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id')->nullable()->constrained();
             $table->foreignId('code_languages_id')->nullable()->constrained();

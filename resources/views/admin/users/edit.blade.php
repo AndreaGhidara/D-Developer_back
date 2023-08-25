@@ -119,7 +119,7 @@
                     @foreach ($languages as $i => $language)
                         <div class="form-check m-3">
                             <input type="checkbox" value="{{old(" $language->id") ??  $language->id}}" name="code_languages[]" id="code_languages{{$i}}" class="form-check-input" >
-                            <label for="code_languages{{$i}}" class="form-check-label">{{$language->name}}</label>
+                            <label for="code_languages{{$i}}" class="form-check-label">{{$language->technology}}</label>
                         </div>
                     @endforeach
                 </div>

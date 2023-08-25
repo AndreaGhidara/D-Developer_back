@@ -44,7 +44,7 @@
                     <?php if($user->languages != null ){ ?>
                         <ul>
                             @foreach ($user->languages as $language)
-                            <li>{{$language->name}}</li>
+                            <li>{{$language->technology}}</li>
                             @endforeach
                         </ul>
                     <?php } ?>

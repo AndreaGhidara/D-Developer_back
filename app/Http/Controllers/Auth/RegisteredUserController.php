@@ -36,15 +36,17 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // dd(request()->all());
         //Valido i dati
         $data =  $this->validateUser( $request->all() );
         
+        
         //Crea un nuvo user
         $user = new User();
-        
-        //Controllo9 campi compilabili
+        // $user->languages()->attach($request->input('languages'));
+        //Controllo campi compilabili
         $user->fill($data);
-
+        
         //Creazione User
         $user = User::create([
             'name' => $request->name,
@@ -56,7 +58,12 @@ class RegisteredUserController extends Controller
             'phone_number' => $request->phone_number,
         ]);
 
+        if ($request->has('languages')) {
+            $selectedLanguages = $request->input('languages');
+            $user->languages()->attach($selectedLanguages);
+        }
         event(new Registered($user));
+        $user->save();
 
         //RIMUOVO PER RIDIREZIONARE ===============
         // Auth::login($user);
@@ -76,13 +83,13 @@ class RegisteredUserController extends Controller
                 'password' => ['required', 'confirmed', Rules\Password::defaults()],
                 "date_of_birth" => "required|date|before:-18 years",
                 "address" => "required",
-                "img_path" => [
+                "img_path" => ['nullable',
                     File::image()->dimensions(Rule::dimensions()->maxWidth(500)->maxHeight(500)),
                 ],
-                "bg_dev" => [
+                "bg_dev" => ['nullable',
                     File::image()->dimensions(Rule::dimensions()->maxWidth(2200)->maxHeight(2500)),
                 ],
-                "cv" => [
+                "cv" => ['nullable',
                     File::types([
                         1 => "pdf",
                         2 => "doc",
@@ -90,7 +97,7 @@ class RegisteredUserController extends Controller
                     ])->max(500000)
                 ],
                 "phone_number" => "required|numeric",
-                // "code_languages" => "",
+                "code_languages" => "nullable"
             ],
             [
                 "name.required" => "Il nome è obbligatorio",

@@ -29,10 +29,10 @@ class User extends Authenticatable
         'linkedin_link',
         'vat_number',
         'phone_number',
-        'soft_skill'
-        // 'img_path',
-        // 'bg_dev',
-        // 'cv',
+        'soft_skill',
+        'img_path',
+        'bg_dev',
+        'cv',
     ];
 
     public function languages(){

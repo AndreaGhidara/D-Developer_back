@@ -23,7 +23,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate>
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" class="needs-validation" novalidate>
                             @csrf
                             {{-- Name --}}
                             <div class="mb-4 row">
@@ -267,7 +267,7 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Curriculum') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="curriculum" type="text"
+                                    <input id="curriculum" type="file"
                                         class="form-control @error('curriculum') is-invalid @enderror" name="curriculum"
                                         value="{{ old('curriculum') }}" autocomplete="curriculum" autofocus>
 
@@ -299,9 +299,9 @@
                             {{-- LINGUAGGI --}}
                             @foreach ($languages as $key => $language)
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="{{$key}}" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        {{$language}}
+                                    <input class="form-check-input" type="checkbox" name="languages[]" value="{{$key+1}}" id="language_{{ $key }}">
+                                    <label class="form-check-label" for="language_{{ $key+1 }}">
+                                        {{$language}} and {{$key+1}}
                                     </label>
                                 </div>
                             @endforeach

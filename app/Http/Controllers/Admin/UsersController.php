@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Code_language;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -13,9 +14,9 @@ use Illuminate\Validation\Rules\File;
 
 class UsersController extends Controller{
 
-    public function show($id)
+    public function show()
     {
-        $user = User::find($id);
+        $user = Auth::user();
         return view('admin.users.show' , compact('user'));
     }
 
@@ -25,8 +26,9 @@ class UsersController extends Controller{
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
+        $user= Auth::user();
         $languages = Code_language::all();
         return view('admin.users.edit' , compact('user', 'languages'));
     }
@@ -69,7 +71,6 @@ class UsersController extends Controller{
 
         $user->name = $data['name'];
         $user->surname = $data['surname'];
-        $user->email = $data['email'];
         $user->date_of_birth = $data['date_of_birth'];
         $user->address = $data['address'];
         $user->img_path = $data['img_path'];
@@ -92,7 +93,7 @@ class UsersController extends Controller{
         $validator = Validator::make($data, [
             "name" => "required|min:1|max:50",
             "surname" => "required|min:1|max:50",
-            "email" => "required|email:rfc",
+            
             "date_of_birth" => "required|date",
             "address" => "required",
             "img_path" => [
@@ -125,8 +126,6 @@ class UsersController extends Controller{
             "surname.min" => "Il cognome deve essere almeno di :min caratteri",
             "surname.max"=> "Il cognome deve essere al massimo di :max caratteri",
 
-            "email.required" => "L'indirizzo email è obbligatorio",
-            "email.email" => "L'indirizzo email non è nel formato corretto",
 
             "date_of_birth.required" => "La data di nascita è obbligatoria",
             "date_of_birth.date" => "La data di nascita non è nel formato corretto",

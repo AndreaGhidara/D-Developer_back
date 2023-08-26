@@ -45,6 +45,14 @@
                                 </a>
                             </li>
 
+                            <!--AGGIUNTA PULSANTE SHOW-->
+                            <li class="nav-item">
+                                <a class="nav-link text-white"
+                                    href="{{ route('admin.users.show', $user)}}">
+                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> la tua pagina
+                                </a>
+                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

@@ -35,11 +35,7 @@
                 @enderror
 
                 <!--EMAIL-->
-                <label>Email</label>
-                <input class="form-control @error('email') is-invalid @enderror" type="text" name="email" value="{{ old("email")  ?? $user->email}}">
-                @error("email")
-                    <div class="invalid-feedback">{{$message}}</div>
-                @enderror
+                
 
                 <!--DATA DI NASCITA CON PICKER-->
                 <label>Data di nascita</label>

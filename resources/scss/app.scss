@@ -1,1 +1,9 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+.bg_light {
+    background-color: #f8f6f4;
+};
+.bg_gradiant{
+    background: linear-gradient(90deg, rgba(46,139,87,1) 0%, rgba(143,188,143,1) 80%)!important ;
+   
+}

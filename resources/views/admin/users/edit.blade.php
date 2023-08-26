@@ -52,7 +52,7 @@
                 @enderror
 
                 <!--IMG PROFILO E BG-->
-                <label for="image">Immagine del profilo</label>
+                {{-- <label for="image">Immagine del profilo</label>
                 <input type="file" name="img_path" id="image" class="form-control mb-4 @error('img_path') is-invalid @enderror">
                 @error("img_path")
                     <div class="invalid-feedback">{{$message}}</div>
@@ -62,7 +62,7 @@
                 <input type="file" name="bg_dev" id="image_bg" class="form-control mb-4 @error('bg_dev') is-invalid @enderror">
                 @error("bg_dev")
                     <div class="invalid-feedback">{{$message}}</div>
-                @enderror
+                @enderror --}}
 
                 <!--LINK AI SOCIAL-->
                 <label>Link al tuo GitHub</label>
@@ -84,7 +84,7 @@
                     <div class="invalid-feedback">{{$message}}</div>
                 @enderror
 
-                <!--P.IVA E CELLULARE-->
+                <!--P.IVA ,CV E CELLULARE-->
                 <label>Partita IVA</label>
                 <input class="form-control @error('vat_number') is-invalid @enderror" type="text" name="vat_number" value="{{ old("vat_number")  ?? $user->vat_number}}">
                 @error("vat_number")

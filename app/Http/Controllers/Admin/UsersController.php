@@ -91,10 +91,10 @@ class UsersController extends Controller{
 
     private function validateUser($data) {
         $validator = Validator::make($data, [
-            "name" => "required|min:1|max:50",
-            "surname" => "required|min:1|max:50",
+            "name" => "required|min:3|max:50",
+            "surname" => "required|min:3|max:50",
             
-            "date_of_birth" => "required|date",
+            "date_of_birth" => "required|date|before:-18 years",
             "address" => "required",
             "img_path" => [
                 File::image()->dimensions(Rule::dimensions()->maxWidth(500)->maxHeight(500)),
@@ -129,6 +129,7 @@ class UsersController extends Controller{
 
             "date_of_birth.required" => "La data di nascita è obbligatoria",
             "date_of_birth.date" => "La data di nascita non è nel formato corretto",
+            "date_of_birth.before"=>"Torna quando sarai più grande",
 
             "address.required" => "L'indirizzo è obbligatorio",
 

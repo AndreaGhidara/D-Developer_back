@@ -192,7 +192,7 @@
                                 </div>
                             </div>
                             {{-- img_path Immagine profilo --}}
-                            <div class="mb-4 row">
+                            {{-- <div class="mb-4 row">
                                 <label for="img_path"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Img path') }}</label>
 
@@ -207,9 +207,10 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- background_dev Backround profilo --}}
-                            <div class="mb-4 row">
+
+                            {{-- <div class="mb-4 row">
                                 <label for="background_dev"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Background') }}</label>
 
@@ -224,7 +225,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- git_hub_link link GitHub --}}
                             <div class="mb-4 row">
                                 <label for="git_hub_link"
@@ -267,11 +268,11 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Curriculum') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="curriculum" type="file"
-                                        class="form-control @error('curriculum') is-invalid @enderror" name="curriculum"
-                                        value="{{ old('curriculum') }}" autocomplete="curriculum" autofocus>
+                                    <input id="cv" type="file"
+                                        class="form-control @error('cv') is-invalid @enderror" name="cv"
+                                        value="{{ old('cv') }}" autocomplete="cv" autofocus>
 
-                                    @error('curriculum')
+                                    @error('cv')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
@@ -40,9 +39,9 @@ class RegisteredUserController extends Controller
         //Valido i dati
         $data =  $this->validateUser( $request->all() );
         
-        
         //Crea un nuvo user
         $user = new User();
+
         // $user->languages()->attach($request->input('languages'));
         //Controllo campi compilabili
         $user->fill($data);
@@ -56,12 +55,21 @@ class RegisteredUserController extends Controller
             "date_of_birth" => $request->date_of_birth,
             'address' => $request->address,
             'phone_number' => $request->phone_number,
+            'cv' => $request->cv,
         ]);
+         //img cv
+         if($request->hasFile("cv")) {
+            $img_path = Storage::put("uploads", $data["cv"]);
+            $data['cv'] = $img_path;
+        } else if (!$request -> has("cv")){
+            $data['cv'] = null;
+        }
 
         if ($request->has('languages')) {
             $selectedLanguages = $request->input('languages');
             $user->languages()->attach($selectedLanguages);
         }
+       
         event(new Registered($user));
         $user->save();
 
@@ -89,7 +97,7 @@ class RegisteredUserController extends Controller
                 "bg_dev" => ['nullable',
                     File::image()->dimensions(Rule::dimensions()->maxWidth(2200)->maxHeight(2500)),
                 ],
-                "cv" => ['nullable',
+                "cv" => ['required',
                     File::types([
                         1 => "pdf",
                         2 => "doc",

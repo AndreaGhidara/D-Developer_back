@@ -32,8 +32,19 @@
                     <p>{{ $user->email}}</p>
                     <p>{{ $user->date_of_birth}}</p>
                     <p>{{ $user->address}}</p>
-                    <img width="400px" height="400px" src="{{asset('storage/' . $user->img_path)}}">
+
+                    @if ($user->img_path)
+                    <img width="400px" height="400px" src="{{asset('storage/' . $user->img_path)}}" alt="{{$user->name}}">
+                    @else
+                    <img src="https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg">
+                    @endif
+
+                    @if ($user->bg_dev)
                     <img width="400px" height="400px" src="{{asset('storage/' . $user->bg_dev)}}">
+                    @else
+                    <img src="https://www.ivins.com/wp-content/uploads/2020/09/placeholder-1.png">
+                    @endif
+
                     <a href="{{ $user->github_link}}" target="_blank"><i class="fa-brands fa-github"></i></a>
                     <a href="{{ $user->linkedin_link}}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                     <p>{{ $user->bio}}</p>
@@ -41,13 +52,13 @@
                     <a href="{{asset('storage/' . $user->cv)}}" download="cv">Scarica il mio CV</a>
                     <p>{{ $user->phone_number}}</p>
                     <p>{{ $user->soft_skill}}</p>
-                    <?php if($user->languages != null ){ ?>
+                    @if($user->languages)
                         <ul>
                             @foreach ($user->languages as $language)
                             <li>{{$language->technology}}</li>
                             @endforeach
                         </ul>
-                    <?php } ?>
+                    @endif
                 </div>
             </div>
         </div>

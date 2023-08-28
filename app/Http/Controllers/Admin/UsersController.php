@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
+use App\Providers\RouteServiceProvider;
 
 class UsersController extends Controller{
 
@@ -87,6 +88,15 @@ class UsersController extends Controller{
         $user->languages()->sync($data["code_languages"]);
 
         return  redirect()->route('admin.users.show', $user->id);
+    }
+
+    public function destroy($id)
+    {
+        $user = User::find(Auth::user() -> id);
+        Auth::logout();
+        if ($user -> delete()) {
+            return redirect(RouteServiceProvider::LOGIN)->with('global', 'Il tuo account è stato cancellato con successo!');
+        }
     }
 
     private function validateUser($data) {

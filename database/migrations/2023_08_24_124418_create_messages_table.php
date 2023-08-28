@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->onDelete('cascade');
             $table->string('name',50);
             $table->string('surname',50)->nullable();
             $table->string('email');

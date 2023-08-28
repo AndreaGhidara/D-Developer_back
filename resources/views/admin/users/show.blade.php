@@ -10,17 +10,6 @@
             </a>
         </div>
 
-        <!--NEL CASO VOLESSIMO METTERE LA CANCELLAZIONE DEL PROFILO??? MANCA PERO' CONTROLLER ECC-->
-        {{-- <div class="col-3 d-flex justify-content-end">
-            <form action="{{ route('admin.users.destroy', $user) }}" method="delete">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger" type="submit">
-                    <i class="fa fa-trash" aria-hidden="true"></i> Cancella profilo
-                </button>
-            </form>
-        </div> --}}
-
     </div>
     <br>
     <div class="row g-4">
@@ -65,6 +54,18 @@
                             @endforeach
                         </ul>
                     @endif
+
+                    <!--DELETE ACCOUNT BUTTON-->
+                    <div class="col-3 d-flex justify-content-end">
+                        <form action="{{ route('admin.users.destroy', $user) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                Cancella profilo
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

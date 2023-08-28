@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('user_sponsor', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id')->nullable()->constrained();
-            $table->foreignId('sponsor_id')->nullable();
+            $table->foreignId('users_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('sponsor_id')->nullable()->onDelete('cascade');
             $table->dateTime('end_sponsor');
             $table->timestamps();
         });

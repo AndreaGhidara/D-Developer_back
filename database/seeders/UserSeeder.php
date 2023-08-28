@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Faker\Generator as Faker;
 
 class UserSeeder extends Seeder
@@ -18,15 +19,15 @@ class UserSeeder extends Seeder
     {
         for ($i=0; $i < 10; $i++) {
             $developer = new User();
-            $developer->name = $faker->name(1);
-            $developer->surname = $faker->name(1);
-            $developer->email = $faker->email();
-            $developer->password = $faker->words(1, true);
+            $developer->name = $faker->firstname();
+            $developer->surname = $faker->lastname();
+            $developer->email = $faker->email;
+            $developer->password = Hash::make('ciao');
             $developer->date_of_birth = $faker->date();
             $developer->address = $faker->address();
             $developer->bio = $faker->text();
-            $developer->img_path = $faker->imageUrl(360, 360, 'developers', true);
-            $developer->bg_dev = $faker->imageUrl(480, 480, 'sky', true);
+            $developer->img_path = 'https://picsum.photos/300/300?random';
+            $developer->bg_dev = 'https://picsum.photos/1200/600?random';
             $developer->github_link = $faker->url();
             $developer->linkedin_link = $faker->url();
             $developer->vat_number = $faker->numberBetween(10000000000, 99999999999);

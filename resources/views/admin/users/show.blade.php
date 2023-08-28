@@ -23,13 +23,13 @@
 
                     <div class="col-12 relative">
                         @if ($user->bg_dev)
-                        <img src="{{asset('storage/' . $user->bg_dev)}}" class="img-fluid border border-success border-5">
+                        <img src="{{asset($user->bg_dev)}}" class="img-fluid border border-success border-5">
                         @else
                         <img src="https://www.ivins.com/wp-content/uploads/2020/09/placeholder-1.png" class="img-fluid border border-success border-5">
                         @endif
                         <div class="absolute">
                             @if ($user->img_path)
-                            <img src="{{asset('storage/' . $user->img_path)}}" class="img-fluid rounded-circle border border-success border-5">
+                            <img src="{{asset($user->img_path)}}" class="img-fluid rounded-circle border border-success border-5">
                             @else
                             <img src="https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg" class="img-fluid rounded-circle border border-success border-5">
                             @endif
@@ -71,4 +71,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    
+    var currentUserId = {{ Auth::user()->id }}; 
+
+    window.onload = function() {
+        var pathSegments = window.location.pathname.split("/");
+        var userIdFromUrl = parseInt(pathSegments[pathSegments.length - 1]);
+
+        if (!isNaN(userIdFromUrl) && userIdFromUrl !== currentUserId) {
+                window.location.href = "/admin/users/" + currentUserId;
+                alert("Non sei autorizzato ad accedere a questa pagina.");
+            }
+        };
+    
+</script>
 @endsection

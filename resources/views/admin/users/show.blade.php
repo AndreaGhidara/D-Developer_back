@@ -70,4 +70,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    
+    var currentUserId = {{ Auth::user()->id }}; 
+
+    window.onload = function() {
+        var pathSegments = window.location.pathname.split("/");
+        var userIdFromUrl = parseInt(pathSegments[pathSegments.length - 1]);
+
+        if (!isNaN(userIdFromUrl) && userIdFromUrl !== currentUserId) {
+                window.location.href = "/admin/users/" + currentUserId;
+                alert("Non sei autorizzato ad accedere a questa pagina.");
+            }
+        };
+    
+</script>
 @endsection

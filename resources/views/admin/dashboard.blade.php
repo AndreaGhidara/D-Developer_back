@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container-fluid mt-4">
-    <div class="row justify-content-center ">
+    <div class="row justify-content-center py-3">
         <div class="col-md-8 ">
-            <div class="card bg_gradiant text-light">
-                <div class="card-header ">
-                    <h1>REGISTRAZIONE AVVENUTA CON SUCCESSO!</h1>
+            <div class="card bg_green text-light text-center">
+                <div class="card-header border border-0">
+                    <h2>REGISTRAZIONE AVVENUTA CON SUCCESSO!</h2>
                 </div>
 
                 <div class="card-body">
@@ -16,10 +16,9 @@
                     </div>
                     @endif
 
-                    <h4>BENVENUTO! GRAZIE PER ESSERTI REGISTRATO NEL NOSTRO SITO.</h4>
+                    <h6>BENVENUTO! GRAZIE PER ESSERTI REGISTRATO NEL NOSTRO SITO.</h6>
                     <br>
-                   DAI SUBITO UN OCCHIO AL TUO PROFILO E APPORTA ALCUNE MODIFICHE!!
-                    </p>
+                    <p>DAI SUBITO UN OCCHIO AL TUO PROFILO E APPORTA ALCUNE MODIFICHE!!</p>
                 </div>
             </div>
         </div>

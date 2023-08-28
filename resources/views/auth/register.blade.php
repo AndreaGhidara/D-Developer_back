@@ -5,7 +5,7 @@
 @endphp
 
 @section('content')
-    <div class="container mt-4">
+    <div class="containe-fluid bg_gradiant py-3">
         <div>
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -17,7 +17,7 @@
                 </div>
             @endif
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center m-0">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Register') }}</div>
@@ -298,14 +298,18 @@
                                 </div>
                             </div>
                             {{-- LINGUAGGI --}}
-                            @foreach ($languages as $key => $language)
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="languages[]" value="{{$key+1}}" id="language_{{ $key }}">
-                                    <label class="form-check-label" for="language_{{ $key+1 }}">
-                                        {{$language}} and {{$key+1}}
-                                    </label>
+                            <div class="row py-3">
+                                @foreach ($languages as $key => $language)
+                                <div class="col-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="languages[]" value="{{$key+1}}" id="language_{{ $key }}">
+                                        <label class="form-check-label" for="language_{{ $key+1 }}">
+                                            {{$language}} and {{$key+1}}
+                                        </label>
+                                    </div>
                                 </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                             {{-- Pulsante registrati --}}
                             <div class="mb-4 row mb-0">
                                 <div class="col-md-6 offset-md-4">

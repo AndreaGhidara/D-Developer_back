@@ -93,14 +93,14 @@ class UsersController extends Controller{
         $validator = Validator::make($data, [
             "name" => "required|min:3|max:50",
             "surname" => "required|min:3|max:50",
-            
+
             "date_of_birth" => "required|date|before:-18 years",
             "address" => "required",
             "img_path" => [
-                File::image()->dimensions(Rule::dimensions()->maxWidth(500)->maxHeight(500)),
+                File::image()->dimensions(Rule::dimensions()->maxWidth(12000)->maxHeight(12000)),
             ],
             "bg_dev" => [
-                File::image()->dimensions(Rule::dimensions()->maxWidth(2200)->maxHeight(2500)),
+                File::image()->dimensions(Rule::dimensions()->maxWidth(12000)->maxHeight(12000)),
             ],
             "github_link" => "",
             "linkedin_link" => "",

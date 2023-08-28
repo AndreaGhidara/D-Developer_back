@@ -1,9 +1,72 @@
 @import '~bootstrap/scss/bootstrap';
 
+*{
+    font-family: 'Chakra Petch', sans-serif;
+}
+
 .bg_light {
     background-color: #f8f6f4;
 };
 .bg_gradiant{
     background: linear-gradient(90deg, rgba(46,139,87,1) 0%, rgba(143,188,143,1) 80%)!important ;
-   
+
+}
+
+.bg_green {
+    background: #345e37;
+}
+
+.bg_lightgreen {
+    background: #61bc84;
+}
+
+.logo {
+    width: 100px;
+}
+
+.logoBig {
+    width: 50%;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+    top: 25%;
+    bottom: 25%;
+    right: 25%;
+    left: 25%;
+    z-index: +1;
+}
+
+.login-btn {
+    font-family: Hack, monospace;
+    background: #f8f6f4;
+    color: #1d1d1d;
+    cursor: pointer;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+    min-width: 100px;
+
+    &:hover {
+        background: #61bc84;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px #0000ff61;
+        color: #ffffff;
+
+        &::after {
+            opacity: 1;
+            transition: all 0.5s;
+            color: #ffffff;
+
+        }
+    }
+
+
 }

@@ -35,7 +35,7 @@
                 @enderror
 
                 <!--EMAIL-->
-                
+
 
                 <!--DATA DI NASCITA CON PICKER-->
                 <label>Data di nascita</label>
@@ -52,7 +52,7 @@
                 @enderror
 
                 <!--IMG PROFILO E BG-->
-                {{-- <label for="image">Immagine del profilo</label>
+                <label for="image">Immagine del profilo</label>
                 <input type="file" name="img_path" id="image" class="form-control mb-4 @error('img_path') is-invalid @enderror">
                 @error("img_path")
                     <div class="invalid-feedback">{{$message}}</div>
@@ -62,7 +62,7 @@
                 <input type="file" name="bg_dev" id="image_bg" class="form-control mb-4 @error('bg_dev') is-invalid @enderror">
                 @error("bg_dev")
                     <div class="invalid-feedback">{{$message}}</div>
-                @enderror --}}
+                @enderror
 
                 <!--LINK AI SOCIAL-->
                 <label>Link al tuo GitHub</label>
@@ -111,9 +111,9 @@
                 @enderror
 
                 <!--LINGUAGGI DI PROGRAMMAZIONE-->
-                <div class="d-flex mt-3">
+                <div class="row p-3">
                     @foreach ($languages as $i => $language)
-                        <div class="form-check m-3">
+                        <div class="form-check col-2">
                             <input type="checkbox" value="{{old(" $language->id") ??  $language->id}}" name="code_languages[]" id="code_languages{{$i}}" class="form-check-input" >
                             <label for="code_languages{{$i}}" class="form-check-label">{{$language->technology}}</label>
                         </div>

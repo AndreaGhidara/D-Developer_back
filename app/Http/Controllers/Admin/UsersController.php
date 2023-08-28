@@ -116,7 +116,7 @@ class UsersController extends Controller{
             ],
             "phone_number" => "required|numeric",
             "soft_skill" => "",
-            "languages" =>"required",
+            "code_languages" => "required|min:3|max:20"
         ],
         [
             "name.required" => "Il nome è obbligatorio",
@@ -139,7 +139,7 @@ class UsersController extends Controller{
             "phone_number.required" => "Il numero di telefono è obbligatorio",
             "phone_number.number" => "Il numero di telefono non è nel formato corretto",
 
-            "languages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
+            "code_languages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
         ])->validate();
 
         return $validator;

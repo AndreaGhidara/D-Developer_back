@@ -56,6 +56,11 @@ class RegisteredUserController extends Controller
             'address' => $request->address,
             'phone_number' => $request->phone_number,
             'cv' => $request->cv,
+            'bio' => $request->bio,
+            'github_link' => $request->github_link,
+            'linkedin_link' => $request->linkedin_link,
+            'vat_number' => $request->vat_number,
+            'soft_skill' => $request->soft_skill
         ]);
          //img cv
          if($request->hasFile("cv")) {
@@ -105,7 +110,12 @@ class RegisteredUserController extends Controller
                     ])->max(500000)
                 ],
                 "phone_number" => "required|numeric",
-                "code_languages" => "nullable"
+                "code_languages" => "nullable",
+                "bio" =>"nullable|max:600",
+                "github_link" =>"nullable|url",
+                "linkedin_link" =>"nullable|url",
+                "vat_number" =>"nullable|max:11",
+                "soft_skill" =>"nullable|max:500"
             ],
             [
                 "name.required" => "Il nome è obbligatorio",
@@ -133,7 +143,13 @@ class RegisteredUserController extends Controller
                 "phone_number.required" => "Il numero di telefono è obbligatorio!!",
                 "phone_number.number" => "Il numero di telefono non è nel formato corretto",
 
-                "code_languages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
+                //"code_languages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
+                "bio.max" => ":max di caratteri raggiunto",
+                "github_link.url"=> "Devi inserire un link valido",
+                "linkedin_link.url" => "Devi inserire un link valido",
+                "vat_number.max"=> ":max di caratteri raggiunto",
+                "soft_skill.max" => ":max di caratteri raggiunto"
+
             ]
         )->validate();
 

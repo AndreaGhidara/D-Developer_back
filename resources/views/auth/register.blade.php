@@ -144,7 +144,7 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Vat number (partita Iva)') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="vat_number" type="text"
+                                    <input id="vat_number" type="number"
                                         class="form-control @error('vat_number') is-invalid @enderror" name="vat_number"
                                         value="{{ old('vat_number') }}" required autocomplete="vat_number" autofocus>
 
@@ -161,7 +161,7 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Phone_number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone_number" type="text"
+                                    <input id="phone_number" type="number"
                                         class="form-control @error('phone_number') is-invalid @enderror"
                                         name="phone_number" value="{{ old('phone_number') }}" required
                                         autocomplete="phone_number" autofocus>
@@ -179,8 +179,8 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Bio') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="bio" name="" id="" cols="30" rows="10"
-                                        class="form-control @error('bio') is-invalid @enderror" name="bio" value="{{ old('bio') }}"
+                                    <textarea id="bio" name="bio" cols="30" rows="10"
+                                        class="form-control @error('bio') is-invalid @enderror" value="{{ old('bio') }}"
                                         autocomplete="bio" autofocus>
 
                                 </textarea>
@@ -228,16 +228,16 @@
                             </div> --}}
                             {{-- git_hub_link link GitHub --}}
                             <div class="mb-4 row">
-                                <label for="git_hub_link"
+                                <label for="github_link"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Github') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="git_hub_link" type="text"
-                                        class="form-control @error('git_hub_link') is-invalid @enderror"
-                                        name="git_hub_link" value="{{ old('git_hub_link') }}"
-                                        autocomplete="git_hub_link" autofocus>
+                                    <input id="github_link" type="text"
+                                        class="form-control @error('github_link') is-invalid @enderror"
+                                        name="github_link" value="{{ old('github_link') }}"
+                                        autocomplete="github_link" autofocus>
 
-                                    @error('git_hub_link')
+                                    @error('github_link')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -281,16 +281,16 @@
                             </div>
                             {{-- Soft Skill --}}
                             <div class="mb-4 row">
-                                <label for="soft_skills"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Soft skills') }}</label>
+                                <label for="soft_skill"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Soft skill') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="soft_skills" name="" id="" cols="30" rows="10"
-                                        class="form-control @error('soft_skills') is-invalid @enderror" name="soft_skills"
-                                        value="{{ old('soft_skills') }}" autocomplete="soft_skills" autofocus>
+                                    <textarea id="soft_skill" cols="30" rows="10"
+                                        class="form-control @error('soft_skill') is-invalid @enderror" name="soft_skill"
+                                        value="{{ old('soft_skill') }}" autocomplete="soft_skill" autofocus>
 
                                 </textarea>
-                                    @error('soft_skills')
+                                    @error('soft_skill')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

@@ -26,10 +26,10 @@
 
     window.onload = function() {
         var pathSegments = window.location.pathname.split("/");
-        var userIdFromUrl = parseInt(pathSegments[pathSegments.length - 1]);
+        var userIdFromUrl = parseInt(pathSegments[pathSegments.length - 2]);
 
         if (!isNaN(userIdFromUrl) && userIdFromUrl !== currentUserId) {
-                window.location.href = "/admin/users/" + currentUserId;
+                window.location.href = "/admin/users/" + currentUserId + "/messages";
                 alert("Non sei autorizzato ad accedere a questa pagina.");
             }
         };

@@ -23,7 +23,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" class="needs-validation">
                             @csrf
                             {{-- Name --}}
                             <div class="mb-4 row">
@@ -146,7 +146,7 @@
                                 <div class="col-md-6">
                                     <input id="vat_number" type="text"
                                         class="form-control @error('vat_number') is-invalid @enderror" name="vat_number"
-                                        value="{{ old('vat_number') }}" required autocomplete="vat_number" autofocus>
+                                        value="{{ old('vat_number') }}" autocomplete="vat_number" autofocus>
 
                                     @error('vat_number')
                                         <span class="invalid-feedback" role="alert">
@@ -270,7 +270,7 @@
                                 <div class="col-md-6">
                                     <input id="cv" type="file"
                                         class="form-control @error('cv') is-invalid @enderror" name="cv"
-                                        value="{{ old('cv') }}" autocomplete="cv" autofocus>
+                                        value="{{ old('cv') }}"required autocomplete="cv" autofocus>
 
                                     @error('cv')
                                         <span class="invalid-feedback" role="alert">

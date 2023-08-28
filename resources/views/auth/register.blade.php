@@ -304,7 +304,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="languages[]" value="{{$key+1}}" id="language_{{ $key }}">
                                         <label class="form-check-label" for="language_{{ $key+1 }}">
-                                            {{$language}} and {{$key+1}}
+                                            {{$language}}
                                         </label>
                                     </div>
                                 </div>

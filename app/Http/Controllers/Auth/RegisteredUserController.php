@@ -38,14 +38,14 @@ class RegisteredUserController extends Controller
         // dd(request()->all());
         //Valido i dati
         $data =  $this->validateUser( $request->all() );
-        
+
         //Crea un nuvo user
         $user = new User();
 
         // $user->languages()->attach($request->input('languages'));
         //Controllo campi compilabili
         $user->fill($data);
-        
+
         //Creazione User
         $user = User::create([
             'name' => $request->name,
@@ -74,7 +74,7 @@ class RegisteredUserController extends Controller
             $selectedLanguages = $request->input('languages');
             $user->languages()->attach($selectedLanguages);
         }
-       
+
         event(new Registered($user));
         $user->save();
 
@@ -115,7 +115,8 @@ class RegisteredUserController extends Controller
                 "github_link" =>"nullable|url",
                 "linkedin_link" =>"nullable|url",
                 "vat_number" =>"nullable|max:11",
-                "soft_skill" =>"nullable|max:500"
+                "soft_skill" =>"nullable|max:500",
+                "languages" =>"required"
             ],
             [
                 "name.required" => "Il nome è obbligatorio",
@@ -143,7 +144,7 @@ class RegisteredUserController extends Controller
                 "phone_number.required" => "Il numero di telefono è obbligatorio!!",
                 "phone_number.number" => "Il numero di telefono non è nel formato corretto",
 
-                //"code_languages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
+                "languages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
                 "bio.max" => ":max di caratteri raggiunto",
                 "github_link.url"=> "Devi inserire un link valido",
                 "linkedin_link.url" => "Devi inserire un link valido",

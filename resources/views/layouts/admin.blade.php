@@ -136,7 +136,15 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white"
                                     href="{{ route('admin.users.show', $user)}}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> la tua pagina
+                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> La tua pagina
+                                </a>
+                            </li>
+
+                            <!--AGGIUNTA PULSANTE MESSAGGI-->
+                            <li class="nav-item">
+                                <a class="nav-link text-white"
+                                    href="{{ route('admin.users.messages', $user)}}">
+                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> I tuoi Messaggi
                                 </a>
                             </li>
 

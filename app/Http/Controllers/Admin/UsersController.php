@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Code_language;
 use App\Models\User;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -99,6 +100,12 @@ class UsersController extends Controller{
         }
     }
 
+    public function messages()
+    {
+        $user = Auth::user();
+        $messages = Message::where("user_id",$user -> id) -> get();
+        return view('admin.users.message' , compact('user','messages'));
+    }
     private function validateUser($data) {
         $validator = Validator::make($data, [
             "name" => "required|min:3|max:50",

@@ -1,0 +1,127 @@
+$dashboardWidth: 200px;
+
+.dashboard{
+    font-family: Hack;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #345e37;
+
+    .dashLeft{
+        width: 100%;
+        max-width: 120px;
+        margin: 1rem;
+        background-color: #61bc84;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        //IconaDashboard
+        .Btn {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 30%;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition-duration: .3s;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+            background-color: #61bc84;
+        }
+        
+          /* plus sign */
+        .sign {
+            width: 100%;
+            transition-duration: .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sign svg {
+            width: 17px;
+        }
+        
+        .sign svg path {
+            fill: white;
+        }
+          /* text */
+        .text {
+            position: absolute;
+            right: 0%;
+            width: 0%;
+            opacity: 0;
+            color: white;
+            font-size: 1em;
+            font-weight: 600;
+            transition-duration: .3s;
+        }
+          /* hover effect on button width */
+        .Btn:hover {
+            width: 125px;
+            border-radius: 10px;
+            transition-duration: .3s;
+        }
+        
+        .Btn:hover .sign {
+            width: 30%;
+            transition-duration: .3s;
+            padding-left: 20px;
+        }
+          /* hover effect button's text */
+        .Btn:hover .text {
+            opacity: 1;
+            width: 70%;
+            transition-duration: .3s;
+            padding-right: 10px;
+        }
+        /* button click effect*/
+        .Btn:active {
+            transform: translate(2px ,2px);
+        }
+    }
+    
+    .dashRight{
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+}
+.label{
+    display: none;
+}
+//media query
+$small: 320px;
+$medium: 900px;
+
+.dashboard {
+  //some CSS
+    @media screen and (max-width: $small) {
+        .dashLeft{
+            padding:0 35px;
+            width: 50px;
+            max-width: 50px;
+            margin: 0.5rem;
+            background-color: #61bc84;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        .dashRight{
+            width: 100%;
+            height: 100%;
+            max-height: 100vh;
+            overflow-y: scroll;
+        }
+    }
+    @media screen and (min-width: $medium) {
+    //do Smth
+    }
+}

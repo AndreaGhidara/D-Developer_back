@@ -1,7 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'dashboard';
 
 *{
     font-family: 'Chakra Petch', sans-serif;
+}
+
+ul{
+    list-style: none;
 }
 
 .bg_light {
@@ -83,4 +88,6 @@
 // / *Firefox */
 input[type=number] {
     -moz-appearance: textfield;
-  }
+}
+
+

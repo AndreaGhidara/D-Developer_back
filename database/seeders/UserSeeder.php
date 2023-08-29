@@ -26,8 +26,8 @@ class UserSeeder extends Seeder
             $developer->date_of_birth = $faker->date();
             $developer->address = $faker->address();
             $developer->bio = $faker->text();
-            $developer->img_path = 'https://picsum.photos/300/300?random';
-            $developer->bg_dev = 'https://picsum.photos/1200/600?random';
+            $developer->img_path = '';
+            $developer->bg_dev = '';
             $developer->github_link = $faker->url();
             $developer->linkedin_link = $faker->url();
             $developer->vat_number = $faker->numberBetween(10000000000, 99999999999);

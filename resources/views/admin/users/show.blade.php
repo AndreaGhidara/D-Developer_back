@@ -23,15 +23,15 @@
 
                     <div class="col-12 relative">
                         @if ($user->bg_dev)
-                        <img src="{{asset($user->bg_dev)}}" class="img-fluid border border-success border-5">
+                        <img src="{{asset("storage/".$user->bg_dev)}}" class="img-fluid border border-success border-5">
                         @else
-                        <img src="https://www.ivins.com/wp-content/uploads/2020/09/placeholder-1.png" class="img-fluid border border-success border-5">
+                        <img src="https://picsum.photos/1200/600?random" class="img-fluid border border-success border-5">
                         @endif
                         <div class="absolute">
                             @if ($user->img_path)
-                            <img src="{{asset($user->img_path)}}" class="img-fluid rounded-circle border border-success border-5">
+                            <img src="{{asset("storage/".$user->bg_dev)}}" class="img-fluid rounded-circle border border-success border-5">
                             @else
-                            <img src="https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg" class="img-fluid rounded-circle border border-success border-5">
+                            <img src="https://picsum.photos/300/300?random" class="img-fluid rounded-circle border border-success border-5">
                             @endif
                         </div>
                     </div>

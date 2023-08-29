@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('users_id')->nullable()->constrained();
             $table->foreignId('sponsors_id')->nullable()->constrained();
-            $table->dateTime('end_sponsors')->nullable();
+            $table->text('end_sponsors')->nullable();
             $table->timestamps();
         });
     }

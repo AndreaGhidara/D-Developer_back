@@ -87,7 +87,7 @@ class UsersController extends Controller{
         $user->soft_skill = $data['soft_skill'];
         $user->update();
 
-        $user->languages()->sync($data["code_languages"]);
+        $user->code_languages()->sync($data["code_languages"]);
 
         return  redirect()->route('admin.users.show', $user->id);
     }

@@ -20,6 +20,7 @@ Route::middleware(['auth'])
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('/users/{id}/messages', [UsersController::class, 'messages']) -> name('users.messages');
         Route::get('/users/{id}/reviews', [UsersController::class, 'reviews']) -> name('users.reviews');
+        Route::get('/users/{id}/sponsorships', [UsersController::class, 'sponsorship']) -> name('users.sponsorships');
         Route::resource('users', UsersController::class);
 
 });

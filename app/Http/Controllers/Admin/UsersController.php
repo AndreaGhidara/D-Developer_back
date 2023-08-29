@@ -115,6 +115,12 @@ class UsersController extends Controller{
         return view('admin.users.reviews' , compact('user','reviews'));
     }
 
+    public function sponsorship()
+    {
+        $user = Auth::user();
+        $sponsorships = Review::where("user_id",$user -> id) -> get();
+        return view('admin.users.sponsorship' , compact('user','sponsorships'));
+    }
 
     private function validateUser($data) {
         $validator = Validator::make($data, [

@@ -23,14 +23,14 @@ class SponsorUserSeeder extends Seeder
 
         for($i =0 ; $i < 15; $i++){
             $new = new SponsorUser();
-            $new->users_id = rand(1, count($users));
-            $new->sponsors_id = rand(1, count($sponsors));
-            if ($new->sponsors_id == 1) {
-                $new->end_sponsors= date('Y-m-d H:i:s',strtotime(' +24 hours '));
-            }else if ($new->sponsors_id == 2){
-                $new->end_sponsors= date('Y-m-d H:i:s',strtotime(' +48 hours '));
-            }else if ($new->sponsors_id == 3) {
-                $new->end_sponsors= date('Y-m-d H:i:s',strtotime(' +72 hours '));
+            $new->user_id = rand(1, count($users));
+            $new->sponsor_id = rand(1, count($sponsors));
+            if ($new->sponsor_id == 1) {
+                $new->end_sponsor= date('Y-m-d H:i:s',strtotime(' +24 hours '));
+            }else if ($new->sponsor_id == 2){
+                $new->end_sponsor= date('Y-m-d H:i:s',strtotime(' +48 hours '));
+            }else if ($new->sponsor_id == 3) {
+                $new->end_sponsor= date('Y-m-d H:i:s',strtotime(' +72 hours '));
             }
             $new ->save();
         }

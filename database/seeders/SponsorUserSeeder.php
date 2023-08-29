@@ -23,9 +23,9 @@ class SponsorUserSeeder extends Seeder
 
         for($i =0 ; $i < 15; $i++){
             $new = new SponsorUser();
-            $new->users_id = rand(1, count($users));
-            $new->sponsors_id = rand(1, count($sponsors));
-            $new->end_sponsors= $faker->dateTime();
+            $new->user_id = rand(1, count($users));
+            $new->sponsor_id = rand(1, count($sponsors));
+            $new->end_sponsor= $faker->dateTime();
             $new ->save(); 
         }
     }

@@ -13,6 +13,6 @@ class Code_language extends Model
         'technology'
     ];
     public function user(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'code_language_user');
     }
 }

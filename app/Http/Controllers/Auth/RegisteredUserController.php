@@ -63,7 +63,7 @@ class RegisteredUserController extends Controller
             'soft_skill' => $request->soft_skill
         ]);
          //img cv
-         if($request->hasFile("cv")) {
+        if($request->hasFile("cv")) {
             $img_path = Storage::put("uploads", $data["cv"]);
             $data['cv'] = $img_path;
         } else if (!$request -> has("cv")){
@@ -72,7 +72,7 @@ class RegisteredUserController extends Controller
 
         if ($request->has('languages')) {
             $selectedLanguages = $request->input('languages');
-            $user->languages()->attach($selectedLanguages);
+            $user->code_languages()->attach($selectedLanguages);
         }
 
         event(new Registered($user));

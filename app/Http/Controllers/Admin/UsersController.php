@@ -20,8 +20,10 @@ class UsersController extends Controller{
 
     public function show()
     {
+        
         $user = Auth::user();
-        return view('admin.users.show' , compact('user'));
+        dd($user);
+        return view('admin.users.show' , compact('user',));
     }
 
     /**

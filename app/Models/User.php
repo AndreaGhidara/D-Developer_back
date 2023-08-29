@@ -51,6 +51,9 @@ class User extends Authenticatable
         return $this->belongsTo(Message::class);
     }
 
+    public function sponsor(){
+        return $this->belongsToMany(Sponsor::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

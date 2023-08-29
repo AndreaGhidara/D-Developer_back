@@ -7,6 +7,7 @@ use App\Models\Code_language;
 use App\Models\User;
 use App\Models\Message;
 use App\Models\Review;
+use App\Models\Sponsor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -118,7 +119,7 @@ class UsersController extends Controller{
     public function sponsorship()
     {
         $user = Auth::user();
-        $sponsorships = Review::where("user_id",$user -> id) -> get();
+        $sponsorships = Sponsor::where("user_id",$user -> id) -> get();
         return view('admin.users.sponsorship' , compact('user','sponsorships'));
     }
 

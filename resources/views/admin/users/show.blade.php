@@ -15,32 +15,40 @@
     <div class="row g-4">
         <div class="col">
             <div>
+                {{-- Dati anagrafici developer --}}
                 <div class="card p-2 text-center px-5">
                     <h1>{{$user->name}} {{$user->surname}}</h1>
                     <p>{{ $user->email}}</p>
                     <p>{{ $user->date_of_birth}}</p>
                     <p>{{ $user->address}}</p>
 
+                    {{-- Immagine background --}}
                     <div class="col-12 relative">
                         @if ($user->bg_dev)
                         <img src="{{asset("storage/".$user->bg_dev)}}" class="img-fluid border border-success border-5">
                         @else
                         <img src="https://picsum.photos/1200/600?random" class="img-fluid border border-success border-5">
                         @endif
+
+                        {{-- Immagine profilo --}}
                         <div class="absolute">
                             @if ($user->img_path)
-                            <img src="{{asset("storage/".$user->bg_dev)}}" class="img-fluid rounded-circle border border-success border-5">
+                            <img src="{{asset("storage/".$user->img_path)}}" class="img-fluid rounded-circle border border-success border-5">
                             @else
                             <img src="https://picsum.photos/300/300?random" class="img-fluid rounded-circle border border-success border-5">
                             @endif
                         </div>
                     </div>
+
+                    {{-- Link collegamenti social --}}
                     <div class="row">
                         <div class="col-12 py-5 d-flex justify-content-evenly">
                             <a href="{{ $user->github_link}}" target="_blank"><i class="fa-brands fa-github"></i></a>
                             <a href="{{ $user->linkedin_link}}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                         </div>
                     </div>
+
+                    {{-- Informazioni generali + skills --}}
                     <p>{{ $user->bio}}</p>
                     <p>{{ $user->vat_number}}</p>
                     <a href="{{asset('storage/' . $user->cv)}}" download="cv">Scarica il mio CV</a>

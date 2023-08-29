@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Code_language;
 use App\Models\User;
 use App\Models\Message;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -106,6 +107,15 @@ class UsersController extends Controller{
         $messages = Message::where("user_id",$user -> id) -> get();
         return view('admin.users.message' , compact('user','messages'));
     }
+
+    public function reviews()
+    {
+        $user = Auth::user();
+        $reviews = Review::where("user_id",$user -> id) -> get();
+        return view('admin.users.reviews' , compact('user','reviews'));
+    }
+
+
     private function validateUser($data) {
         $validator = Validator::make($data, [
             "name" => "required|min:3|max:50",

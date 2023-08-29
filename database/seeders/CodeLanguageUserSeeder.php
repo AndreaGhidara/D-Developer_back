@@ -10,21 +10,15 @@ use Illuminate\Database\Seeder;
 
 class CodeLanguageUserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
+        // Esempio di assegnazione di codici lingua a utenti
         $users = User::all();
-        $languages = Code_language::all();
+        $codeLanguages = Code_language::all();
 
-        for($i=0 ; $i<15 ; $i++){
-            $new = new CodeLanguageUser();
-            $new->user_id = rand(1, count($users));
-            $new->code_language_id = rand(1, count($languages));
-            $new->save();
+        foreach ($users as $user) {
+            // Esempio: Assegna due lingue casuali a ciascun utente
+            $user->code_languages()->attach($codeLanguages->random(2));
         }
     }
 }

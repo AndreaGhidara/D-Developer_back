@@ -35,8 +35,8 @@ class User extends Authenticatable
         'cv',
     ];
 
-    public function languages(){
-        return $this->belongsToMany(Code_language::class);
+    public function code_languages(){
+        return $this->belongsToMany(Code_language::class,'code_language_user');
     }
 
     public function valutations(){

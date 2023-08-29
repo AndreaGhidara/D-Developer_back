@@ -133,7 +133,7 @@ class UsersController extends Controller{
             ],
             "phone_number" => "required|numeric",
             "soft_skill" => "",
-            "code_languages" => "required|min:3|max:20"
+            "code_languages" => "required|min:1"
         ],
         [
             "name.required" => "Il nome è obbligatorio",

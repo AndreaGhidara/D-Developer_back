@@ -46,10 +46,10 @@
                     <a href="{{asset('storage/' . $user->cv)}}" download="cv">Scarica il mio CV</a>
                     <p>Tel. {{ $user->phone_number}}</p>
                     <p>{{ $user->soft_skill}}</p>
-                    @if($user->languages)
+                    @if($user->code_languages)
                         <ul class="list-group border border-0">
                             <h3>Linguaggi</h3>
-                            @foreach ($user->languages as $language)
+                            @foreach ($user->code_languages as $language)
                             <li  class="list-group-item border border-0">{{$language->technology}}</li>
                             @endforeach
                         </ul>
@@ -73,8 +73,8 @@
 </div>
 
 <script>
-    
-    var currentUserId = {{ Auth::user()->id }}; 
+
+    var currentUserId = {{ Auth::user()->id }};
 
     window.onload = function() {
         var pathSegments = window.location.pathname.split("/");
@@ -85,6 +85,6 @@
                 alert("Non sei autorizzato ad accedere a questa pagina.");
             }
         };
-    
+
 </script>
 @endsection

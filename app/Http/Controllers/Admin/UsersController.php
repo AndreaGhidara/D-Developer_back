@@ -119,7 +119,7 @@ class UsersController extends Controller{
     public function sponsorship()
     {
         $user = Auth::user();
-        $sponsorships = Sponsor::where("user_id",$user -> id) -> get();
+        $sponsorships = Sponsor::all();
         return view('admin.users.sponsorship' , compact('user','sponsorships'));
     }
 

@@ -25,8 +25,14 @@ class SponsorUserSeeder extends Seeder
             $new = new SponsorUser();
             $new->user_id = rand(1, count($users));
             $new->sponsor_id = rand(1, count($sponsors));
-            $new->end_sponsor= $faker->dateTime();
-            $new ->save(); 
+            if ($new->sponsor_id == 1) {
+                $new->end_sponsor= date('Y-m-d H:i:s',strtotime(' +24 hours '));
+            }else if ($new->sponsor_id == 2){
+                $new->end_sponsor= date('Y-m-d H:i:s',strtotime(' +48 hours '));
+            }else if ($new->sponsor_id == 3) {
+                $new->end_sponsor= date('Y-m-d H:i:s',strtotime(' +72 hours '));
+            }
+            $new ->save();
         }
     }
 }

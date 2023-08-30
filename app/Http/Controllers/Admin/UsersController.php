@@ -16,6 +16,8 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
 use App\Providers\RouteServiceProvider;
 
+use function PHPUnit\Framework\isEmpty;
+
 class UsersController extends Controller{
 
     public function show(Request $request)
@@ -38,9 +40,10 @@ class UsersController extends Controller{
      */
     public function edit()
     {
-        $user= Auth::user();
+        $user = User::find(Auth::user() -> id);
         $languages = Code_language::all();
-        return view('admin.users.edit' , compact('user', 'languages'));
+        $user_languages = $user->code_languages;
+        return view('admin.users.edit' , compact('user', 'languages', 'user_languages'));
     }
 
     /**
@@ -53,13 +56,15 @@ class UsersController extends Controller{
     //public function update(UpdateProjectRequest $request, Project $project)
     public function update(Request $request, User $user)
     {
-        $data =  $this->validateUser( $request->all() );
+        $data =  $this->validateUser( $request->all(), $user );
 
         //img profilo
         if($request->hasFile("img_path")) {
             $img_path = Storage::put("uploads", $data["img_path"]);
             $data['img_path'] = $img_path;
-        } else if (!$request -> has("img_path")){
+        } else if (!$request -> has("img_path") && isset($user->img_path)){
+            $data['img_path'] = $user->img_path;
+        } else {
             $data['img_path'] = null;
         }
 
@@ -67,7 +72,9 @@ class UsersController extends Controller{
         if($request->hasFile("bg_dev")) {
             $img_path = Storage::put("uploads", $data["bg_dev"]);
             $data['bg_dev'] = $img_path;
-        } else if (!$request -> has("bg_dev")){
+        } else if (!$request -> has("bg_dev") && isset($user->bg_dev)){
+            $data['bg_dev'] = $user->bg_dev;
+        } else {
             $data['bg_dev'] = null;
         }
 
@@ -75,7 +82,9 @@ class UsersController extends Controller{
         if($request->hasFile("cv")) {
             $img_path = Storage::put("uploads", $data["cv"]);
             $data['cv'] = $img_path;
-        } else if (!$request -> has("cv")){
+        } else if (!$request -> has("cv") && isset($user->cv)){
+            $data['cv'] = $user->cv;
+        } else {
             $data['cv'] = null;
         }
 
@@ -129,8 +138,9 @@ class UsersController extends Controller{
         return view('admin.users.sponsorship' , compact('user','sponsorships'));
     }
 
-    private function validateUser($data) {
-        $validator = Validator::make($data, [
+    private function validateUser($data, $user) {
+
+        $rules = [
             "name" => "required|min:3|max:50",
             "surname" => "required|min:3|max:50",
 
@@ -147,7 +157,6 @@ class UsersController extends Controller{
             "bio" => "",
             "vat_number" => "",
             "cv" => [
-                "required",
                 File::types([
                     1 => "pdf",
                     2 => "doc",
@@ -157,7 +166,20 @@ class UsersController extends Controller{
             "phone_number" => "required|numeric",
             "soft_skill" => "",
             "code_languages" => "required|min:1"
-        ],
+        ];
+
+        if ($user->cv == null) {
+            $rules['cv'] = [
+                'required',
+                File::types([
+                    1 => "pdf",
+                    2 => "doc",
+                    3 => "docx"
+                ]) ->  max(500000)
+            ];
+        }
+
+        $validator = Validator::make($data, $rules,
         [
             "name.required" => "Il nome è obbligatorio",
             "name.min" => "Il nome deve essere almeno di :min caratteri",

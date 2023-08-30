@@ -17,13 +17,13 @@ class UserSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 100; $i++) {
             $developer = new User();
             $developer->name = $faker->firstname();
             $developer->surname = $faker->lastname();
             $developer->email = $faker->email;
             $developer->password = Hash::make('ciao');
-            $developer->date_of_birth = $faker->date();
+            $developer->date_of_birth = $faker->dateTimeBetween('1950-01-01', '2004-01-01');
             $developer->address = $faker->address();
             $developer->bio = $faker->text();
             $developer->img_path = '';

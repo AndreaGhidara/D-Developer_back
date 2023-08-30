@@ -15,10 +15,10 @@ class MessageSeeder extends Seeder{
      * @return void
      */
     public function run(Faker $faker){
-        
+
         $user = User::all();
 
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < 100; $i++) {
 
             $newMessage = new Message();
             $newMessage->user_id = rand(1, count($user));

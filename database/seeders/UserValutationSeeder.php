@@ -20,12 +20,12 @@ class UserValutationSeeder extends Seeder
         $users = User::all();
         $valutations = Valutation::all();
 
-        for($i= 0; $i < 15; $i++){
+        for($i= 0; $i < 100; $i++){
 
             $new = new UserValutation();
             $new->user_id = rand(1, count($users));
             $new->valutation_id = rand(1, count($valutations));
-            $new ->save(); 
+            $new ->save();
         }
     }
 }

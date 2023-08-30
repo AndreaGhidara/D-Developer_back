@@ -21,7 +21,13 @@ class UsersController extends Controller{
     public function show(Request $request)
     {
         $user = Auth::user();
-        dd($user);
+        // dd($request->all());
+        dd($request->sponsorships);
+        if ($request->has('sponsorships')) {
+            $selectedSponsorships = $request->input('sponsorships'); // Assumendo che 'sponsorships' sia un array di ID sponsorizzazione
+            $user->sponsor()->sync($selectedSponsorships); // Syncronizza le sponsorizzazioni dell'utente con quelle selezionate
+            $user->load('sponsorships'); // Carica nuovamente le sponsorizzazioni dell'utente con le modifiche
+        }
         return view('admin.users.show' , compact('user',));
     }
 

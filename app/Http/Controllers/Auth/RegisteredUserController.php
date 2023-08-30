@@ -42,33 +42,32 @@ class RegisteredUserController extends Controller
         //Crea un nuvo user
         $user = new User();
 
+          //img cv
+          if($request->hasFile("cv")) {
+            $img_path = Storage::put("uploads", $data["cv"]);
+            $data['cv'] = $img_path;
+        } else if (!$request -> has("cv")){
+            $data['cv'] = null;
+        }
+
         // $user->languages()->attach($request->input('languages'));
         //Controllo campi compilabili
         $user->fill($data);
 
         //Creazione User
         $user = User::create([
-            'name' => $request->name,
-            "surname" => $request->surname,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            "date_of_birth" => $request->date_of_birth,
-            'address' => $request->address,
-            'phone_number' => $request->phone_number,
-            'cv' => $request->cv,
-            'bio' => $request->bio,
-            'github_link' => $request->github_link,
-            'linkedin_link' => $request->linkedin_link,
-            'vat_number' => $request->vat_number,
-            'soft_skill' => $request->soft_skill
+            'name' => $data['name'],
+            "surname" => $data['surname'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            "date_of_birth" => $data['date_of_birth'],
+            'address' => $data['address'],
+            'phone_number' => $data['phone_number'],
+            'cv' => $data['cv'],
+            'github_link' => $data['github_link'],
+            'linkedin_link' => $data['linkedin_link'],
+            'vat_number' => $data['vat_number'],
         ]);
-         //img cv
-        if($request->hasFile("cv")) {
-            $img_path = Storage::put("uploads", $data["cv"]);
-            $data['cv'] = $img_path;
-        } else if (!$request -> has("cv")){
-            $data['cv'] = null;
-        }
 
         if ($request->has('languages')) {
             $selectedLanguages = $request->input('languages');
@@ -111,11 +110,9 @@ class RegisteredUserController extends Controller
                 ],
                 "phone_number" => "required|numeric",
                 "code_languages" => "nullable",
-                "bio" =>"nullable|max:600",
                 "github_link" =>"nullable|url",
                 "linkedin_link" =>"nullable|url",
                 "vat_number" =>"nullable|max:11",
-                "soft_skill" =>"nullable|max:500",
                 "languages" =>"required"
             ],
             [

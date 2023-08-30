@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('code_languages', function (Blueprint $table) {
+        Schema::create('programming_languages_users', function (Blueprint $table) {
             $table->id();
-            $table->string('technology');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('programming_languages_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('code_languages');
+        Schema::dropIfExists('programming_languages_users');
     }
 };

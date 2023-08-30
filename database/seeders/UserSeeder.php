@@ -2,7 +2,13 @@
 
 namespace Database\Seeders;
 
+
 use App\Models\User;
+use App\Models\Sponsor;
+use App\Models\ProgrammingLanguages;
+use App\Models\Valutation;
+
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -34,7 +40,27 @@ class UserSeeder extends Seeder
             $developer->cv = $faker->imageUrl(640, 480, 'documents', true);
             $developer->phone_number = $faker->numberBetween(1000000000, 9999999999);
             $developer->soft_skill = $faker->text();
+
             $developer->save();
+
+            //popolare Tabella pivot | programming_languages_users |
+            $programmingLanguages = ProgrammingLanguages::all();
+            $developer->ProgrammingLanguages()->attach(
+                $programmingLanguages->random(rand(1, 3))->pluck('id')->toArray()
+            );
+
+            //popolare Tabella pivot | sponsor_users |
+            $sponsors = Sponsor::all();
+            $developer->sponsors()->attach(
+                $sponsors->random(rand(1, 3))->pluck('id')->toArray(),
+                ['start_date' => now(), 'end_date' => now()->addDays(30)] // Esempio date
+            );
+
+            //popolare Tabella pivot | user_valutations |
+            $valutations = Valutation::all();
+            $developer->valutations()->attach(
+                $valutations->random(rand(1, 3))->pluck('id')->toArray()
+            );
         }
     }
 }

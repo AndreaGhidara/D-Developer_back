@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\code_language;
-use App\Http\Requests\Storecode_languageRequest;
-use App\Http\Requests\Updatecode_languageRequest;
+use App\Models\ProgrammingLanguages;
+use App\Http\Requests\StoreProgrammingLanguagesRequest;
+use App\Http\Requests\UpdateProgrammingLanguagesRequest;
 
-class CodeLanguageController extends Controller
+class ProgrammingLanguagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class CodeLanguageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Storecode_languageRequest  $request
+     * @param  \App\Http\Requests\StoreProgrammingLanguagesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Storecode_languageRequest $request)
+    public function store(StoreProgrammingLanguagesRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class CodeLanguageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\code_language  $code_language
+     * @param  \App\Models\ProgrammingLanguages  $programmingLanguages
      * @return \Illuminate\Http\Response
      */
-    public function show(code_language $code_language)
+    public function show(ProgrammingLanguages $programmingLanguages)
     {
         //
     }
@@ -53,10 +53,10 @@ class CodeLanguageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\code_language  $code_language
+     * @param  \App\Models\ProgrammingLanguages  $programmingLanguages
      * @return \Illuminate\Http\Response
      */
-    public function edit(code_language $code_language)
+    public function edit(ProgrammingLanguages $programmingLanguages)
     {
         //
     }
@@ -64,11 +64,11 @@ class CodeLanguageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Updatecode_languageRequest  $request
-     * @param  \App\Models\code_language  $code_language
+     * @param  \App\Http\Requests\UpdateProgrammingLanguagesRequest  $request
+     * @param  \App\Models\ProgrammingLanguages  $programmingLanguages
      * @return \Illuminate\Http\Response
      */
-    public function update(Updatecode_languageRequest $request, code_language $code_language)
+    public function update(UpdateProgrammingLanguagesRequest $request, ProgrammingLanguages $programmingLanguages)
     {
         //
     }
@@ -76,10 +76,10 @@ class CodeLanguageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\code_language  $code_language
+     * @param  \App\Models\ProgrammingLanguages  $programmingLanguages
      * @return \Illuminate\Http\Response
      */
-    public function destroy(code_language $code_language)
+    public function destroy(ProgrammingLanguages $programmingLanguages)
     {
         //
     }

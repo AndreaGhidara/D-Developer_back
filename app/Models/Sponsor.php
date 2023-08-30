@@ -14,7 +14,7 @@ class Sponsor extends Model
         'price',
         'duration'
     ];
-    public function user(){
+    public function users(){
         return $this->belongsToMany(User::class);
     }
 }

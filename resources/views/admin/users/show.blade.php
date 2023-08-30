@@ -62,7 +62,7 @@
                             @endforeach
                         </ul>
                     @endif
-
+                        <p>{{$user->sponsorship}}</p>
                     <!--DELETE ACCOUNT BUTTON-->
                     <div class="col-3 d-flex justify-content-end">
                         <form action="{{ route('admin.users.destroy', $user) }}" method="post">

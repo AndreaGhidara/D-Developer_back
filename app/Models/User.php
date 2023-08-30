@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\Sponsor;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -35,12 +37,12 @@ class User extends Authenticatable
         'cv',
     ];
 
-    public function code_languages(){
-        return $this->belongsToMany(Code_language::class,'code_language_user');
+    public function programmingLanguages(){
+        return $this->belongsToMany(ProgrammingLanguages::class,'programming_languages_users');
     }
 
     public function valutations(){
-        return $this->belongsToMany(Valutation::class);
+        return $this->belongsToMany(Valutation::class,'user_valutations');
     }
 
     public function review(){
@@ -51,8 +53,10 @@ class User extends Authenticatable
         return $this->belongsTo(Message::class);
     }
 
-    public function sponsor(){
-        return $this->belongsToMany(Sponsor::class);
+    public function sponsors(){
+        return $this->belongsToMany(Sponsor::class, 'sponsor_users')
+            ->withPivot('start_date', 'end_date')
+            ->withTimestamps();
     }
     /**
      * The attributes that should be hidden for serialization.

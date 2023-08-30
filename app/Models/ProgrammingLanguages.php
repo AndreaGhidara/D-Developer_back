@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Code_language extends Model
+class ProgrammingLanguages extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'technology'
+        'language'
     ];
-    public function user(){
-        return $this->belongsToMany(User::class, 'code_language_user');
+    public function users(){
+        return $this->belongsToMany(User::class,);
     }
 }

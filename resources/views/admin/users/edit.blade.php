@@ -142,9 +142,9 @@
             <!--LINGUAGGI DI PROGRAMMAZIONE-->
             <div class="row p-3">
                 @foreach ($languages as $i => $language)
-                    <div class="form-check col-2">
-                        <input type="checkbox" value="{{old(" $language->id") ??  $language->id}}" name="code_languages[]" id="code_languages{{$i}}" class="form-check-input"  @if( $user_languages->contains($language->id) ) checked @endif>
-                        <label for="code_languages{{$i}}" class="form-check-label">{{$language->technology}}</label>
+                <div class="form-check col-2">
+                        <input type="checkbox" value="{{old(" $language->id") ??  $language->id}}" name="programmingLanguages[]" id="programmingLanguages{{$i}}" class="form-check-input"  @if( $user_languages->contains($language->id) ) checked @endif>
+                        <label for="programmingLanguages{{$i}}" class="form-check-label">{{$language->language}}</label>
                     </div>
                 @endforeach
             </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-    $languages = config('code_languages');
+    $languages = config('store.programmingLanguages');
 @endphp
 
 @section('content')

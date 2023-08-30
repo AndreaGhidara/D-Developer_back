@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Code_language;
+use App\Models\ProgrammingLanguages;
 use App\Models\User;
 use App\Models\Message;
 use App\Models\Review;
@@ -26,8 +26,8 @@ class UsersController extends Controller{
 
         if ($request->has('sponsorships')) {
             $selectedSponsorships = $request->input('sponsorships'); // Assumendo che 'sponsorships' sia un array di ID sponsorizzazione
-            $user->sponsor()->sync($selectedSponsorships); // Syncronizza le sponsorizzazioni dell'utente con quelle selezionate
-            $user->load('sponsorships'); // Carica nuovamente le sponsorizzazioni dell'utente con le modifiche
+            $user->sponsors()->sync($selectedSponsorships); // Syncronizza le sponsorizzazioni dell'utente con quelle selezionate
+            $user->load('sponsors'); // Carica nuovamente le sponsorizzazioni dell'utente con le modifiche
         }
         return view('admin.users.show' , compact('user',));
     }
@@ -41,8 +41,8 @@ class UsersController extends Controller{
     public function edit()
     {
         $user = User::find(Auth::user() -> id);
-        $languages = Code_language::all();
-        $user_languages = $user->code_languages;
+        $languages = ProgrammingLanguages::all();
+        $user_languages = $user->programmingLanguages;
         return view('admin.users.edit' , compact('user', 'languages', 'user_languages'));
     }
 
@@ -103,7 +103,7 @@ class UsersController extends Controller{
         $user->soft_skill = $data['soft_skill'];
         $user->update();
 
-        $user->code_languages()->sync($data["code_languages"]);
+        $user->ProgrammingLanguages()->sync($data["programmingLanguages"]);
 
         return  redirect()->route('admin.users.show', $user->id);
     }
@@ -165,7 +165,7 @@ class UsersController extends Controller{
             ],
             "phone_number" => "required|numeric",
             "soft_skill" => "",
-            "code_languages" => "required|min:1"
+            "programmingLanguages" => "required|min:1"
         ];
 
         if ($user->cv == null) {
@@ -201,7 +201,7 @@ class UsersController extends Controller{
             "phone_number.required" => "Il numero di telefono è obbligatorio",
             "phone_number.number" => "Il numero di telefono non è nel formato corretto",
 
-            "code_languages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
+            "programmingLanguages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
         ])->validate();
 
         return $validator;

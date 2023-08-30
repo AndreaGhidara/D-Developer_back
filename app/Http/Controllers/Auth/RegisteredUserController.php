@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Code_language;
+use App\Models\ProgrammingLanguages;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -71,7 +71,7 @@ class RegisteredUserController extends Controller
 
         if ($request->has('languages')) {
             $selectedLanguages = $request->input('languages');
-            $user->code_languages()->attach($selectedLanguages);
+            $user->ProgrammingLanguages()->attach($selectedLanguages);
         }
 
         event(new Registered($user));
@@ -109,7 +109,7 @@ class RegisteredUserController extends Controller
                     ])->max(500000)
                 ],
                 "phone_number" => "required|numeric",
-                "code_languages" => "nullable",
+                "programmingLanguages" => "required|min:1",
                 "github_link" =>"nullable|url",
                 "linkedin_link" =>"nullable|url",
                 "vat_number" =>"nullable|max:11",
@@ -141,8 +141,8 @@ class RegisteredUserController extends Controller
                 "phone_number.required" => "Il numero di telefono è obbligatorio!!",
                 "phone_number.number" => "Il numero di telefono non è nel formato corretto",
 
-                "languages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
-                "bio.max" => ":max di caratteri raggiunto",
+                "programmingLanguages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
+
                 "github_link.url"=> "Devi inserire un link valido",
                 "linkedin_link.url" => "Devi inserire un link valido",
                 "vat_number.max"=> ":max di caratteri raggiunto",

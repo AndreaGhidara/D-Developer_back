@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Code_language;
+use App\Models\ProgrammingLanguages;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -72,7 +72,7 @@ class RegisteredUserController extends Controller
 
         if ($request->has('languages')) {
             $selectedLanguages = $request->input('languages');
-            $user->code_languages()->attach($selectedLanguages);
+            $user->ProgrammingLanguages()->attach($selectedLanguages);
         }
 
         event(new Registered($user));
@@ -110,7 +110,7 @@ class RegisteredUserController extends Controller
                     ])->max(500000)
                 ],
                 "phone_number" => "required|numeric",
-                "code_languages" => "nullable",
+                "programmingLanguages" => "nullable",
                 "bio" =>"nullable|max:600",
                 "github_link" =>"nullable|url",
                 "linkedin_link" =>"nullable|url",

@@ -54,15 +54,15 @@
                     <a href="{{asset('storage/' . $user->cv)}}" download="cv">Scarica il mio CV</a>
                     <p>Tel. {{ $user->phone_number}}</p>
                     <p>{{ $user->soft_skill}}</p>
-                    @if($user->code_languages)
-                        <ul class="list-group border border-0">
+                    @if($user->programmingLanguages)
+                        <ul class="list-group border-0">
                             <h3>Linguaggi</h3>
-                            @foreach ($user->code_languages as $language)
-                            <li  class="list-group-item border border-0">{{$language->technology}}</li>
+                            @foreach ($user->programmingLanguages as $language)
+                            <li  class="list-group-item border-0">{{$language->language}}</li>
                             @endforeach
                         </ul>
                     @endif
-                        <p>{{$user->sponsorship}}</p>
+                        <p>{{$user->sponsors}}</p>
                     <!--DELETE ACCOUNT BUTTON-->
                     <div class="col-3 d-flex justify-content-end">
                         <form action="{{ route('admin.users.destroy', $user) }}" method="post">

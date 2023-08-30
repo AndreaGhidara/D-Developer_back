@@ -62,7 +62,14 @@
                             @endforeach
                         </ul>
                     @endif
-                        <p>{{$user->sponsors}}</p>
+                    @if(empty($user->sponsors))
+                        <ul class="list-group border-0">
+                            <h3>Sponsor</h3>
+                            @foreach ($user->sponsors as $sponsor)
+                            <li  class="list-group-item border-0">{{$sponsor->name}}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                     <!--DELETE ACCOUNT BUTTON-->
                     <div class="col-3 d-flex justify-content-end">
                         <form action="{{ route('admin.users.destroy', $user) }}" method="post">

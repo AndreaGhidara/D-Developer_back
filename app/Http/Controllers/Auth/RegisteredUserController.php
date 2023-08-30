@@ -109,11 +109,10 @@ class RegisteredUserController extends Controller
                     ])->max(500000)
                 ],
                 "phone_number" => "required|numeric",
-                "programmingLanguages" => "required|min:1",
+                "languages" => "required|min:1",
                 "github_link" =>"nullable|url",
                 "linkedin_link" =>"nullable|url",
                 "vat_number" =>"nullable|max:11",
-                "languages" =>"required"
             ],
             [
                 "name.required" => "Il nome è obbligatorio",
@@ -141,7 +140,7 @@ class RegisteredUserController extends Controller
                 "phone_number.required" => "Il numero di telefono è obbligatorio!!",
                 "phone_number.number" => "Il numero di telefono non è nel formato corretto",
 
-                "programmingLanguages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
+                "languages.required" => "Almeno un linguaggio di programmazione è obbligatorio",
 
                 "github_link.url"=> "Devi inserire un link valido",
                 "linkedin_link.url" => "Devi inserire un link valido",

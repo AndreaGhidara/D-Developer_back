@@ -60,7 +60,7 @@
 
                 {{-- Password --}}
                 <div class="col-12 form__group field">
-                    <input id="password" type="password" class="form__field form-control rounded-0 @error('password') is-invalid @enderror" placeholder="Email" name="email" name="password" required autocomplete="new-password" autofocus>
+                    <input id="password" type="password" class="form__field form-control rounded-0 @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="new-password" autofocus>
                     <label for="password" class="form__label">{{ __('Password') }}*</label>
                     @error('password')
                         <span class="invalid-feedback" role="alert">

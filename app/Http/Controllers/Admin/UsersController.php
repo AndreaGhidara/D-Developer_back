@@ -22,7 +22,7 @@ class UsersController extends Controller{
     {
         
         $user = Auth::user();
-        dd($user);
+        //dd($user);
         return view('admin.users.show' , compact('user',));
     }
 

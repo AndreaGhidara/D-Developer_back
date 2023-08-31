@@ -36,4 +36,30 @@ class UserController extends Controller
     // public function show() {
 
     // }
+    public function pages(){
+
+        $Users = User::paginate(4);
+
+        // $posts = Post::with("category", "tags")->get();
+
+        // $Users = User::paginate(5);
+
+        // $posts = User::with("category", "tags")->paginate(3);
+
+        $response = [
+            "success" => true,
+            "results" => $Users
+        ];
+
+        return response()->json($response);
+
+    }
+
+    // public function count(){
+
+    // }
+
+    // public function show() {
+
+    // }
 }

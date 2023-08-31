@@ -26,3 +26,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 //Chiamata al controller per la gestione dei dati API
 Route::get("/apiDeveloper", [UserController::class, "index"]);
+Route::get("/apiDeveloperPages", [UserController::class, "pages"]);

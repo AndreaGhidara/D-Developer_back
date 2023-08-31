@@ -12,9 +12,9 @@ class UserController extends Controller
 {
     public function index(){
 
-        $Users = User::all();
+        // $Users = User::all();
 
-        // $posts = Post::with("category", "tags")->get();
+        $Users = User::with("review", "sponsors")->get();
 
         // $Users = User::paginate(5);
 
@@ -35,7 +35,7 @@ class UserController extends Controller
 
     public function pages(){
 
-        $Users = User::paginate(4);
+        $Users = User::with("review", "sponsors")->paginate(4);
 
         // $posts = Post::with("category", "tags")->get();
 
@@ -58,7 +58,7 @@ class UserController extends Controller
 
     public function show($id) {
 
-        $User = User::find($id);
+        $User = User::with("review", "sponsors")->find($id);
 
         // $response = [
         //     "sucess" => true,

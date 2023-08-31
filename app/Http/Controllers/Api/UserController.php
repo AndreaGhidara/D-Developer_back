@@ -33,9 +33,6 @@ class UserController extends Controller
 
     // }
 
-    // public function show() {
-
-    // }
     public function pages(){
 
         $Users = User::paginate(4);
@@ -59,7 +56,21 @@ class UserController extends Controller
 
     // }
 
-    // public function show() {
+    public function show($id) {
 
-    // }
+        $User = User::find($id);
+
+        // $response = [
+        //     "sucess" => true,
+        //     "results" => $User
+        // ];
+
+        // return response()->json($response);
+
+        return response()->json([
+            'success' => true,
+            'results' => $User
+        ]);
+
+    }
 }

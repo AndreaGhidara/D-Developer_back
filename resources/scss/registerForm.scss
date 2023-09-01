@@ -1,0 +1,175 @@
+.containerFormCustom {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #ff983f;
+  position: relative;
+}
+
+
+.form {
+  position: relative;
+  max-width: 90%;
+  transform-style: preserve-3d;
+  transition: all 1s ease;
+  margin-top: 5rem;
+  
+  .catGif{
+    width: 50px;
+    position: absolute;
+    transform-style: preserve-3d;
+    top: -50px;
+    right: 0px;
+  }
+}
+
+
+.form .form_front {
+  width: 100%;
+  background-color: #ff7c09a7;
+  backface-visibility: hidden;
+  box-shadow: inset 2px 2px 10px rgba(0,0,0,1),
+  inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+}
+
+form .form_back {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  top: 0;
+  backface-visibility: hidden;
+  transform: rotateY(-180deg);
+  border-radius: 15px;
+  box-shadow: inset 2px 2px 10px rgba(0,0,0,1),
+  inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+}
+
+.form_details {
+  font-size: 25px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.input {
+  width: 80%;
+  color: #fff;
+  outline: none;
+  transition: 0.35s;
+  padding: 0px 7px;
+  background-color: #212121;
+  border-radius: 6px;
+  border: 2px solid #212121;
+  box-shadow: 6px 6px 10px rgba(0,0,0,1),
+  1px 1px 10px rgba(255, 255, 255, 0.6);
+}
+
+.input::placeholder {
+  color: #999;
+}
+
+.input:focus.input::placeholder {
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.input:focus {
+  transform: scale(1.05);
+  box-shadow: 6px 6px 10px rgba(0,0,0,1),
+  1px 1px 10px rgba(255, 255, 255, 0.6),
+  inset 2px 2px 10px rgba(0,0,0,1),
+  inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+}
+
+.btn {
+  padding: 10px 35px;
+  cursor: pointer;
+  background-color: #212121;
+  border-radius: 6px;
+  border: 2px solid #212121;
+  box-shadow: 6px 6px 10px rgba(0,0,0,1),
+  1px 1px 10px rgba(255, 255, 255, 0.6);
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.35s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 6px 6px 10px rgba(0,0,0,1),
+  1px 1px 10px rgba(255, 255, 255, 0.6),
+  inset 2px 2px 10px rgba(0,0,0,1),
+  inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+}
+
+.btn:focus {
+  transform: scale(1.05);
+  box-shadow: 6px 6px 10px rgba(0,0,0,1),
+  1px 1px 10px rgba(255, 255, 255, 0.6),
+  inset 2px 2px 10px rgba(0,0,0,1),
+  inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+}
+
+.form .switch {
+  font-size: 13px;
+  color: white;
+}
+
+.form .switch .signup_tog {
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.containerFormCustom #signup_toggle {
+  display: none;
+}
+
+.containerFormCustom #signup_toggle:checked + .form {
+  transform: rotateY(-180deg);
+}
+
+//
+.form__group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      strong{
+        text-align: center;
+      }
+    }
+
+.form-control:focus {
+  color: white;
+  background-color: transparent;
+  background-color: #212121;
+  border-color: #ff7700;
+  outline: 0;
+  box-shadow: 6px 6px 10px rgba(0,0,0,1),
+  
+}
+// GRADIANT COLOR BACKGROUND
+.gradient-background {
+  background: linear-gradient(273deg,#ff5b00,#fe6915,#e5773b,#e78c5a,#ef4c00);
+  background-size: 300% 300%;
+  animation: gradient-animation 15s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

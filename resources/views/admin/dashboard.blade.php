@@ -3,13 +3,13 @@
 @section('content')
 <div class="container-fluid mt-4">
     <div class="row justify-content-center py-3">
-        <div class="col-md-8 ">
-            <div class="card bg_green text-light text-center">
-                <div class="card-header border border-0">
+        <div class="col-md-8">
+            <div class="card bg_green text-dark text-center">
+                <div class="card-header border border-0 centralBanner">
                     <h2>REGISTRAZIONE AVVENUTA CON SUCCESSO!</h2>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body centralBanner">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}

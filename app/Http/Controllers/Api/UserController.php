@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 //import model USER
 use App\Models\User;
+use App\Models\ProgrammingLanguages;
 
 
 class UserController extends Controller
@@ -71,6 +72,21 @@ class UserController extends Controller
             'success' => true,
             'results' => $User
         ]);
+
+    }
+    public function languages(){
+
+        $languages = ProgrammingLanguages::all();
+
+
+
+
+        $response = [
+            "success" => true,
+            "results" => $languages
+        ];
+
+        return response()->json($response);
 
     }
 }

@@ -28,3 +28,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get("/apiDeveloper", [UserController::class, "index"]);
 Route::get("/apiDeveloperPages", [UserController::class, "pages"]);
 Route::get("/apiDeveloper/{id}", [UserController::class, 'show']);
+
+Route::get("/languages", [UserController::class, "languages"]);

@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
         $user = new User();
 
           //img cv
-          if($request->hasFile("cv")) {
+        if($request->hasFile("cv")) {
             $img_path = Storage::put("uploads", $data["cv"]);
             $data['cv'] = $img_path;
         } else if (!$request -> has("cv")){
@@ -76,12 +76,13 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
         $user->save();
+        return redirect()->route('register')->with('success', 'Registrazione completata. Ora puoi effettuare il login.');
 
         //RIMUOVO PER RIDIREZIONARE ===============
         // Auth::login($user);
 
         //Modifica Rotta per arrivare a LOGIN
-        return redirect(RouteServiceProvider::LOGIN);
+        // return redirect(RouteServiceProvider::LOGIN);
         // return redirect()->route("login");
     }
 

@@ -1,19 +1,18 @@
-.containerFormCustom {
+.containerForm {
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
-  background-color: #ff983f;
   position: relative;
 }
 
 
-.form {
+.coverform {
   position: relative;
   max-width: 90%;
+  background-color: #1D1F21;
   transform-style: preserve-3d;
   transition: all 1s ease;
-  margin-top: 5rem;
+  margin: 5rem;
   
   .catGif{
     width: 50px;
@@ -25,15 +24,14 @@
 }
 
 
-.form .form_front {
+.coverform .formFront {
   width: 100%;
-  background-color: #ff7c09a7;
   backface-visibility: hidden;
   box-shadow: inset 2px 2px 10px rgba(0,0,0,1),
   inset -1px -1px 5px rgba(255, 255, 255, 0.6);
 }
 
-form .form_back {
+.coverform .formBack {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -56,29 +54,29 @@ form .form_back {
   color: white;
 }
 
-.input {
+.inputForm {
   width: 80%;
   color: #fff;
   outline: none;
   transition: 0.35s;
   padding: 0px 7px;
-  background-color: #212121;
+  background-color: #ff6600;
   border-radius: 6px;
-  border: 2px solid #212121;
+  border: 2px solid #ff6600;
   box-shadow: 6px 6px 10px rgba(0,0,0,1),
   1px 1px 10px rgba(255, 255, 255, 0.6);
 }
 
-.input::placeholder {
-  color: #999;
+.inputForm::placeholder {
+  color: #ffffff;
 }
 
-.input:focus.input::placeholder {
+.inputForm:focus.inputForm::placeholder {
   transition: 0.3s;
   opacity: 0;
 }
 
-.input:focus {
+.inputForm:focus {
   transform: scale(1.05);
   box-shadow: 6px 6px 10px rgba(0,0,0,1),
   1px 1px 10px rgba(255, 255, 255, 0.6),
@@ -86,10 +84,10 @@ form .form_back {
   inset -1px -1px 5px rgba(255, 255, 255, 0.6);
 }
 
-.btn {
+.btnForm {
   padding: 10px 35px;
   cursor: pointer;
-  background-color: #212121;
+  background-color: #FF6600;
   border-radius: 6px;
   border: 2px solid #212121;
   box-shadow: 6px 6px 10px rgba(0,0,0,1),
@@ -100,7 +98,7 @@ form .form_back {
   transition: 0.35s;
 }
 
-.btn:hover {
+.btnForm:hover {
   transform: scale(1.05);
   box-shadow: 6px 6px 10px rgba(0,0,0,1),
   1px 1px 10px rgba(255, 255, 255, 0.6),
@@ -108,30 +106,30 @@ form .form_back {
   inset -1px -1px 5px rgba(255, 255, 255, 0.6);
 }
 
-.btn:focus {
+.btnForm:focus {
   transform: scale(1.05);
-  box-shadow: 6px 6px 10px rgba(0,0,0,1),
+  box-shadow: 6px 6px 10px #ff983f,
   1px 1px 10px rgba(255, 255, 255, 0.6),
-  inset 2px 2px 10px rgba(0,0,0,1),
+  inset 2px 2px 10px #ff983f,
   inset -1px -1px 5px rgba(255, 255, 255, 0.6);
 }
 
-.form .switch {
+.coverform .switch {
   font-size: 13px;
   color: white;
 }
 
-.form .switch .signup_tog {
+.coverform .switch .signup_tog {
   font-weight: 700;
   cursor: pointer;
   text-decoration: underline;
 }
 
-.containerFormCustom #signup_toggle {
+.containerForm #signup_toggle {
   display: none;
 }
 
-.containerFormCustom #signup_toggle:checked + .form {
+.containerForm #signup_toggle:checked + .coverform {
   transform: rotateY(-180deg);
 }
 
@@ -157,9 +155,9 @@ form .form_back {
 }
 // GRADIANT COLOR BACKGROUND
 .gradient-background {
-  background: linear-gradient(273deg,#ff5b00,#fe6915,#e5773b,#e78c5a,#ef4c00);
-  background-size: 300% 300%;
-  animation: gradient-animation 15s ease infinite;
+  background: linear-gradient(300deg,#ff983f,#ffffa1,#ff983f,#ff6600);
+  background-size: 240% 240%;
+  animation: gradient-animation 24s ease infinite;
 }
 
 @keyframes gradient-animation {

@@ -155,9 +155,9 @@
 }
 // GRADIANT COLOR BACKGROUND
 .gradient-background {
-  background: linear-gradient(300deg,#ff983f,#ffffa1,#ff983f,#ff6600);
+  background: linear-gradient(301deg,#1d025a,#df9a38,#88c2b2,#844c04);
   background-size: 240% 240%;
-  animation: gradient-animation 24s ease infinite;
+  animation: gradient-animation 32s ease infinite;
 }
 
 @keyframes gradient-animation {

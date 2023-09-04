@@ -5,6 +5,7 @@
 @import 'checkCustom';
 @import 'show';
 
+
 $background:#1D1F21;
 $primary:#FF6600;
 $Accent:#F5F5F5;
@@ -20,8 +21,12 @@ $Text:#FFFFFF;
     font-family: 'Chakra Petch', sans-serif;
 }
 
-ul{
+.menu ul{
     list-style: none;
+}
+.menu ul li{
+    display: flex;
+    justify-content: center;
 }
 
 .bg_light {
@@ -107,3 +112,9 @@ ul{
 
 }
 
+.walpaperHome{
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    color: white;
+}

@@ -9,6 +9,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/homepage', function () {
+    return redirect('http://localhost:5174/home'); // Reindirizza a /homepage, che è una rotta Vue
+});
+
+
 Route::middleware(['auth'])
     ->prefix('admin') //definisce il prefisso "admin/" per le rotte di questo gruppo
     ->name('admin.') //definisce il pattern con cui generare i nomi delle rotte cioè "admin.qualcosa"

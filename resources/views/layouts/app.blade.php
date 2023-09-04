@@ -26,7 +26,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md bg_light shadow-sm">
+        {{-- <nav class="navbar navbar-expand-md bg_light shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
@@ -80,7 +80,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
 
         <main class="">
             @yield('content')

@@ -46,11 +46,11 @@ class User extends Authenticatable
     }
 
     public function review(){
-        return $this->belongsTo(Review::class);
+        return $this->hasMany(Review::class);
     }
 
     public function message(){
-        return $this->belongsTo(Message::class);
+        return $this->hasMany(Message::class);
     }
 
     public function sponsors(){

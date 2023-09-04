@@ -4,6 +4,7 @@
 @import 'customUpload';
 @import 'checkCustom';
 
+
 $background:#1D1F21;
 $primary:#FF6600;
 $Accent:#F5F5F5;
@@ -19,8 +20,12 @@ $Text:#FFFFFF;
     font-family: 'Chakra Petch', sans-serif;
 }
 
-ul{
+.menu ul{
     list-style: none;
+}
+.menu ul li{
+    display: flex;
+    justify-content: center;
 }
 
 .bg_light {

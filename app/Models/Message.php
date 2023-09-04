@@ -10,6 +10,6 @@ class Message extends Model
     use HasFactory;
 
     public function user(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
 }

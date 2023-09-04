@@ -19,7 +19,7 @@
 
     <div class="gradient-background">
         {{-- Container --}}
-        <div class="containerForm ">
+        <div class="containerForm">
             <input type="checkbox" id="signup_toggle">
             {{-- Cover Form --}}
             <div class="coverform rounded-2">

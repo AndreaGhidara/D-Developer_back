@@ -17,12 +17,13 @@ class DatabaseSeeder extends Seeder
     {
         //Ordine di Seeder
         $this->call([
+            
             ProgrammingLanguagesSeeder::class,
             ValutationSeeder::class,
             SponsorSeeder::class,
+            UserSeeder::class,
             ReviewSeeder::class,
             MessageSeeder::class,
-            UserSeeder::class,
         ]);
     }
 }

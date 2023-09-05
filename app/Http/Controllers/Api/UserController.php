@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Message;
 use Illuminate\Http\Request;
 //import model USER
 use App\Models\User;
@@ -89,4 +90,20 @@ class UserController extends Controller
         return response()->json($response);
 
     }
+
+   public function message(Request $request) {
+
+        $message = new Message();
+
+        $message = Message::create([
+            'user_id' => $request ['user_id'],
+            'name' => $request ['name'],
+            'surname'=> $request ['surname'],
+            'email'=> $request ['email'],
+            'text'=> $request ['text'],
+        ]);
+
+        $message->save();
+
+   }
 }

@@ -19,7 +19,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/admin';
     //Creazione rotta per ridirezionare al LOG
-    public const LOGIN = '/login';
+    public const LOGIN = '/register';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

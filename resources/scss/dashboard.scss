@@ -5,7 +5,7 @@ $dashboardWidth: 200px;
     display: flex;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(319deg,#000000,#8f7777,#000000);
+    background: white;
     background-size: 180% 180%;
     animation: gradient-animation 30s ease infinite;
 
@@ -67,7 +67,7 @@ $dashboardWidth: 200px;
         }
 
         .sign svg path {
-            fill: black;
+            fill: white;
         }
           /* text */
         .text {
@@ -129,7 +129,7 @@ $medium: 900px;
             width: 50px;
             max-width: 50px;
             margin: 0.5rem;
-            background-color: #ff983f;
+            background-color: #fcb457;
             display: flex;
             align-items: center;
             justify-content: center;

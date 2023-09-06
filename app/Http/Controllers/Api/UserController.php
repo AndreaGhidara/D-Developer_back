@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 //import model USER
 use App\Models\User;
 use App\Models\ProgrammingLanguages;
-
+use App\Models\Review;
 
 class UserController extends Controller
 {
@@ -104,6 +104,24 @@ class UserController extends Controller
         ]);
 
         $message->save();
+
+   }
+
+   public function review(Request $request){
+
+    $review = new Review();
+
+    $review = Review::create([
+
+        'user_id' => $request ['user_id'],
+        'date' => $request ['date'],
+        'name' => $request ['name'],
+        'email' => $request ['email'],
+        'review' => $request ['review']
+
+    ]);
+
+    $review->save();
 
    }
 }

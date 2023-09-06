@@ -9,6 +9,15 @@ class Review extends Model
 {
     use HasFactory;
     
+
+    protected $fillable =[
+        'user_id',
+        'name',
+        'date',
+        'email',
+        'review'
+    ];
+
     public function user() {
         return $this->belongsTo(User::class);
     }

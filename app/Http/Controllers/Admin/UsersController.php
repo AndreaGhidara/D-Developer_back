@@ -142,7 +142,7 @@ class UsersController extends Controller{
     public function stats()
     {
         $user = Auth::user();
-        $messageGroup = DB::select("SELECT COUNT(*) AS numero, date_format(created_at, '%m-%Y') AS tempo FROM `messages` WHERE user_id = $user->id GROUP BY date_format(created_at, '%m-%Y')");
+        $messageGroup = DB::select("SELECT COUNT(*) AS numero, date_format(created_at, '%Y-%m') AS tempo FROM `messages` WHERE user_id = $user->id GROUP BY date_format(created_at, '%Y-%m') ORDER BY date_format(created_at, '%Y-%m') asc");
         return view('admin.users.stats' , compact('user', 'messageGroup'));
     }
 

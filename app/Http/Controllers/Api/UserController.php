@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Message;
 use Illuminate\Http\Request;
 //import model USER
 use App\Models\User;
 use App\Models\ProgrammingLanguages;
-
+use App\Models\Review;
 
 class UserController extends Controller
 {
@@ -89,4 +90,38 @@ class UserController extends Controller
         return response()->json($response);
 
     }
+
+   public function message(Request $request) {
+
+        $message = new Message();
+
+        $message = Message::create([
+            'user_id' => $request ['user_id'],
+            'name' => $request ['name'],
+            'surname'=> $request ['surname'],
+            'email'=> $request ['email'],
+            'text'=> $request ['text'],
+        ]);
+
+        $message->save();
+
+   }
+
+   public function review(Request $request){
+
+    $review = new Review();
+
+    $review = Review::create([
+
+        'user_id' => $request ['user_id'],
+        'date' => $request ['date'],
+        'name' => $request ['name'],
+        'email' => $request ['email'],
+        'review' => $request ['review']
+
+    ]);
+
+    $review->save();
+
+   }
 }

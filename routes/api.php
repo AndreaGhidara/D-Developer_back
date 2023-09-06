@@ -30,3 +30,8 @@ Route::get("/apiDeveloperPages", [UserController::class, "pages"]);
 Route::get("/apiDeveloper/{id}", [UserController::class, 'show']);
 
 Route::get("/languages", [UserController::class, "languages"]);
+
+
+Route::post("/message", [UserController::class, "message"]);
+
+Route::post("/review", [UserController::class, "review"]);

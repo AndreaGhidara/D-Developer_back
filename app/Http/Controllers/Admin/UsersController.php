@@ -143,7 +143,9 @@ class UsersController extends Controller{
     {
         $user = Auth::user();
         $messageGroup = DB::select("SELECT COUNT(*) AS numero, date_format(created_at, '%Y-%m') AS tempo FROM `messages` WHERE user_id = $user->id GROUP BY date_format(created_at, '%Y-%m') ORDER BY date_format(created_at, '%Y-%m') asc");
-        return view('admin.users.stats' , compact('user', 'messageGroup'));
+        $reviewGroup = DB::select("SELECT COUNT(*) AS numero, date_format(created_at,'%Y-%m') AS tempo FROM `reviews` WHERE user_id = $user->id GROUP BY date_format(created_at,'%Y-%m') ORDER BY date_format(created_at, '%Y-%m') asc");
+        $valutationGroup = DB::select("SELECT SUM(valutations.valutation) / COUNT(*) AS media, date_format(user_valutations.created_at, '%Y-%m') AS tempo FROM `user_valutations` LEFT JOIN `valutations` ON `user_valutations`.valutation_id = `valutations`.`id` WHERE  user_id = $user->id GROUP BY date_format(user_valutations.created_at, '%Y-%m') ORDER BY date_format(user_valutations.created_at, '%Y-%m') ASC");
+        return view('admin.users.stats' , compact('user', 'messageGroup' , 'reviewGroup', 'valutationGroup'));
     }
 
     private function validateUser($data, $user) {

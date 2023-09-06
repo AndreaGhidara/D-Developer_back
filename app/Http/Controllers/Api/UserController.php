@@ -10,9 +10,7 @@ use App\Models\User;
 use App\Models\ProgrammingLanguages;
 use App\Models\Review;
 use App\Models\Valutation;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Schema;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -148,7 +146,13 @@ class UserController extends Controller
        $user= User::find($request['user_id']);
        $valutation = Valutation::find($request['valutation_id']);
 
-       $user->valutations()->attach($valutation);
+        $user->save();
+        $valutation->save();
+
+       $user->valutations()->attach($valutation, array(
+        'created_at' => Carbon::now(),
+        'updated_at' => Carbon::now()
+       ));
         
     }
 

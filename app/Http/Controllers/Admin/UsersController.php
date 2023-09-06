@@ -114,7 +114,7 @@ class UsersController extends Controller{
         $user = User::find(Auth::user() -> id);
         Auth::logout();
         if ($user -> delete()) {
-            return redirect(RouteServiceProvider::LOGIN)->with('global', 'Il tuo account è stato cancellato con successo!');
+            return redirect(RouteServiceProvider::REGISTER)->with('global', 'Il tuo account è stato cancellato con successo!');
         }
     }
 

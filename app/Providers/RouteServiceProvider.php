@@ -21,6 +21,8 @@ class RouteServiceProvider extends ServiceProvider
     //Creazione rotta per ridirezionare al LOG
     public const LOGIN = '/login';
 
+    public const REGISTER = '/register';
+
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
      *

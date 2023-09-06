@@ -10,67 +10,33 @@
                         <h1>Sponsorizzazioni</h1>
                         <h3>Scegli il tipo di sponsorizzazione che vuoi acquistare</h3>
                         <br>
-                        <form action="{{ route('admin.users.show', $user) }}" method="GET">
+                        {{-- FORM --}}
+                        <form action="{{ route('admin.payments.form', $user) }}" method="GET">
                             @csrf
-                            @foreach ($sponsorships as $sponsorship)
-                                <div class="form-check card m-4">
-                                    <input class="form-check-input" type="radio" name="sponsorships[]"
-                                        id="{{ $sponsorship->id }}" value="{{ $sponsorship->id }}">
-                                    <label class="form-check-label" for="{{ $sponsorship->id }}">
-                                        <h2>{{ $sponsorship->name }}</h2>
-                                        <h4>Il prezzo è di {{ $sponsorship->price }} €</h4>
-                                        <h5>La durata della sponsorizzazione è di {{ $sponsorship->time_sponsor }} ore.</h5>
-                                        <br>
-                                    </label>
+
+                            <div class="plan-choser">
+                                @foreach ($sponsorships as $sponsorship)
+                                    <div class="plan-option">
+                                        <input value="{{ $sponsorship->price}}" id="{{ $sponsorship->id }}" name="sponsorships[]" type="radio">
+                                        <label for="{{ $sponsorship->id }}">
+                                            <div class="plan-info">
+                                                <span class="plan-cost">{{ $sponsorship->price}} &euro;</span>
+                                                <span class="plan-name">{{ $sponsorship->name }}</span>
+                                                <span class="plan-name">{{ $sponsorship->time_sponsor }} H</span>
+                                            </div>
+                                            <div class="w-75">
+                                                descrizione Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, vero dolor pariatur reprehenderit nostrum eos porro consequuntur vitae nemo doloremque consectetur aliquid eaque natus tempora molestias. Doloremque quis blanditiis ea.
+                                            </div>
+                                        </label>
+                                    </div>
+                                @endforeach
+                                    <button type="submit" class="choose-btn"> 
+                                        Start 
+                                    </button>
                                 </div>
-                            @endforeach
-                            <button type="submit">invia</button>
                         </form>
                     </div>
                     <!--SEZIONE DI PAGAMENTO-->
-                    <div class="container p-0">
-                        <div class="card px-4">
-                            <p class="h8 py-3">Dettagli di pagamento</p>
-                            <div class="row gx-3">
-                                <div class="col-12">
-                                    <div class="d-flex flex-column">
-                                        <p class="text mb-1">Proprietario della carta</p>
-                                        <input class="form-control mb-3" type="text" placeholder="Nome e Cognome"
-                                            value="">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-flex flex-column">
-                                        <p class="text mb-1">Numero carta</p>
-                                        <input class="form-control mb-3" type="text"
-                                            placeholder="Inserisci il numero di carta">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex flex-column">
-                                        <p class="text mb-1">Scadenza carta</p>
-                                        <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex flex-column">
-                                        <p class="text mb-1">CVC</p>
-                                        <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="btn btn-primary mb-3">
-                                        <span class="ps-3">Paga</span>
-                                        <span class="fas fa-arrow-right"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-
                 </div>
             </div>
         </div>

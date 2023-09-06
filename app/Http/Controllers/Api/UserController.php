@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\ProgrammingLanguages;
 use App\Models\Review;
+use App\Models\Valutation;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Schema;
 
 class UserController extends Controller
 {
@@ -124,4 +128,28 @@ class UserController extends Controller
     $review->save();
 
    }
+
+   //prendo tutte le valutazioni possibili
+   public function valutation(){
+
+    $valutation = Valutation::all() ;
+
+    $response = [
+        "success" => true,
+        "results" => $valutation
+    ];
+
+    return response()->json($response);
+
+    }
+
+    public function postValutation(Request $request){
+
+       $user= User::find($request['user_id']);
+       $valutation = Valutation::find($request['valutation_id']);
+
+       $user->valutations()->attach($valutation);
+        
+    }
+
 }

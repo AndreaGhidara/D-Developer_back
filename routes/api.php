@@ -35,3 +35,7 @@ Route::get("/languages", [UserController::class, "languages"]);
 Route::post("/message", [UserController::class, "message"]);
 
 Route::post("/review", [UserController::class, "review"]);
+
+Route::get("/valutation", [UserController::class, "valutation"]);
+
+Route::post("/postValutation", [UserController::class, "postValutation"]);

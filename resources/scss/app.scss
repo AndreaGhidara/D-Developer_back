@@ -4,6 +4,7 @@
 @import 'customUpload';
 @import 'checkCustom';
 @import 'show';
+@import 'sponsor';
 
 
 $background:#1D1F21;
@@ -12,10 +13,6 @@ $Accent:#F5F5F5;
 $Text:#FFFFFF;
 
   /* Forza il colore dello sfondo anche quando è autocompletato */
-.input:-webkit-autofill {
-    -webkit-text-fill-color: #ffffff; /* Colore del testo */
-      box-shadow: 0 0 0 1000px rgb(33, 33, 33) inset !important; /* Imposta un'ombra bianca sullo sfondo */
-}
 
 *{
     font-family: 'Chakra Petch', sans-serif;

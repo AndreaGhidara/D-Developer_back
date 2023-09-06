@@ -29,6 +29,7 @@ Route::middleware(['auth'])
         Route::get('/users/{id}/messages', [UsersController::class, 'messages']) -> name('users.messages');
         Route::get('/users/{id}/reviews', [UsersController::class, 'reviews']) -> name('users.reviews');
         Route::get('/users/{id}/sponsorships', [UsersController::class, 'sponsorship']) -> name('users.sponsorships');
+        Route::get('/users/{id}/stats', [UsersController::class, 'stats']) -> name('users.stats');
         Route::resource('users', UsersController::class);
 
         Route::get('/payments/{user}', [PaymentController::class, 'index'])->name('payments.form');

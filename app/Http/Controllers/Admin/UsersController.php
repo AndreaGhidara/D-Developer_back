@@ -10,6 +10,7 @@ use App\Models\Review;
 use App\Models\Sponsor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -136,6 +137,13 @@ class UsersController extends Controller{
         $user = Auth::user();
         $sponsorships = Sponsor::all();
         return view('admin.users.sponsorship' , compact('user','sponsorships'));
+    }
+
+    public function stats()
+    {
+        $user = Auth::user();
+        $messageGroup = DB::select("SELECT COUNT(*) AS numero, date_format(created_at, '%m-%Y') AS tempo FROM `messages` WHERE user_id = $user->id GROUP BY date_format(created_at, '%m-%Y')");
+        return view('admin.users.stats' , compact('user', 'messageGroup'));
     }
 
     private function validateUser($data, $user) {

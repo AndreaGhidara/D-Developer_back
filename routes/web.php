@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
 use App\Http\Controllers\Admin\UsersController;
+
 /* ... */
 
 Route::get('/', function () {
@@ -27,6 +28,7 @@ Route::middleware(['auth'])
         Route::get('/users/{id}/messages', [UsersController::class, 'messages']) -> name('users.messages');
         Route::get('/users/{id}/reviews', [UsersController::class, 'reviews']) -> name('users.reviews');
         Route::get('/users/{id}/sponsorships', [UsersController::class, 'sponsorship']) -> name('users.sponsorships');
+        Route::get( '/users{id}/stats', [UsersController::class, 'stats']) -> name('users.stats');
         Route::resource('users', UsersController::class);
 
 });

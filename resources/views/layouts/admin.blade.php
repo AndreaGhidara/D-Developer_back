@@ -123,7 +123,7 @@
                         </li>
                         {{-- Stats --}}
                         <li class="d-flex align-items-center py-1">
-                            <a class="nav-link d-flex align-items-center" href="/">
+                            <a class="nav-link d-flex align-items-center" href="{{ route('admin.users.stats', $user)}}">
                                 <div class="squereIcon">
                                     <button class="Btn">
                                         <div class="sign">

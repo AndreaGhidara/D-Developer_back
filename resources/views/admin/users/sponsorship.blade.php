@@ -7,8 +7,8 @@
                 <div class="d-flex flex-column">
                     <!--TIPI DI SPONSORIZZAZIONI-->
                     <div class="">
-                        <h1 class="text-white">Sponsorizzazioni</h1>
-                        <h3 class="text-white">Scegli il tipo di sponsorizzazione che vuoi acquistare</h3>
+                        <h1>Sponsorizzazioni</h1>
+                        <h3>Scegli il tipo di sponsorizzazione che vuoi acquistare</h3>
                         <br>
                         <form action="{{ route('admin.users.show', $user) }}" method="GET">
                             @csrf
@@ -84,7 +84,7 @@
             var userIdFromUrl = parseInt(pathSegments[pathSegments.length - 2]);
 
             if (!isNaN(userIdFromUrl) && userIdFromUrl !== currentUserId) {
-                window.location.href = "/admin/users/" + currentUserId + "/messages";
+                window.location.href = "/admin/users/" + currentUserId + "/sponsorship";
                 alert("Non sei autorizzato ad accedere a questa pagina.");
             }
         };

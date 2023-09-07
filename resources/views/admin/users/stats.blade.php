@@ -1,15 +1,38 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container my-3 gradient-background-blue rounded-3 p-2">
-    <div style="width: 80%; margin: auto;">
-        <canvas id="messageChart"></canvas>
+<div class="container my-3 gradient-background-blue rounded-3 p-4">
+    <div class="row text-center text-white m-3">
+        {{-- Titolo pagina --}}
+        <div class="col">
+            <h1 class="text-white orangeBg rounded-5 p-2">
+               Le mie statistiche
+            </h1>
+        </div>
     </div>
-    <div style="width: 80%; margin: auto;">
-        <canvas id="reviewChart"></canvas>
+    {{-- Grafico messaggi --}}
+    <div class="row mb-5">
+        <div class="col">
+            <div style="width: 80%; margin: auto;">
+                <canvas id="messageChart"></canvas>
+            </div>
+        </div>
     </div>
-    <div style="width: 80%; margin: auto;">
-        <canvas id="valutationChart"></canvas>
+    {{-- Grafico recensioni --}}
+    <div class="row mb-5">
+         <div class="col-">
+            <div style="width: 80%; margin: auto;">
+                <canvas id="reviewChart"></canvas>
+            </div>
+        </div>
+    </div>
+    {{-- Grafico valutazioni --}}
+    <div class="row">
+        <div class="col">
+            <div style="width: 80%; margin: auto;">
+                <canvas id="valutationChart"></canvas>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -42,8 +65,8 @@
                 datasets: [{
                     label: 'Messaggi al mese',
                     data: messageValues.map(item => item.numero),
-                    borderColor: '#FF66CC',
-                    backgroundColor: '#FF66CC'
+                    borderColor: '#003399',
+                    backgroundColor: '#003399'
                 }]
             };
 
@@ -52,8 +75,8 @@
             datasets: [{
                 label: 'Recensioni al mese',
                 data: reviewValues.map(item => item.numero),
-                borderColor: '#50c878',
-                backgroundColor: '#50c878'
+                borderColor: '#FCB457',
+                backgroundColor: '#FCB457'
             }]
         };
     const dataValutationGraph = {
@@ -61,8 +84,8 @@
             datasets: [{
                 label: 'Media valutazioni mensili',
                 data: valutationValues.map(item => Math.round(item.media)),
-                borderColor: '#FFD700',
-                backgroundColor: '#FFD700'
+                borderColor: '#F87865',
+                backgroundColor: '#F87865'
             }]
         };
     //creo la configurazione del grafico (dati da utilizzare e opzioni)

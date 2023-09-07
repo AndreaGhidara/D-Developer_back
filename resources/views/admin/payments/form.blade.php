@@ -87,7 +87,7 @@
                     <div class="col-md-6">
                         <div class="form-group ">
                             <label for="amount">Amount</label>
-                            <input type="text" class="form-control text-end" id="amount" name="amount" value="{{$sponsorshipPrice[0]}}">
+                            <input type="text" class="form-control text-end" id="amount" name="amount" value="{{$sponsor['price']}}" aria-label="readonly" readonly>
                         </div>
                     </div>
                 </div>
@@ -125,6 +125,9 @@
 
                 <div class="spacer"></div>
 
+                <input name="sponsorTime" value="{{$sponsor['time_sponsor']}}" type="hidden" />
+                <input name="sponsorPrice" value="{{$sponsor['price']}}" type="hidden" />
+                <input name="sponsorID" value="{{$sponsor['id']}}" type="hidden" />
                 <input name="idUserPay" value="{{$user->getAttributes()['id']}}" type="hidden" />
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
                 <button type="submit" class="btn btn-success">Submit Payment</button>

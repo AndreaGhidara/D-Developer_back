@@ -13,296 +13,332 @@
             // Nascondi il form di registrazione dopo un certo periodo di tempo
             setTimeout(function() {
                 document.getElementById('signup_toggle').click();
-            }, 3000); // 3000 millisecondi (3 secondi) prima di nascondere il form di registrazione
+            }, 2000); // 3000 millisecondi (3 secondi) prima di nascondere il form di registrazione
         </script>
     @endif
-
-    <div class="gradient-background">
-        {{-- Container --}}
-        <div class="containerForm">
+    {{-- BACKGROUND --}}
+    <div class="registerPageBg">
+        {{-- CONTAINER FORM --}}
+        <div class="FlipFormSign p-2">
             <input type="checkbox" id="signup_toggle">
-            {{-- Cover Form --}}
-            <div class="coverform rounded-2">
-                {{-- Gif Gatto  --}}
-                <div class="w-100">
-                    <img class="catGif" src="{{ asset('output-onlinegiftools.gif') }}" alt="">
-                </div>
-                {{-- START Form front --}}
-                <div class="formFront rounded-2">
-
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data"
-                        class="needs-validation">
-                        @csrf
-                        {{-- Row-1-FRONT --}}
-                        <div class="row row-gap-3 justify-content-center m-0 ">
-                            {{-- SignUp --}}
-                            <div class="col-12 pt-3 text-center form_details">SignUp</div>
-                            {{-- Name --}}
-                            <div class="col-12 col-md-6 col-lg-6 px-0 form__group field">
-                                <input id="name" type="text" name="name"
-                                    class="form-control inputForm @error('name') is-invalid @enderror" placeholder="Name *"
-                                    value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                @error('name')
-                                    <div class="invalid-feedback text-center d-flex flex-wrap" role="alert">
-                                        <strong>{{ $message }}</strong>
+            {{-- CONTAINER CHE RUOTA --}}
+            <div class="FlipFormSign-inner">
+                {{-- Front --}}
+                <div class="FlipFormSign-front z-2">
+                    <div class="container-fluid h-100 d-flex flex-column flex-sm-row p-2">
+                        {{-- FORM FRONT --}}
+                        <form class="w-100 needs-validation overflow-y-auto" method="POST" action="{{ route('register') }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="row m-0">
+                                <div class="col-12 pt-3 text-center">Register</div>
+                                {{-- Name --}}
+                                <div class="col-6 p-1">
+                                    <div class="input-container">
+                                        <input type="text" id="name" name="name"
+                                            class="form-control @error('name') is-invalid @enderror"
+                                            value="{{ old('name') }}" required>
+                                        <label for="input" class="label d-block form-label">Name</label>
+                                        <div class="underline"></div>
+                                        @error('name')
+                                            <div class="invalid-feedback text-center d-flex flex-wrap" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
                                     </div>
-                                @enderror
-                            </div>
-                            {{-- Cognome --}}
-                            <div class="col-12 px-0 col-md-4 col-lg-6 form__group field">
-                                <input id="surname" type="input"
-                                    class="inputForm form-control @error('surname') is-invalid @enderror"
-                                    placeholder="Surname *" name="surname" value="{{ old('surname') }}" required
-                                    autocomplete="surname" autofocus>
-                                @error('surname')
-                                    <div class="invalid-feedback text-center" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                    <div class="valid-feedback">
+                                        Looks good!
                                     </div>
-                                @enderror
-                            </div>
-                            {{-- Email --}}
-                            <div class="col-12 px-0 form__group field">
-                                <input id="email" type="email"
-                                    class="inputForm form-control @error('email') is-invalid @enderror"
-                                    placeholder="Email *" name="email" value="{{ old('email') }}" required
-                                    autocomplete="email" autofocus>
-                                @error('email')
-                                    <div class="invalid-feedback text-center" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-                            {{-- Password --}}
-                            <div class="col-12 col-md-5 col-lg-6 px-0 form__group field">
-                                <input id="password" type="password"
-                                    class="inputForm form-control @error('password') is-invalid @enderror"
-                                    placeholder="Password *" name="password" required autocomplete="new-password" autofocus>
-                                @error('password')
-                                    <div class="invalid-feedback text-center" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-                            {{-- Conferma Password --}}
-                            <div class="col-12 col-md-6 col-lg-6 px-0 form__group field">
-                                <input id="password-confirm" type="password" class="inputForm form-control"
-                                    placeholder="Password Confirm *" name="password_confirmation" required
-                                    autocomplete="new-password" autofocus>
-                            </div>
-                            {{-- Data di compleanno --}}
-                            <div class="col-12 px-0 form__group field">
-                                <input id="date_of_birth" type="date"
-                                    class="inputForm form-control @error('date_of_birth') is-invalid @enderror"
-                                    placeholder="Date of birth *" name="date_of_birth" value="{{ old('date_of_birth') }}"
-                                    required autocomplete="date_of_birth" autofocus>
-                                @error('date_of_birth')
-                                    <div class="invalid-feedback text-center" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-                            {{-- address --}}
-                            <div class="col-12 col-md-4 col-lg-6 px-0 form__group field">
-                                <input id="address" type="text"
-                                    class="inputForm form-control @error('address') is-invalid @enderror"
-                                    value="{{ old('address') }}" name="address" placeholder="Address *" name="address"
-                                    required autocomplete="address" autofocus>
-                                @error('address')
-                                    <div class="invalid-feedback text-center" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-                            {{-- vat_number Partita Iva --}}
-                            <div class="col-12 col-md-7 col-lg-6 px-0 form__group field">
-                                <input id="vat_number" type="number"
-                                    class="inputForm form-control @error('vat_number') is-invalid @enderror"
-                                    placeholder="Vat Number " name="vat_number" value="{{ old('vat_number') }}"
-                                    autocomplete="vat_number" autofocus>
-                                @error('vat_number')
-                                    <div class="invalid-feedback text-center" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-                            {{-- Numero di telefono --}}
-                            <div class="col-12 px-0 form__group field">
-                                <input id="phone_number" type="number"
-                                    class="inputForm form-control @error('phone_number') is-invalid @enderror"
-                                    placeholder="Phone Number *" name="phone_number" value="{{ old('phone_number') }}"
-                                    required autocomplete="phone_number" autofocus>
-                                @error('phone_number')
-                                    <div class="invalid-feedback text-center" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-                            {{-- git_hub_link link GitHub --}}
-                            <div class="col-12 col-md-5 col-lg-6 px-0 form__group field">
-                                <input id="github_link" name="github_link" type="text"
-                                    class="inputForm form-control @error('github_link') is-invalid @enderror"
-                                    placeholder="Github link" value="{{ old('github_link') }}"
-                                    autocomplete="github_link" autofocus>
-                                @error('github_link')
-                                    <div class="invalid-feedback text-center" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-                            {{-- linkedin_link link Linkedin --}}
-                            <div class="col-12 flex flex-wrap col-md-5 col-lg-6 px-0 form__group field">
-                                <input id="linkedin_link" name="linkedin_link" type="text"
-                                    class="inputForm form-control @error('linkedin_link') is-invalid @enderror"
-                                    placeholder="Linkedin link" value="{{ old('linkedin_link') }}"
-                                    autocomplete="linkedin_link" autofocus>
-                                @error('linkedin_link')
-                                    <div class="invalid-feedback text-center" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-                            {{-- cv --}}
-                            <div class="col-12 px-0 form__group field">
-                                <div class="div">
-                                    <label class="custum-file-upload" for="cv">
-                                        <div class="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24">
-                                                <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
-                                                <g stroke-linejoin="round" stroke-linecap="round"
-                                                    id="SVGRepo_tracerCarrier">
-                                                </g>
-                                                <g id="SVGRepo_iconCarrier">
-                                                    <path fill=""
-                                                        d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z"
-                                                        clip-rule="evenodd" fill-rule="evenodd"></path>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                        <div class="text text-white">
-                                            <div>Click to upload CV</div>
-                                        </div>
-                                        <input onchange="changeColor()" id="cv" name="cv" type="file"
-                                            class="inputForm @error('cv') is-invalid @enderror"
-                                            placeholder="Curriculum *">
-                                    </label>
                                 </div>
-                            </div>
-                            <div class="col-12 text-center">
-                                @error('cv')
-                                    <div class="invalid-feedback text-center d-block" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                {{-- Surname --}}
+                                <div class="col-6 p-1">
+                                    <div class="input-container">
+                                        <input type="text" id="surname" name="surname" id="surname"
+                                            value="{{ old('surname') }}"
+                                            class="form-control @error('surname') is-invalid @enderror" required>
+                                        <label for="surname" class="label d-block  form-label">Surname</label>
+                                        <div class="underline"></div>
+                                        @error('surname')
+                                            <div class="invalid-feedback text-center d-flex flex-wrap" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
                                     </div>
-                                @enderror
-                            </div>
-                        </div>
-                        {{-- Row-2-FRONT --}}
-                        <div class="row pt-3 m-0 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 text-white">
-                            @foreach ($languages as $key => $language)
-                                {{-- LINGUAGGI --}}
-                                <div class="col">
-                                    <div class="form-check">
-                                        <label for="language_{{ $key }}">
-                                            <input type="checkbox" class="input" name="languages[]"
-                                                value="{{ $key + 1 }}" id="language_{{ $key }}">
-                                            <span class="custom-checkbox"></span>
-                                            {{ $language }}
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                {{-- EMAIL --}}
+                                <div class="col-6 p-1">
+                                    <div class="input-container">
+                                        <input type="email" id="email" name="email" value="{{ old('email') }}"
+                                            class="form-control @error('email') is-invalid @enderror" required>
+                                        <label for="email" class="label d-block  form-label">Email</label>
+                                        <div class="underline"></div>
+                                        @error('email')
+                                            <div class="invalid-feedback text-center d-flex flex-wrap" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                {{-- ANNO DI NASCITA --}}
+                                <div class="col-6 p-1">
+                                    <div class="input-container">
+                                        <input id="date_of_birth" type="date"
+                                            class="bg-trasparent inputForm form-control @error('date_of_birth') is-invalid @enderror"
+                                            placeholder="Date of birth *" name="date_of_birth"
+                                            value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth"
+                                            autofocus>
+                                        <label for="date_of_birth" class="label d-block  form-label"></label>
+                                        <div class="underline"></div>
+                                        @error('date_of_birth')
+                                            <div class="invalid-feedback text-center" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                {{-- PASSWORD --}}
+                                <div class="col-6 p-1">
+                                    <div class="input-container">
+                                        <input type="password" id="password" name="password"
+                                            class="form-control @error('password') is-invalid @enderror" required>
+                                        <label for="input" class="label d-block  form-label">Password</label>
+                                        <div class="underline"></div>
+                                        @error('password')
+                                            <div class="invalid-feedback text-center d-flex flex-wrap" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                {{-- VERIFIFA PASSWORD --}}
+                                <div class="col-6 p-1">
+                                    <div class="input-container">
+                                        <input type="password" id="password_confirmation" name="password_confirmation"
+                                            id="password_confirmation"
+                                            class="form-control @error('password_confirmation') is-invalid @enderror"
+                                            required>
+                                        <label for="password_confirmation" class="label d-block form-label">Password Confirm
+                                            *</label>
+                                        <div class="underline"></div>
+                                        @error('password_confirmation')
+                                            <div class="invalid-feedback text-center d-flex flex-wrap" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                {{-- ADDRESS --}}
+                                <div class="col-6 p-1">
+                                    <div class="input-container">
+                                        <input type="text" id="address" name="address"
+                                            class="form-control @error('address') is-invalid @enderror"
+                                            value="{{ old('address') }}" required>
+                                        <label for="address" class="label d-block  form-label">Indirizzo</label>
+                                        <div class="underline"></div>
+                                        @error('address')
+                                            <div class="invalid-feedback text-center d-flex flex-wrap" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                {{-- NUMERO DI TELEFONO --}}
+                                <div class="col-6 p-1">
+                                    <div class="input-container">
+                                        <input type="text" id="phone_number" name="phone_number"
+                                            class="form-control @error('phone_number') is-invalid @enderror"
+                                            value="{{ old('phone_number') }}" required="">
+                                        <label for="phone_number" class="label d-block  form-label">Numero di
+                                            Telefono</label>
+                                        <div class="underline"></div>
+                                        @error('phone_number')
+                                            <div class="invalid-feedback text-center d-flex flex-wrap" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                {{-- Partita IVA --}}
+                                <div class="col-12 p-1">
+                                    <div class="input-container">
+                                        <input type="text" id="vat_number" name="vat_number"
+                                            class="form-control @error('vat_number') is-invalid @enderror"
+                                            value="{{ old('vat_number') }}" required>
+                                        <label for="vat_number" class="label d-block  form-label">Partita
+                                            IVA</label>
+                                        <div class="underline"></div>
+                                        @error('vat_number')
+                                            <div class="invalid-feedback text-center d-flex flex-wrap" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                {{-- CV --}}
+                                <div class="col-12">
+                                    <div class="div">
+                                        <label class="custum-file-upload" for="cv">
+                                            <div class="icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill=""
+                                                    viewBox="0 0 24 24">
+                                                    <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                                                    <g stroke-linejoin="round" stroke-linecap="round"
+                                                        id="SVGRepo_tracerCarrier">
+                                                    </g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <path fill=""
+                                                            d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z"
+                                                            clip-rule="evenodd" fill-rule="evenodd"></path>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="text text-white">
+                                                <div>Click to upload CV</div>
+                                            </div>
+                                            <input onchange="changeColor()" id="cv" name="cv" type="file"
+                                                class="inputForm @error('cv') is-invalid @enderror"
+                                                value="{{ old('cv') }}" placeholder="Curriculum *">
                                         </label>
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
-                        {{-- Row-3-FRONT --}}
-                        <div class="row m-0 ">
-                            {{-- BOTTONE --}}
-                            <div class="col-12 mt-3 d-flex justify-content-center">
-                                <button type="submit" class="btnForm">Signup</button>
                             </div>
-                            {{-- HAI GIA UN ACCOUNT ? --}}
-                            <div class="col-12 py-3 d-flex justify-content-center">
-                                <span class="switch">Already have an account?
-                                    <label class="signup_tog" for="signup_toggle">
-                                        Sign In
-                                    </label>
-                                </span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                {{-- END Form front --}}
-
-                {{-- START Form Back --}}
-                <div class="formBack rounded-2">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="row row-gap-3 justify-content-center m-0">
-                            <div class="col-12 text-center">
-                                <div class="form_details">Login</div>
-                            </div>
-                            {{-- EMAIL --}}
-                            <div class="col-12">
-                                <input id="email" type="email"
-                                    class="inputForm form-control @error('email') is-invalid @enderror" name="email"
-                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            {{-- Password --}}
-                            <div class="col-12">
-                                <input id="password" type="password"
-                                    class="inputForm form-control @error('password') is-invalid @enderror" name="password" required
-                                    autocomplete="current-password">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            {{-- Remeber Password --}}
-                            <div class="col-12 d-flex text-white">
-                                <input type="checkbox" class="input" name="remember" id="remember"
-                                    {{ old('remember') ? 'checked' : '' }}>
-                                <label class="custom-checkbox" for="remember">
-                                </label>
-                                <p>
-                                    {{ __('Remember Me') }}
-                                </p>
-                                </div>
-                            {{-- Login --}}
-                            <div class="col-12">
-                                <button class="login-btn" type="submit">
-                                    {{ __('Login') }}
-                                </button>
-                            </div>
-                            <div class="col-12">
-                                <a href="">
-                                    <div class="btnForm w-25 p-0 text-center">
-                                        Visiter
+                            <div class="row m-0 mt-3 row-cols-1 row-cols-sm-2 ">
+                                {{-- LINGUAGGI --}}
+                                @foreach ($languages as $key => $language)
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <label class="text-white" for="language_{{ $key }}">
+                                                <input type="checkbox" class="input" name="languages[]"
+                                                    value="{{ $key + 1 }}" id="language_{{ $key }}">
+                                                <span class="custom-checkbox"></span>
+                                                {{ $language }}
+                                            </label>
+                                        </div>
                                     </div>
-                                </a>
+                                @endforeach
                             </div>
-                            <div class="col-12">
-                                <span class="switch">Don't have an account?
-                                    <label class="signup_tog" for="signup_toggle">
-                                        Sign Up
+                            {{-- Row-3-FRONT --}}
+                            <div class="row m-0 ">
+                                {{-- BOTTONE --}}
+                                <div class="col-12 mt-3 d-flex justify-content-center">
+                                    <button type="submit" class="buttonFormSignIn">
+                                        <span class="liquid"></span>
+                                        <span class="buttonFormSignIn-txt">Registrati</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        {{-- Seconda PARTE FRONT --}}
+                        <div class="w-75 d-flex">
+                            <div class="row w-100 d-flex justify-content-beetwen m-0">
+                                <div class="col-12 d-none d-sm-block p-3 d-flex justify-content-end align-items-start">
+                                    <img class="img-fluid rounded-2" src="camera.jpg" alt="">
+                                </div>
+                                <div class="col-12 py-2 d-flex justify-content-end align-items-end">
+                                    <span class="switch">Hai già un account?
+                                        <label class="signup_tog text-white" for="signup_toggle">
+                                            Login
+                                        </label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- BACK --}}
+                <div class="FlipFormSign-back">
+                    <div
+                        class="container-fluid d-flex flex-column-reverse justify-content-between flex-sm-row h-100 d-flex p-2">
+                        <div class="row  m-0">
+                            <div class="col-12 d-none d-sm-block h-75 p-3">
+                                <img class="img-fluid w-75 rounded-2" src="homeCity.jpg" alt="">
+                            </div>
+                            <div class="col-12 d-flex justify-content-start align-items-end">
+                                <span class="switch text-black">Non hai un account?
+                                    <label class="signup_tog text-white" for="signup_toggle">
+                                        Registrati
                                     </label>
                                 </span>
                             </div>
-                            <div class="col-12">
-                                @if (Route::has('password.request'))
-                                    <a class="btnForm btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
                         </div>
-                    </form>
+                        <div class="row w-100 d-flex flex-column m-0">
+                            {{-- LOGIN --}}
+                            <div class="col-12 pt-3 text-center form_details">LogIn</div>
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
+                                {{-- EMAIL --}}
+                                <div class="col-12">
+                                    <div class="input-container">
+                                        <input id="emailLog" type="text"
+                                            class="form-control @error('email') is-invalid @enderror" name="email"
+                                            value="{{ old('email') }}" required autocomplete="email" required autofocus>
+                                        <label for="input" class="label d-block  form-label">Email</label>
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                {{-- Password --}}
+                                <div class="col-12">
+                                    <div class="input-container">
+                                        <input id="passwordLog" type="password"
+                                            class="form-control @error('password') is-invalid @enderror" name="password">
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                {{-- Remeber Password --}}
+                                <div class="col-12 d-flex text-white">
+                                    <input type="checkbox" class="input" name="remember" id="remember"
+                                        {{ old('remember') ? 'checked' : '' }}>
+                                    <label class="custom-checkbox" for="remember">
+                                    </label>
+                                    <p class="ps-2 m-0">
+                                        {{ __('Remember Me') }}
+                                    </p>
+                                </div>
+                                {{-- Login --}}
+                                <div class="col-12 mt-3 d-flex justify-content-center">
+                                    <button type="submit" class="buttonFormSignIn">
+                                        <span class="liquid"></span>
+                                        <span class="buttonFormSignIn-txt">{{ __('Login') }}</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                {{-- END Form Back --}}
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/function.js')}}"></script>
+    <script src="{{ asset('js/function.js') }}"></script>
 @endsection

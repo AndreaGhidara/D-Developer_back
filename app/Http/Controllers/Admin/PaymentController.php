@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Auth\EloquentUserProvider;
 
 use Braintree\Gateway;
 use App\Models\Payment;
 use Exception;
 
 use App\Models\User;
+use App\Models\Sponsor;
 
 class PaymentController extends Controller
 {
@@ -25,17 +27,22 @@ class PaymentController extends Controller
         ]);
 
         $token = $gateway->ClientToken()->generate();
+        
+        $sponsorshipId = $request->input('sponsorships');
 
-        $sponsorshipPrice = $request->input('sponsorships');
-        return view('admin.payments.form', compact('sponsorshipPrice', 'user', 'token'));
+        $sponsorshipId = intval($sponsorshipId[0]);
+        
+        $sponsor = Sponsor::find($sponsorshipId);
+        
+        $sponsor = $sponsor->getAttributes();
+
+        return view('admin.payments.form', compact('sponsor', 'user', 'token'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request )
     {
-        
-        $userPayed = request()->all();
-        // dd($userPayed);
 
+        $userPayed = request()->all();
 
         $gateway = new Gateway([
             'environment' => config('services.braintree.environment'),
@@ -62,7 +69,16 @@ class PaymentController extends Controller
 
         if ($result->success) {
             $transaction = $result->transaction;
-            // header("Location: transaction.php?id=" . $transaction->id);
+            
+            $user = User::find($userPayed['idUserPay']);
+            
+            if ($user) {
+                // Collega la sponsor all'utente utilizzando la relazione sponsors
+                $user->sponsors()->attach($userPayed['sponsorID'], [
+                    'start_date' => now(), // Data di inizio della sponsorizzazione
+                    'end_date' => now()->addDay(1), // Data di fine della sponsorizzazione 
+                ]);
+            }
 
             return back()->with('success_message', 'Transaction successful. The ID is:' . $transaction->id);
         } else {

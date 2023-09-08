@@ -17,7 +17,7 @@
                             <div class="plan-choser">
                                 @foreach ($sponsorships as $sponsorship)
                                     <div class="plan-option">
-                                        <input value="{{ $sponsorship->price}}" id="{{ $sponsorship->id }}" name="sponsorships[]" type="radio">
+                                        <input value="{{ $sponsorship->id}}" id="{{ $sponsorship->id }}" name="sponsorships[]" type="radio">
                                         <label for="{{ $sponsorship->id }}">
                                             <div class="plan-info">
                                                 <span class="plan-cost">{{ $sponsorship->price}} &euro;</span>

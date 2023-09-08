@@ -11,6 +11,11 @@ Route::get('/', function () {
 });
 
 
+Route::get('/signUp', function () {
+    return view('registerPage');
+});
+
+
 Route::get('/homepage', function () {
     return redirect('http://localhost:5174/home'); // Reindirizza a /homepage, che è una rotta Vue
 });

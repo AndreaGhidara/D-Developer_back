@@ -35,10 +35,9 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        // dd(request()->all());
+        
         //Valido i dati
         $data =  $this->validateUser( $request->all() );
-
         //Crea un nuvo user
         $user = new User();
 
@@ -64,8 +63,6 @@ class RegisteredUserController extends Controller
             'address' => $data['address'],
             'phone_number' => $data['phone_number'],
             'cv' => $data['cv'],
-            'github_link' => $data['github_link'],
-            'linkedin_link' => $data['linkedin_link'],
             'vat_number' => $data['vat_number'],
         ]);
 
@@ -88,6 +85,7 @@ class RegisteredUserController extends Controller
 
     public function validateUser($data) {
         $validator = Validator::make(
+            // dd($data),
             $data,
             [
                 "name" => "required|min:3|max:50",
@@ -150,7 +148,6 @@ class RegisteredUserController extends Controller
 
             ]
         )->validate();
-
         return $validator;
     }
 

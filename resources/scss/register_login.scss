@@ -1,0 +1,226 @@
+///////////////////////////////
+// Reset BOOTSTRAP
+.form-control {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    color: white;
+}
+.form-control:focus {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+}
+
+//Reset GOOGLE
+//AutoCompleate BG remove
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px #23232329;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+    -webkit-text-fill-color: rgb(5, 5, 5) !important;
+}
+
+::-webkit-scrollbar {
+    width: 3px
+}
+
+::-webkit-scrollbar-track {
+    background: #fe935c;
+    border-radius: 0px
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 4px
+}
+
+////////////////////////////////////
+
+.inputForm {
+    background-color: transparent;
+    border: transparent;
+}
+
+.registerPageBg {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../public/banner.png');
+    background-size: cover;
+}
+
+.FlipFormSign {
+    width: 800px;
+    height: 700px;
+    perspective: 1000px;
+}
+
+.FlipFormSign-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 2s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.FlipFormSign-front,
+.FlipFormSign-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.FlipFormSign-front {
+    color: black;
+}
+
+.FlipFormSign-back {
+    color: white;
+    transform: rotateY(180deg);
+}
+
+
+#signup_toggle {
+    display: none;
+}
+
+.FlipFormSign #signup_toggle:checked+.FlipFormSign-inner {
+    transform: rotateY(-180deg);
+}
+
+.input-container {
+    position: relative;
+    margin: 10px 0;
+}
+
+.input-container input[type="text"],
+.input-container input[type="password"],
+.input-container input[type="email"] {
+    font-size: 15px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 5px 0;
+    background-color: transparent;
+    outline: none;
+}
+
+.input-container .label {
+    position: absolute;
+    top: -9px;
+    left: 0;
+    font-size: 13px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-container input[type="text"]:focus~.label,
+.input-container input[type="text"]:valid~.label,
+.input-container input[type="password"]:focus~.label,
+.input-container input[type="password"]:valid~.label,
+.input-container input[type="email"]:focus~.label,
+.input-container input[type="email"]:valid~.label {
+    top: -13px;
+    font-size: 16px;
+    color: #333;
+}
+
+.input-container .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #333;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus~.underline,
+.input-container input[type="text"]:valid~.underline {
+    transform: scaleX(1);
+}
+
+///////////////////////////////////////////////////////
+/// Button
+.buttonFormSignIn {
+    background-color: #000;
+    border: 0px;
+    outline: 0px;
+    color: #fff;
+    width: 160px;
+    padding: 5px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.liquid {
+    background-color: #2893eb;
+    width: 200px;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: inset 5px -5px 25px #104e81,
+        inset -5px 0px 25px #104e81;
+}
+
+.liquid::after {
+    content: '';
+    width: 450px;
+    height: 400px;
+    background: #000;
+    z-index: 1;
+    position: absolute;
+    left: -110px;
+    top: -380px;
+    border-radius: 45%;
+    animation: animate 5s linear 2s infinite;
+}
+
+.liquid::before {
+    content: '';
+    width: 450px;
+    height: 400px;
+    background-color: rgb(68, 160, 235);
+    z-index: 1;
+    position: absolute;
+    left: -110px;
+    top: -380px;
+    border-radius: 40%;
+    animation: animate 5s linear 1.8s infinite;
+}
+
+.buttonFormSignIn-txt {
+    position: relative;
+    z-index: 1;
+    font-size: 22px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+}
+
+@keyframes animate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         fileInput.addEventListener('change', function() {
             if (fileInput.files.length > 0) {
                 // Se è stato caricato un file, impostare lo stile desiderato
-                svgUploadFile.style.fill = 'green';
+                svgUploadFile.style.fill = '#70ae7b';
                 customUpload.style.border = 'none';
             } else {
                 // Se nessun file è stato caricato, reimpostare lo stile predefinito

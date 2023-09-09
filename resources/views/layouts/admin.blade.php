@@ -27,8 +27,8 @@
 <body>
     <div id="app">
 
-        <div class="dashboard">
-            <div class="dashLeft">
+        <div class="dashboard ">
+            <div class="dashLeft gradient-background border">
                 <div class="menu">
                     <ul class="m-0 p-0">
                         {{-- Home --}}

@@ -2,7 +2,7 @@
 @section('content')
     <div class="walpaperHome d-flex align-items-center justify-content-center gradient-background">
         <div class="container">
-            <div class="row flex-column flex-sm-row gap-2">
+            <div class="row flex-column flex-md-row gap-2">
                 <div class="col-12 col-md-6 text-center welcomeText rounded-2 d-flex justify-content-center align-items-center">
                     <h1 class="display-5 fw-bold w-100">
                         Benvenuto nel poratale dei <br>
@@ -72,4 +72,5 @@
         </div>
     </div>
 </div> --}}
+<script src="{{ asset('js/function.js') }}"></script>
 @endsection

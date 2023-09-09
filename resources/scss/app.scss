@@ -7,7 +7,8 @@
 @import 'message';
 @import 'sponsor';
 @import 'register_login';
-
+@import 'menu';
+@import 'profileDash';
 
 $background: #1D1F21;
 $primary: #FF6600;
@@ -62,8 +63,34 @@ a{
     100%{background-position:0% 50%}
 }
 
+//per colorare il calendarietto di bianco nel input data
+input {
+    color-scheme: dark;
+}
+
+.homeContainer{
+    position: absolute;
+    z-index: 3;
+    padding: 1rem;
+}
+
+.homeIcon{
+    width: 50px;
+}
+
 .btnLanguage{
     background-color: rgba(255, 255, 255, 0.161);
+}
+
+.succesLoginAllert{
+    // background-color: #67bbf5!important;
+    position: absolute;
+    top: 13px;
+    right: 10px;
+}
+
+.toast-header{
+    background-color: #67bbf5!important;
 }
 
 
@@ -223,4 +250,9 @@ btnCustomGo .btnCustomGoText>* {
 
 .btnCustomGo:hover svg {
     transform: translateY(-50%) rotate(-90deg);
+}
+
+.toast-header .btn-close{
+        color: white!important;
+        fill: white;
 }

@@ -5,19 +5,29 @@
 @endphp
 
 @section('content')
-    @if (session('success'))
-        <div class="alert alert-success m-0">
-            {{ session('success') }}
-        </div>
-        <script>
-            // Nascondi il form di registrazione dopo un certo periodo di tempo
-            setTimeout(function() {
-                document.getElementById('signup_toggle').click();
-            }, 2000); // 3000 millisecondi (3 secondi) prima di nascondere il form di registrazione
-        </script>
-    @endif
     {{-- BACKGROUND --}}
-    <div class="registerPageBg">
+    <div class="registerPageBg ">
+        @if (session('success'))
+            <div class="alert w-100 succesLoginAllert d-flex justify-content-end  m-0">
+                <div class="toast fade show d-flex flex-column" role="alert" aria-live="assertive" aria-atomic="true"
+                    data-bs-delay="10000">
+                    <div class="toast-header text-white">
+                        <strong class="me-auto">Registazione Effetuata</strong>
+                        <button type="button " class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        {{ session('success') }}
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Nascondi il form di registrazione dopo un certo periodo di tempo
+                setTimeout(function() {
+                    document.getElementById('signup_toggle').click();
+                }, 1000); // 3000 millisecondi (3 secondi) prima di nascondere il form di registrazione
+            </script>
+        @endif
+
         {{-- CONTAINER FORM --}}
         <div class="FlipFormSign p-2">
             <input type="checkbox" id="signup_toggle">
@@ -129,7 +139,8 @@
                                             id="password_confirmation"
                                             class="form-control @error('password_confirmation') is-invalid @enderror"
                                             required>
-                                        <label for="password_confirmation" class="label d-block form-label">Password Confirm
+                                        <label for="password_confirmation" class="label d-block form-label">Password
+                                            Confirm
                                             *</label>
                                         <div class="underline"></div>
                                         @error('password_confirmation')
@@ -143,7 +154,7 @@
                                     </div>
                                 </div>
                                 {{-- ADDRESS --}}
-                                <div class="col-6 p-1">
+                                <div class="col-12 col-sm-6 p-1">
                                     <div class="input-container">
                                         <input type="text" id="address" name="address"
                                             class="form-control @error('address') is-invalid @enderror"
@@ -161,7 +172,7 @@
                                     </div>
                                 </div>
                                 {{-- NUMERO DI TELEFONO --}}
-                                <div class="col-6 p-1">
+                                <div class="col-12 col-sm-6 p-1">
                                     <div class="input-container">
                                         <input type="text" id="phone_number" name="phone_number"
                                             class="form-control @error('phone_number') is-invalid @enderror"
@@ -228,8 +239,8 @@
                             </div>
                             <div class="row m-0 mt-3 row-cols-1 ">
                                 <p class="d-flex gap-1">
-                                    <button class="btn btnLanguage text-white border w-100" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseExample" aria-expanded="false"
+                                    <button class="btn btnLanguage text-white border w-100" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
                                         aria-controls="collapseExample">
                                         Linguaggi di programmazione*
                                     </button>
@@ -322,9 +333,9 @@
                                 <div class="col-12">
                                     <div class="input-container">
                                         <input id="passwordLog" type="password"
-                                            class="form-control @error('password') is-invalid @enderror" b
+                                            class="form-control @error('password') is-invalid @enderror" required
                                             name="password">
-                                        <label for="password" class="label d-block  form-label">Password</label>
+                                        <label for="password" class="label d-block form-label">Password</label>
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

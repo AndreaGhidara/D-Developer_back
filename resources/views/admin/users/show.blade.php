@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="w-100 h-100 py-3 pe-2">
+        
         <div class="container-fluid h-100  p-0 rounded-2 ">
             {{-- BG IMG AND STARS --}}
             <div class="row m-0 p-0 bg-primary-subtle topProfilePic">
@@ -20,8 +21,16 @@
                     @endif
                 </div>
                 {{-- stars --}}
-                <div class="col startsProfileVote">
-                    stars
+                <div class="col p-4 startsProfileVote">
+                   
+                    @if (isset($mediaVoti))
+                       
+                        @for ($i = 0; $i < $mediaVoti; $i++)
+                            <i class="fa-solid fa-star orangeText"></i>
+                        @endfor
+                        
+                    @endif
+
                 </div>
                 <div class="col delateAccountContainer d-flex justify-content-end">
                     <button class="btnDelateAccount">

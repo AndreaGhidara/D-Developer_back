@@ -5,19 +5,29 @@
 @endphp
 
 @section('content')
-    @if (session('success'))
-        <div class="alert alert-success m-0">
-            {{ session('success') }}
-        </div>
-        <script>
-            // Nascondi il form di registrazione dopo un certo periodo di tempo
-            setTimeout(function() {
-                document.getElementById('signup_toggle').click();
-            }, 2000); // 3000 millisecondi (3 secondi) prima di nascondere il form di registrazione
-        </script>
-    @endif
     {{-- BACKGROUND --}}
-    <div class="registerPageBg">
+    <div class="registerPageBg ">
+        @if (session('success'))
+            <div class="alert w-100 succesLoginAllert d-flex justify-content-end  m-0">
+                <div class="toast fade show d-flex flex-column" role="alert" aria-live="assertive" aria-atomic="true"
+                    data-bs-delay="10000">
+                    <div class="toast-header text-white">
+                        <strong class="me-auto">Registazione Effetuata</strong>
+                        <button type="button " class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        {{ session('success') }}
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Nascondi il form di registrazione dopo un certo periodo di tempo
+                setTimeout(function() {
+                    document.getElementById('signup_toggle').click();
+                }, 1000); // 3000 millisecondi (3 secondi) prima di nascondere il form di registrazione
+            </script>
+        @endif
+
         {{-- CONTAINER FORM --}}
         <div class="FlipFormSign p-2">
             <input type="checkbox" id="signup_toggle">
@@ -31,7 +41,7 @@
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row m-0">
-                                <div class="col-12 pt-3 text-center">Register</div>
+                                <div class="col-12 fs-4 py-3 text-center text-white">Register</div>
                                 {{-- Name --}}
                                 <div class="col-6 p-1">
                                     <div class="input-container">
@@ -129,7 +139,8 @@
                                             id="password_confirmation"
                                             class="form-control @error('password_confirmation') is-invalid @enderror"
                                             required>
-                                        <label for="password_confirmation" class="label d-block form-label">Password Confirm
+                                        <label for="password_confirmation" class="label d-block form-label">Password
+                                            Confirm
                                             *</label>
                                         <div class="underline"></div>
                                         @error('password_confirmation')
@@ -143,7 +154,7 @@
                                     </div>
                                 </div>
                                 {{-- ADDRESS --}}
-                                <div class="col-6 p-1">
+                                <div class="col-12 col-sm-6 p-1">
                                     <div class="input-container">
                                         <input type="text" id="address" name="address"
                                             class="form-control @error('address') is-invalid @enderror"
@@ -161,7 +172,7 @@
                                     </div>
                                 </div>
                                 {{-- NUMERO DI TELEFONO --}}
-                                <div class="col-6 p-1">
+                                <div class="col-12 col-sm-6 p-1">
                                     <div class="input-container">
                                         <input type="text" id="phone_number" name="phone_number"
                                             class="form-control @error('phone_number') is-invalid @enderror"
@@ -226,20 +237,32 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row m-0 mt-3 row-cols-1 row-cols-sm-2 ">
-                                {{-- LINGUAGGI --}}
-                                @foreach ($languages as $key => $language)
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <label class="text-white" for="language_{{ $key }}">
-                                                <input type="checkbox" class="input" name="languages[]"
-                                                    value="{{ $key + 1 }}" id="language_{{ $key }}">
-                                                <span class="custom-checkbox"></span>
-                                                {{ $language }}
-                                            </label>
-                                        </div>
+                            <div class="row m-0 mt-3 row-cols-1 ">
+                                <p class="d-flex gap-1">
+                                    <button class="btn btnLanguage text-white border w-100" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        Linguaggi di programmazione*
+                                    </button>
+                                </p>
+                                <div class="collapse" id="collapseExample">
+                                    <div class="row row-cols-1 row-cols-sm-2">
+                                        @foreach ($languages as $key => $language)
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <label class="text-white labelCheckCustom d-flex"
+                                                        for="language_{{ $key }}">
+                                                        <input type="checkbox" class="input" name="languages[]"
+                                                            value="{{ $key + 1 }}"
+                                                            id="language_{{ $key }}">
+                                                        <span class="custom-checkbox"></span>
+                                                        <span class="textCheckCustom ps-2">{{ $language }}</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                @endforeach
+                                </div>
                             </div>
                             {{-- Row-3-FRONT --}}
                             <div class="row m-0 ">
@@ -255,8 +278,9 @@
                         {{-- Seconda PARTE FRONT --}}
                         <div class="w-75 d-flex">
                             <div class="row w-100 d-flex justify-content-beetwen m-0">
-                                <div class="col-12 d-none d-sm-block p-3 d-flex justify-content-end align-items-start">
-                                    <img class="img-fluid rounded-2" src="camera.jpg" alt="">
+                                <div class="col-12 d-none d-sm-block d-flex justify-content-end align-items-start">
+                                    <img class="img-fluid h-100 object-fit-contain rounded-2"
+                                        src="3d-man-with-laptop-on-chair.png" alt="">
                                 </div>
                                 <div class="col-12 py-2 d-flex justify-content-end align-items-end">
                                     <span class="switch">Hai già un account?
@@ -273,9 +297,10 @@
                 <div class="FlipFormSign-back">
                     <div
                         class="container-fluid d-flex flex-column-reverse justify-content-between flex-sm-row h-100 d-flex p-2">
-                        <div class="row  m-0">
-                            <div class="col-12 d-none d-sm-block h-75 p-3">
-                                <img class="img-fluid w-75 rounded-2" src="homeCity.jpg" alt="">
+                        <div class="row w-75  m-0">
+                            <div class="col-12 d-none d-sm-block h-75 ">
+                                <img class="img-fluid w-75 rounded-2" src="3d-man-with-laptop-sitting-on-floor.png"
+                                    alt="">
                             </div>
                             <div class="col-12 d-flex justify-content-start align-items-end">
                                 <span class="switch text-black">Non hai un account?
@@ -287,7 +312,7 @@
                         </div>
                         <div class="row w-100 d-flex flex-column m-0">
                             {{-- LOGIN --}}
-                            <div class="col-12 pt-3 text-center form_details">LogIn</div>
+                            <div class="col-12 fs-4 py-3 text-center form_details">LogIn</div>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
                                 {{-- EMAIL --}}
@@ -296,7 +321,7 @@
                                         <input id="emailLog" type="text"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
                                             value="{{ old('email') }}" required autocomplete="email" required autofocus>
-                                        <label for="input" class="label d-block  form-label">Email</label>
+                                        <label for="email" class="label d-block form-label">Email</label>
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -308,7 +333,9 @@
                                 <div class="col-12">
                                     <div class="input-container">
                                         <input id="passwordLog" type="password"
-                                            class="form-control @error('password') is-invalid @enderror" name="password">
+                                            class="form-control @error('password') is-invalid @enderror" required
+                                            name="password">
+                                        <label for="password" class="label d-block form-label">Password</label>
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

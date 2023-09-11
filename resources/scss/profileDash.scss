@@ -1,0 +1,350 @@
+//Profile TOP
+
+.topProfilePic {
+    position: relative;
+    height: 150px;
+    margin-bottom: 4rem !important;
+    border-radius: 10px 10px 0 0;
+
+    img {
+        width: 100%;
+        max-height: 150px;
+        padding: 0;
+        object-fit: cover;
+    }
+
+    .startsProfileVote {
+        position: absolute;
+        top: 0;
+    }
+
+    .delateAccountContainer{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+}
+
+
+.ContainerProfilePicture {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4953b5;
+    border-radius: 10px;
+
+    img{
+        border-radius: 10px;
+    }
+}
+
+///////////////////////////////////////////////////////
+/// SOCIAL ICON
+.SocialBtnCustom {
+    z-index: 4;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    /* overflow: hidden; */
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all .3s;
+    padding: 0;
+}
+
+.svgSocialContainer {
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+    letter-spacing: 0.8px;
+    border-radius: 7px;
+    transition: all .3s;
+}
+
+.bgSocialIcon {
+    padding: 0 !important;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #0077b5;
+    z-index: -1;
+    border-radius: 10px;
+    pointer-events: none;
+    transition: all .3s;
+}
+
+.SocialBtnCustom {
+    &:hover {
+        .bgSocialIcon {
+            transform: rotate(35deg);
+            transform-origin: bottom;
+        }
+
+        .bgSocialIconGitHub {
+            transform: rotate(-35deg);
+            transform-origin: bottom;
+        }
+
+        .svgSocialContainer {
+            background-color: rgba(156, 156, 156, 0.466);
+            backdrop-filter: blur(4px);
+        }
+    }
+}
+
+.bgSocialIconGitHub {
+    background-color: #181818;
+}
+
+/////////////////////////////////////////////////////////
+/// Download BTN
+
+.btnDownloadProfile {
+    --width: 120px;
+    --height: 35px;
+    --tooltip-height: 35px;
+    --tooltip-width: 90px;
+    --gap-between-tooltip-to-button: 18px;
+    --button-color: #1163ff;
+    --tooltip-color: #fff;
+    width: var(--width);
+    height: var(--height);
+    background: var(--button-color);
+    position: relative;
+    text-align: center;
+    border-radius: 0.45em;
+    font-family: "Arial";
+    transition: background 0.3s;
+}
+
+.btnDownloadProfile::before {
+    position: absolute;
+    content: attr(data-tooltip);
+    width: var(--tooltip-width);
+    height: var(--tooltip-height);
+    background-color: var(--tooltip-color);
+    font-size: 0.9rem;
+    color: #111;
+    border-radius: .25em;
+    line-height: var(--tooltip-height);
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+    left: calc(50% - var(--tooltip-width) / 2);
+}
+
+.btnDownloadProfile::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: var(--tooltip-color);
+    left: calc(50% - 10px);
+    bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+}
+
+.btnDownloadProfile::after,
+.btnDownloadProfile::before {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+
+.textBtnDownloadProfile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnDownloadProfile-wrapper,
+.textBtnDownloadProfile,
+.iconBtnDownloadProfile {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    color: #fff;
+}
+
+.textBtnDownloadProfile {
+    top: 0
+}
+
+.textBtnDownloadProfile,
+.iconBtnDownloadProfile {
+    transition: top 0.5s;
+}
+
+.iconBtnDownloadProfile {
+    color: #fff;
+    top: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconBtnDownloadProfile svg {
+    width: 24px;
+    height: 24px;
+}
+
+.btnDownloadProfile:hover {
+    background: #6c18ff;
+}
+
+.btnDownloadProfile:hover .textBtnDownloadProfile {
+    top: -100%;
+}
+
+.btnDownloadProfile:hover .iconBtnDownloadProfile {
+    top: 0;
+}
+
+/* .btnDownloadProfile:hover:before,.btnDownloadProfile:hover:after {
+    opacity: 1;
+    visibility: visible;
+  } */
+
+.btnDownloadProfile:hover:after {
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+}
+
+.btnDownloadProfile:hover:before {
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+
+/////////////////////////////////////////////////////////
+/// DELATE BTN
+.btnDelateAccount {
+    background-color: transparent;
+    position: relative;
+    border: none;
+}
+
+.btnDelateAccount::after {
+    content: 'delete';
+    position: absolute;
+    top: 5px;
+    left: -100%;
+    transform: translateX(-50%);
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(168, 7, 7);
+    padding: 2px 5px;
+    border-radius: 5px;
+    transition: .2s linear;
+    transition-delay: .2s;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.iconDelateAccount {
+    transform: scale(0.8);
+    transition: .2s linear;
+}
+
+.btnDelateAccount:hover>.iconDelateAccount {
+    transform: scale(1);
+}
+
+.btnDelateAccount:hover>.iconDelateAccount path {
+    fill: rgb(168, 7, 7);
+}
+
+.btnDelateAccount:hover::after {
+    visibility: visible;
+    opacity: 1;
+    bottom: -160%;
+}
+
+//////////////////////////////////////////////////////
+/// Profile
+.profileBackground {
+    width: 100%;
+    min-height: 15rem;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.profilePicture {
+    width: 8rem;
+    height: 8rem;
+    background-color: red;
+    border-radius: 5px;
+}
+
+.textInputBox {
+    position: relative;
+    padding: 10px 10px;
+    outline: none;
+    border-radius: 5px;
+    color: #030303;
+    border: 1px solid#ee8456;
+    font-size: 0.8em;
+}
+
+.tagInputBox {
+    position: absolute;
+    color: white;
+    top: -10px;
+    left: 12px;
+    padding: 0 5px;
+    border-radius: 5px;
+    background: #697fed;
+    letter-spacing: 0em;
+    border: 1px solid #4953b5;
+}
+
+
+// .labelCoverText .textInputBox {
+//     padding: 15px 20px;
+//     outline: none;
+//     background: transparent;
+//     border-radius: 5px;
+//     color: #fff;
+//     border: 1px solid#ee8456;
+//     font-size: 1em;
+// }
+
+// .labelCoverText .tagInputBox {
+//     position: absolute;
+//     left: 0;
+//     padding: 15px 20px;
+//     pointer-events: none;
+//     font-size: 1em;
+//     transition: 0.4s cubic-bezier(0.05, 0.81, 0, 0.93);
+//     color: #ee8456;
+//     letter-spacing: 0.1em;
+// }
+
+// .labelCoverText .textInputBox:focus~span,
+// .labelCoverText input:valid~span {
+//     font-size: 0.7em;
+//     transform: translateX(14px) translateY(-7.5px);
+//     padding: 0 5px;
+//     border-radius: 2px;
+//     background: #212121;
+//     letter-spacing: 0em;
+//     border: 1px solid #ee8456;
+// }

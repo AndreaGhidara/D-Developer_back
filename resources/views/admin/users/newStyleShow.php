@@ -35,9 +35,9 @@
                 </div>
             </div>
             {{-- 2 Big container --}}
-            <div class="d-flex flex-column flex-sm-row m-0 px-2">
+            <div class="row m-0 row-cols-sm-2 px-2">
                 {{-- Info Utente Left --}}
-                <div class="row m-0 flex-grow-1 flex-column mb-3 row-gap-3 px-0 pe-2 py-3 border rounded-2">
+                <div class="row m-0 flex-column row-gap-3 px-0 pe-2 py-3 border rounded-2">
                     {{-- Nome e Cognome --}}
                     <div class="col p-0 d-flex">
                         <div class="flex-shrink-1 p-2">
@@ -112,10 +112,10 @@
                     </div>
                 </div>
                 {{-- RIGHT USER --}}
-                <div class="row m-0 flex-column align-items-center">
+                <div class="row m-0 flex-column align-items-center px-3">
                     {{-- Social and CV --}}
                     <div
-                        class="col d-flex flex-column gap-2 flex-sm-row flex-wrap justify-content-between align-items-center mb-3 rounded-2">
+                        class="col d-flex flex-wrap m-3 justify-content-center justify-content-sm-between align-items-center border rounded-2">
                         {{-- LINKEDIN --}}
                         <div class="div">
                             <a href="{{ $user->linkedin_link }}" target="_blank">
@@ -133,7 +133,7 @@
                             </a>
                         </div>
                         {{-- Download CV --}}
-                        <div class="div mx-1">
+                        <div class="div">
                             <a href="{{ asset('storage/' . $user->cv) }}" download="cv">
                                 <div class="btnDownloadProfile" data-tooltip="Size: 20Mb">
                                     <div class="btnDownloadProfile-wrapper">
@@ -215,15 +215,8 @@
                         </p>
                         <div class="collapse" id="collapseExample3">
                             <div class="card card-body bg-transparent">
-                                @if ($user->programmingLanguages)
-                                    <ul class="border-0 row justify-content-center m-0 p-0">
-                                        @foreach ($user->programmingLanguages as $language)
-                                            <li
-                                                class="col-lg-3 text-white list-group-item border-0 rounded-4 orangeBg p-1 m-1">
-                                                {{ $language->language }}</li>
-                                        @endforeach
-                                    </ul>
-                                @endif
+                                Some placeholder content for the collapse component. This panel is hidden by default but
+                                revealed when the user activates the relevant trigger.
                             </div>
                         </div>
                     </div>
@@ -233,15 +226,7 @@
                         </div>
                         <div class="textInputBox w-100">
                             <strong>
-                                {{-- Sponsorizzate --}}
-                                @if (empty($user->sponsors))
-                                    <ul class="list-group border-0">
-                                        <h3>Sponsor</h3>
-                                        @foreach ($user->sponsors as $sponsor)
-                                            <li class="list-group-item border-0">{{ $sponsor->name }}</li>
-                                        @endforeach
-                                    </ul>
-                                @endif
+                                Premium
                             </strong>
                             <small class="tagInputBox">Sponsor</small>
                         </div>

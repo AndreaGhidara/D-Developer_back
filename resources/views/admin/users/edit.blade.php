@@ -23,8 +23,8 @@
 
             <!-- NAME -->
             <div class="col-12 form__group field">
-                <input id="name" name="name" type="text" class="form__field form-control rounded-0 @error('name') is-invalid @enderror" value="{{ old("name")  ?? $user->name}}" placeholder="Name" required autofocus>
-                <label for="name" class="form__label">{{ __('Name') }}</label>
+                <label for="name" class="form__label text-secondary  ">{{ __('Nome') }}</label>
+                <input id="name" name="name" type="text" class="form__field form-control my_border_bottom text-black @error('name') is-invalid @enderror" value="{{ old("name")  ?? $user->name}}" placeholder="Nome" required autofocus>
 
                 @error("name")
                 <div class="invalid-feedback">{{$message}}</div>
@@ -33,8 +33,8 @@
 
             {{-- SURNAME --}}
             <div class="col-12 form__group field">
-                <input type="text" class="form__field form-control rounded-0 @error('surname') is-invalid @enderror" id="surname" name="surname" value="{{ old("surname")  ?? $user->surname}}" placeholder="Surname" required autofocus>
-                <label for="Surname" class="form__label">{{ __('Surname') }}</label>
+                <label for="Surname" class="form__label text-secondary   mt-2">{{ __('Cognome') }}</label>
+                <input type="text" class="form__field form-control text-black my_border_bottom text-black @error('surname') is-invalid @enderror" id="surname" name="surname" value="{{ old("surname")  ?? $user->surname}}" placeholder="Cognome" required autofocus>
                 @error("surname")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -42,8 +42,8 @@
 
             <!--DATA DI NASCITA CON PICKER-->
             <div class="col-12 form__group field">
-                <input type="date" id="date_of_birth" name="date_of_birth" class="form__field form-control rounded-0 @error('date_of_birth') is-invalid @enderror" id="date_of_birth" name="date_of_birth" value="{{ old("date_of_birth") ?? $user->date_of_birth}}" placeholder="Date of birth" required autofocus>
-                <label for="date_of_birth" class="form__label">{{ __('Date of birth') }}</label>
+                <label for="date_of_birth" class="form__label text-secondary   mt-2">{{ __('Data di nascita') }}</label>
+                <input type="date" id="date_of_birth" name="date_of_birth" class="form__field form-control text-black my_border_bottom text-black @error('date_of_birth') is-invalid @enderror" id="date_of_birth" name="date_of_birth" value="{{ old("date_of_birth") ?? $user->date_of_birth}}" placeholder="Data di nascita" required autofocus>
                 @error("date_of_birth")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -51,8 +51,8 @@
 
             <!--INDIRIZZO-->
             <div class="col-12 form__group field">
-                <input type="text" id="address" name="address" class="form__field form-control rounded-0 @error('address') is-invalid @enderror" value="{{ old("address") ?? $user->address}}" placeholder="Address" required autofocus>
-                <label for="address" class="form__label">{{ __('Address') }}</label>
+                <label for="address" class="form__label text-secondary   mt-2">{{ __('Indirizzo') }}</label>
+                <input type="text" id="address" name="address" class="form__field form-control text-black my_border_bottom text-black @error('address') is-invalid @enderror" value="{{ old("address") ?? $user->address}}" placeholder="Indirizzo" required autofocus>
                 @error("address")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -60,8 +60,8 @@
 
             <!--IMG PROFILE-->
             <div class="col-12 form__group field">
-                <input type="file" name="img_path" id="img_path" class="form__field form-control rounded-0 @error('img_path') is-invalid @enderror" placeholder="Profile image" autofocus>
-                <label for="img_path" class="form__label">{{ __('Profile image') }}</label>
+                <label for="img_path" class="form__label text-secondary   mt-2">{{ __('Immagine profilo') }}</label>
+                <input type="file" name="img_path" id="img_path" class="form__field form-control my_border_bottom text-black p-0 @error('img_path') is-invalid @enderror" placeholder="Immagine Profilo" autofocus>
                 @error("img_path")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -69,8 +69,8 @@
 
             {{-- IMG BACKGROUND --}}
             <div class="col-12 form__group field">
-                <input id="bg_dev" name="bg_dev" type="file" class="form__field form-control rounded-0 @error('bg_dev') is-invalid @enderror" placeholder="Background image" autofocus>
-                <label for="bg_dev" class="form__label">{{ __('Background image') }}</label>
+                <label for="bg_dev" class="form__label text-secondary text mt-2">{{ __('Immagine sfondo') }}</label>
+                <input id="bg_dev" name="bg_dev" type="file" class="form__field form-control text-black my_border_bottom p-0 @error('bg_dev') is-invalid @enderror" placeholder="Immagine sfondo" autofocus>
                 @error("bg_dev")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -78,8 +78,8 @@
 
             {{-- LINK GITHUB --}}
             <div class="col-12 form__group field">
-                <input type="text" id="github_link" name="github_link" class="form__field form-control rounded-0 @error('github_link') is-invalid @enderror" value="{{ old("github_link")  ?? $user->github_link}}" placeholder="Link Github" autofocus>
-                <label for="github_link" class="form__label">{{ __('Github') }}</label>
+                <label for="github_link" class="form__label text-secondary mt-2">{{ __('Github') }}</label>
+                <input type="text" id="github_link" name="github_link" class="form__field form-control text-black my_border_bottom text-black @error('github_link') is-invalid @enderror" value="{{ old("github_link")  ?? $user->github_link}}" placeholder="Link Github" autofocus>
                 @error("github_link")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -87,8 +87,8 @@
 
             {{-- LINK LINKEDIN --}}
             <div class="col-12 form__group field">
-                <input type="text" id="linkedin_link" name="linkedin_link"  class="form__field form-control rounded-0 @error('linkedin_link') is-invalid @enderror" value="{{ old("linkedin_link")  ?? $user->linkedin_link}}" placeholder="Link Linkedin" autofocus>
-                <label for="linkedin_link" class="form__label">{{ __('Linkedin') }}</label>
+                <label for="linkedin_link" class="form__label text-secondary   mt-2">{{ __('Linkedin') }}</label>
+                <input type="text" id="linkedin_link" name="linkedin_link"  class="form__field form-control text-black my_border_bottom text-black @error('linkedin_link') is-invalid @enderror" value="{{ old("linkedin_link")  ?? $user->linkedin_link}}" placeholder="Link Linkedin" autofocus>
                 @error("linkedin_link")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -96,8 +96,8 @@
 
             <!--BIO-->
             <div class="col-12 form__group field">
-                <textarea type="text" id="bio" name="bio" class="form__field form-control rounded-0 @error('bio') is-invalid @enderror" cols="30" rows="5"  placeholder="Bio" autofocus>{{ old("bio")  ?? $user->bio}}</textarea>
-                <label for="bio" class="form__label">{{ __('Bio') }}</label>
+                <label for="bio" class="form__label text-secondary   mt-2">{{ __('Bio') }}</label>
+                <textarea type="text" id="bio" name="bio" class="form__field form-control text-black my_border_bottom text-black @error('bio') is-invalid @enderror" cols="30" rows="5"  placeholder="Bio" autofocus>{{ old("bio")  ?? $user->bio}}</textarea>
                 @error("bio")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -105,8 +105,8 @@
 
             <!-- VAT NUMBER -->
             <div class="col-12 form__group field">
-                <input type="text" id="vat_number" name="vat_number" class="form__field rounded-0 form-control @error('vat_number') is-invalid @enderror" value="{{ old("vat_number")  ?? $user->vat_number}}" placeholder="Vat Number" required autofocus>
-                <label for="vat_number" class="form__label">{{ __('Vat number (partita Iva)') }}</label>
+                <label for="vat_number" class="form__label text-secondary   mt-2">{{ __('Vat number (partita Iva)') }}</label>
+                <input type="text" id="vat_number" name="vat_number" class="form__field my_border_bottom text-black form-control text-black @error('vat_number') is-invalid @enderror" value="{{ old("vat_number")  ?? $user->vat_number}}" placeholder="Vat Number" required autofocus>
                 @error("vat_number")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -114,8 +114,8 @@
 
             {{-- CV --}}
             <div class="col-12 form__group field">
-                <input type="file" id="cv" name="cv" class="form__field form-control rounded-0 @error('cv') is-invalid @enderror" placeholder="Curriculum" autofocus>
-                <label for="curriculum" class="form__label">{{ __('Curriculum') }}*</label>
+                <label for="curriculum" class="form__label text-secondary   mt-2">{{ __('Curriculum') }}*</label>
+                <input type="file" id="cv" name="cv" class="form__field form-control text-black my_border_bottom text-black p-0 @error('cv') is-invalid @enderror" placeholder="Curriculum" autofocus>
                 @error("cv")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -123,8 +123,8 @@
 
             {{-- TEL NUMBER --}}
             <div class="col-12 form__group field">
-                <input type="number" id="phone_number" name="phone_number" class="form__field form-control rounded-0 @error('phone_number') is-invalid @enderror" value="{{ old("phone_number")  ?? $user->phone_number}}" placeholder="Tel Number" required autofocus>
-                <label for="phone_number" class="form__label">{{ __('Phone_number') }}*</label>
+                <label for="phone_number" class="form__label text-secondary   mt-2">{{ __('Numero di telefono') }}*</label>
+                <input type="number" id="phone_number" name="phone_number" class="form__field form-control text-black my_border_bottom text-black @error('phone_number') is-invalid @enderror" value="{{ old("phone_number")  ?? $user->phone_number}}" placeholder="Numero di telefono" required autofocus>
                 @error("phone_number")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -132,8 +132,8 @@
 
             <!-- SOFT SKILLS -->
             <div class="col-12 form__group field">
-                <textarea type="text" id="soft_skill" name="soft_skill" class="form__field form-control rounded-0 @error('soft_skill') is-invalid @enderror" cols="30" rows="5" placeholder="Soft Skills" autofocus>{{ old("soft_skill") ?? $user->soft_skill}}</textarea>
-                <label for="soft_skill" class="form__label">{{ __('Soft skill') }}</label>
+                <label for="soft_skill" class="form__label text-secondary   mt-2">{{ __('Soft skill') }}</label>
+                <textarea type="text" id="soft_skill" name="soft_skill" class="form__field form-control text-black my_border_bottom text-black @error('soft_skill') is-invalid @enderror" cols="30" rows="5" placeholder="Soft Skills" autofocus>{{ old("soft_skill") ?? $user->soft_skill}}</textarea>
                 @error("soft_skill")
                 <div class="invalid-feedback">{{$message}}</div>
                 @enderror
@@ -142,13 +142,21 @@
             <!--LINGUAGGI DI PROGRAMMAZIONE-->
             <div class="row p-3">
                 @foreach ($languages as $i => $language)
-                <div class="form-check col-2">
-                        <input type="checkbox" value="{{old(" $language->id") ??  $language->id}}" name="programmingLanguages[]" id="programmingLanguages{{$i}}" class="form-check-input"  @if( $user_languages->contains($language->id) ) checked @endif>
-                        <label for="programmingLanguages{{$i}}" class="form-check-label">{{$language->language}}</label>
+                <div class="form-check col-2 d-flex">
+                    <input type="checkbox" value="{{old(" $language->id") ??  $language->id}}" name="programmingLanguages[]" id="programmingLanguages{{$i}}" class="cyberpunk-checkbox"  @if( $user_languages->contains($language->id) ) checked @endif>
+                    <label for="programmingLanguages{{$i}}" class="cyberpunk-checkbox-label form-check-label text-secondary">{{$language->language}}</label>
                     </div>
                 @endforeach
             </div>
-            <input class="form-control mt-4 btn btn-secondary" type="submit" value="Invia">
+
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <button class="button" type="submit">
+                        <span class="text">Invia</span>
+                        <div class="wave"></div>
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
 </div>

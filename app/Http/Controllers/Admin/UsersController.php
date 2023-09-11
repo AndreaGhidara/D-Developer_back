@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
 use App\Providers\RouteServiceProvider;
+use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Php;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -24,13 +25,27 @@ class UsersController extends Controller{
     public function show(Request $request)
     {
         $user = Auth::user();
-
+        
         if ($request->has('sponsorships')) {
             $selectedSponsorships = $request->input('sponsorships'); // Assumendo che 'sponsorships' sia un array di ID sponsorizzazione
             $user->sponsors()->sync($selectedSponsorships); // Syncronizza le sponsorizzazioni dell'utente con quelle selezionate
             $user->load('sponsors'); // Carica nuovamente le sponsorizzazioni dell'utente con le modifiche
         }
-        return view('admin.users.show' , compact('user',));
+        
+        $voti = [];
+        
+        foreach ($user->valutations as $item ){
+            $voti[] = $item->valutation;
+           
+        }
+      
+        $mediaVoti = count($voti) > 0 ? array_sum($voti) / count($voti) : 0;
+        // dd($mediaVoti);
+        $mediaVoti = round($mediaVoti);
+
+        $star= 5;
+
+        return view('admin.users.show' , compact('user', 'star' ,'mediaVoti'));
     }
 
     /**

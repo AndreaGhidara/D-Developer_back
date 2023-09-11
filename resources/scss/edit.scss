@@ -1,0 +1,144 @@
+.my_border_bottom{
+    border: none !important;
+    border-bottom: 1px solid #40B4FF !important;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none!important
+}
+.my_border_bottom:focus{
+    border-bottom: 1px solid #FCB457 !important;
+}
+
+// colore testo
+
+.my_lightBlue{
+    color: #40B4FF;
+}
+
+
+// input file
+
+input[type=file]::file-selector-button {
+    text: 'testo';
+    border: 0;
+    background-color: #40B4FF00;
+    margin-left: 1px;
+    color: #40B4FF;
+    padding: 10px 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+// bottone invio
+
+.button {
+    padding: 10px 20px;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    border: 0;
+    cursor: pointer;
+    border-radius: 2rem;
+    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.button:hover .wave {
+  top: -120px;
+}
+
+.text {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-weight: 500;
+}
+
+.wave {
+  width: 200px;
+  height: 200px;
+  background-color: #40b4ff;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: -70px;
+  transition: 0.4s;
+}
+
+.wave::before, a .wave::after {
+  width: 200%;
+  height: 200%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+
+.wave::before {
+  border-radius: 45%;
+  background-color: #0581b3;
+  animation: wave 5s linear infinite;
+}
+
+.wave::after {
+  border-radius: 40%;
+  background-color: rgba(20, 20, 20, 0.5);
+  animation: wave 10s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -75%) rotate(300deg);
+  }
+}
+
+
+// check box
+
+.cyberpunk-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #40b4ff;
+    border-radius: 5px;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .cyberpunk-checkbox:before {
+    content: "";
+    background-color: #40b4ff;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .cyberpunk-checkbox:checked:before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .cyberpunk-checkbox-label {
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    align-items: center;
+  }

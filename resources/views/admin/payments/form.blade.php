@@ -3,11 +3,11 @@
 
 
 @section('content')
-    <div class="container paymentBox rounded-5 py-5 mt-5 bg-light">
+    <div class="container paymentBox rounded-5 py-5 mt-5 gradient-background-blue">
         <img class="relative duckPosition img-fluid" src="/duckSpecchiata.png" alt="" width="550" height="550">
         <!--Titolo-->
         <div class="row">
-            <div class="col text-center">
+            <div class="col text-light text-center">
                 <h1>Procedi con il pagamento</h1>
                 <img src="duckLogoGoldpng.png" alt="">
                 <div class="spacer"></div>
@@ -32,12 +32,13 @@
             @csrf
             <div class="row">
                 <!--Lato sinistro del container-->
-                <div class="col-sm-6 text-center">
+                <div class="col-sm-6 text-center text-light">
                     <h5>Ci siamo quasi !</h5>
                     <p>Inserisci i tuoi dati e procedi al pagamento... <br>
                         la sponsorizzazione sarà attiva fin da subito, <br>
                         allo scadere del tempo il tuo profilo non
-                        sarà più messo in evidenza !
+                        sarà più messo in evidenza ! <br>
+                        <i class="fa-solid fa-hand-holding-dollar text-light"></i>
                     </p>
                 </div>
                 <!--Lato destro del container-->
@@ -56,6 +57,7 @@
                             </div>
                         </div>
                     </div>
+                    <!--Pagamento-->
                     <div class="row">
                         <div class="col bgCard rounded-3 m-2 w-50">
                             <label for="cc_number">Numero carta</label>

@@ -12,37 +12,38 @@
     </div>
 </div>
 <div class="container my-3 gradient-background-blue rounded-3 p-2 overflow-auto h-75">
+    <img class="relative imgChatPosition" src="/notif.png" alt="">
     <div class="row rounded-5 m-5">
         {{-- Inizio del ciclo --}}
         @foreach ($messages as $message)
-        <div class="col-12 bg-light p-2 mb-5 rounded-5">
+        <div class="col-12 p-2 mb-1 rounded-5">
             <div class="row p-5">
-                <div class="col-sm-7">
-                    <h4 class="rounded-3 text-center text-white mandarinBg titleW p-2">
-                        <i class="fa-solid fa-envelope-open-text"></i>
-                        Hai ricevuto un messaggio da :
-                    </h4>
-                </div>
-                {{-- Info utente che ha mandato il messaggio --}}
-                <div class="col-sm-2 text-center rounded-3 text-white orangeBg m-2 p-2">
-                    <h4>{{$message->name}} {{$message->surname}}</h4>
-                </div>
-                <div class="col-sm-2 text-center rounded-3 text-white orangeBg m-2 p-2">
-                    <h5><i class="fa-regular fa-envelope"></i> {{$message->email}}</h5>
-                </div>
-            </div>
-            <div class="row rounded-3 text-white orangeBg p-2 m-5">
                 <div class="col">
-                    <p>{{$message->text}}</p>
+                    <div class="card">
+                        <h4 class="rounded-3 text-center text-white mandarinBg titleW p-2">
+                            Hai ricevuto un <i class="fa-solid fa-envelope"></i> da :
+                            <br>
+                            {{$message->name}} {{$message->surname}}
+                            <br>
+                            {{$message->email}}
+                        </h4>
+                        <div class="card__content">
+                            <p class="card__title"></p>
+                            <p class="card__description">
+                                <i class="fa-solid fa-envelope-open"></i> <br>
+                                {{$message->text}}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <hr class="mandarinText">
+            <hr class="mandarinText my-1">
         </div>
         @endforeach
         {{-- Fine del ciclo --}}
     </div>
+    <img class="relative imgMessPosition" src="/mess.png" alt="">
 </div>
-
 
 <script>
 

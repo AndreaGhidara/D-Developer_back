@@ -42,6 +42,9 @@
         {{-- Fine del ciclo --}}
     </div>
 </div>
+<div class="bg-light h-100 w-100">
+    <img src="/public/mess" alt="" width="100" height="100">
+</div>
 
 <script>
 

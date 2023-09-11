@@ -4,10 +4,11 @@
 
 @section('content')
     <div class="container paymentBox rounded-5 py-5 mt-5 bg-light">
-        <img class="relative duckPosition img-fluid" src="/duckSpecchiata.png" alt="" width="580" height="580">
+        <img class="relative duckPosition img-fluid" src="/duckSpecchiata.png" alt="" width="550" height="550">
+        <!--Titolo-->
         <div class="row">
             <div class="col text-center">
-                <h1>Completa il tuo ordine</h1>
+                <h1>Procedi con il pagamento</h1>
                 <img src="duckLogoGoldpng.png" alt="">
                 <div class="spacer"></div>
             </div>
@@ -30,50 +31,45 @@
         <form action="{{ route('admin.pay') }}" method="POST" id="payment-form">
             @csrf
             <div class="row">
-                <div class="col-sm-6 form-group">
-                    <label for="name_on_card">Nome proprietario carta</label>
-                    <input value="{{$user->getAttributes()['name']}}" type="text" class="form-control" id="name_on_card" name="name_on_card">
+                <!--Lato sinistro del container-->
+                <div class="col-sm-6 text-center">
+                    <h5>Ci siamo quasi !</h5>
+                    <p>Inserisci i tuoi dati e procedi al pagamento... <br>
+                        la sponsorizzazione sarà attiva fin da subito, <br>
+                        allo scadere del tempo il tuo profilo non
+                        sarà più messo in evidenza !
+                    </p>
                 </div>
-                <div class="col-sm-6 form-group">
-                    <label for="email">Email</label>
-                    <input value="{{$user->getAttributes()['email']}}" name="email" type="email" class="form-control" id="email">
-                </div>
-            </div>
+                <!--Lato destro del container-->
+                <div class="col-md-6 p-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="name_on_card">Nome sulla carta</label>
+                            <input value="{{$user->getAttributes()['name']}}" type="text" class="form-control" id="name_on_card" name="name_on_card">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group ">
+                                <label for="amount">Totale</label>
+                                <input type="text" class="form-control text-end" id="amount" name="amount" value="{{$sponsor['price']}}" aria-label="readonly" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col bgCard rounded-3 m-2 w-50">
+                            <label for="cc_number">Numero carta</label>
+                            <div class="form-group" id="card-number"></div>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group ">
-                        <label for="amount">Totale</label>
-                        <input type="text" class="form-control text-end" id="amount" name="amount" value="{{$sponsor['price']}}" aria-label="readonly" readonly>
+                            <label for="expiry">Scadenza</label>
+                            <div class="form-group" id="expiration-date"></div>
+
+                            <label for="cvv">CVC</label>
+                            <div class="form-group" id="cvv"></div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row bgCard rounded-3 m-2 w-50">
-                <div class="col-md-6">
-                    <label for="cc_number">Numero carta</label>
-
-                    <div class="form-group" id="card-number">
-
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <label for="expiry">Scadenza</label>
-
-                    <div class="form-group" id="expiration-date">
-
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <label for="cvv">CVC</label>
-
-                    <div class="form-group" id="cvv">
-
-                    </div>
-                </div>
-
             </div>
 
             <div class="spacer"></div>

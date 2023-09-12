@@ -8,6 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="icon" type="image/png" href="{{ asset('favicon-32x32-logo.png') }}">
+
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fontawesome 6 cdn -->

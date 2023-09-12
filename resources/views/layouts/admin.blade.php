@@ -21,6 +21,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet" />
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -30,7 +33,7 @@
 <body>
     <div id="app">
 
-        <div class="dashboard ">
+        <div class="dashboard m-0">
             <div class="dashLeft gradient-background border">
                 <div class="menu">
                     <ul class="m-0 p-0">
@@ -64,7 +67,7 @@
                                             </svg>
                                         </div>
                                         {{-- Text --}}
-                                        <div class="text text-white">Profile</div>
+                                        <div class="text text-white">Profilo</div>
                                     </button>
                                 </div>
                             </a>
@@ -83,7 +86,7 @@
                                             </svg>
                                         </div>
                                         {{-- Text --}}
-                                        <div class="text text-white">Edit</div>
+                                        <div class="text text-white">Modifica</div>
                                     </button>
                                 </div>
                             </a>
@@ -103,7 +106,7 @@
                                             </svg>
                                         </div>
                                         {{-- Text --}}
-                                        <div class="text text-white">Messages</div>
+                                        <div class="text text-white">Messaggi</div>
                                     </button>
                                 </div>
                             </a>
@@ -123,7 +126,7 @@
                                             </svg>
                                         </div>
                                         {{-- Text --}}
-                                        <div class="text text-white">Reviews</div>
+                                        <div class="text text-white">Recensioni</div>
                                     </button>
                                 </div>
                             </a>
@@ -143,14 +146,15 @@
                                             </svg>
                                         </div>
                                         {{-- Text --}}
-                                        <div class="text text-white">Sponsorships</div>
+                                        <div class="text text-white">Sponsor</div>
                                     </button>
                                 </div>
                             </a>
                         </li>
                         {{-- Stats --}}
                         <li class="d-flex align-items-center py-1">
-                            <a class="nav-link d-flex align-items-center" href="{{ route('admin.users.stats', $user)}}">
+                            <a class="nav-link d-flex align-items-center"
+                                href="{{ route('admin.users.stats', $user) }}">
                                 <div class="squereIcon">
                                     <button class="Btn">
                                         <div class="sign">
@@ -160,7 +164,7 @@
                                                 <path
                                                     d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z" />
                                             </svg> {{-- Text --}}
-                                            <div class="text">Stats</div>
+                                            <div class="text text-white">Statistiche</div>
                                     </button>
                                 </div>
                             </a>
@@ -198,61 +202,7 @@
                 @yield('content')
             </div>
         </div>
-        {{-- <div class="row h-100"> --}}
-        {{-- <nav id="sidebarMenu" class="col-sm-1 col-md-3 col-lg-2 d-md-block sidebar collapse bg_green">
-                    <div class="position-sticky pt-3">
-                        <ul class="nav flex-column">
-
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="/">
-                                    <i class="fa-solid fa-home-alt fa-lg fa-fw"></i> Home
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
-                                    href="{{ route('admin.dashboard') }}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
-                                </a>
-                            </li>
-
-                            <!--AGGIUNTA PULSANTE SHOW-->
-                            <li class="nav-item">
-                                <a class="nav-link text-white"
-                                    href="{{ route('admin.users.show', $user)}}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> La tua pagina
-                                </a>
-                            </li>
-
-                            <!--AGGIUNTA PULSANTE MESSAGGI-->
-                            <li class="nav-item">
-                                <a class="nav-link text-white"
-                                    href="{{ route('admin.users.messages', $user)}}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> I tuoi Messaggi
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fa-solid fa-sign-out-alt fa-lg fa-fw"></i> {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                </nav> --}}
-
-        {{-- <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg_light">
-                    @yield('content')
-                </main> --}}
-        {{-- </div> --}}
     </div>
-
 </body>
 
 </html>

@@ -21,7 +21,7 @@
                     @endif
                 </div>
                 {{-- stars --}}
-                <div class="col p-4 startsProfileVote">
+                <div class="col p-2 startsProfileVote">
 
                     @if (isset($mediaVoti))
 
@@ -56,8 +56,8 @@
                 {{-- Info Utente Left --}}
                 <div class="row m-0 flex-grow-1 flex-column mb-3 row-gap-3 px-0 pe-2 py-3 border rounded-2">
                     {{-- Nome e Cognome --}}
-                    <div class="col p-0 d-flex">
-                        <div class="flex-shrink-1 p-2">
+                    <div class="col p-0 d-flex shadowInput">
+                        <div class="flex-shrink-1 p-2 coverIconProfile">
                             <i class="fa-regular fa-user"></i>
                         </div>
                         <div class="textInputBox w-100">
@@ -67,8 +67,9 @@
                             <small class="tagInputBox">Nome utente</small>
                         </div>
                     </div>
+                    <hr>
                     {{-- Email --}}
-                    <div class="col p-0 d-flex">
+                    <div class="col p-0 d-flex shadowInput coverIconProfile">
                         <div class="flex-shrink-1 p-2">
                             <i class="fa-regular fa-envelope"></i>
                         </div>
@@ -79,8 +80,9 @@
                             <small class="tagInputBox">Email</small>
                         </div>
                     </div>
+                    <hr>
                     {{-- Data di nascita --}}
-                    <div class="col p-0 d-flex">
+                    <div class="col p-0 d-flex shadowInput coverIconProfile">
                         <div class="flex-shrink-1 p-2">
                             <i class="fa-regular fa-calendar"></i>
                         </div>
@@ -91,8 +93,9 @@
                             <small class="tagInputBox">Data di nascita</small>
                         </div>
                     </div>
+                    <hr>
                     {{-- Indirizzo --}}
-                    <div class="col p-0 d-flex">
+                    <div class="col p-0 d-flex shadowInput coverIconProfile">
                         <div class="flex-shrink-1 p-2">
                             <i class="fa-solid fa-map-pin"></i>
                         </div>
@@ -103,8 +106,9 @@
                             <small class="tagInputBox">Indirizzo</small>
                         </div>
                     </div>
+                    <hr>
                     {{-- P. IVA --}}
-                    <div class="col p-0 d-flex">
+                    <div class="col p-0 d-flex shadowInput coverIconProfile ">
                         <div class="flex-shrink-1 p-2">
                             <i class="fa-solid fa-receipt"></i>
                         </div>
@@ -115,9 +119,10 @@
                             <small class="tagInputBox">P. Iva</small>
                         </div>
                     </div>
+                    <hr>
                     {{-- Numero di telefono --}}
-                    <div class="col p-0 d-flex">
-                        <div class="flex-shrink-1 p-2">
+                    <div class="col p-0 d-flex shadowInput coverIconProfile">
+                        <div class="flex-shrink-1 p-2 ">
                             <i class="fa-solid fa-mobile-screen-button"></i>
                         </div>
                         <div class="textInputBox w-100">
@@ -194,8 +199,8 @@
                     </div>
                     {{-- Bio --}}
                     <div class="col">
-                        <p class="d-flex gap-1">
-                            <button class="btn border w-100" type="button" data-bs-toggle="collapse"
+                        <p class="d-flex gap-1 coverGlass">
+                            <button class="btn border w-100 gradient-background" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 Bio
                             </button>
@@ -205,18 +210,18 @@
                                 @if ( $user->bio)
                                     {{$user->bio}}
                                 @else
-                                   
+                                
                                     Modifica il tuo profilo e aggiungi la tua Biografia
-                                   
+                                
                                 @endif
-                               
+                            
                             </div>
                         </div>
                     </div>
                     {{-- Soft Skills --}}
                     <div class="col py-3">
-                        <p class="d-flex gap-1">
-                            <button class="btn border w-100" type="button" data-bs-toggle="collapse"
+                        <p class="d-flex gap-1 coverGlass">
+                            <button class="btn border w-100 gradient-background" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
                                 Soft Skills
                             </button>
@@ -226,17 +231,17 @@
                                 @if ( $user->soft_skill)
                                     {{$user->soft_skill}}
                                 @else
-                                   
+                                
                                     Modifica il tuo profilo e aggiungi le tue Soft Skills
-                                   
+                                
                                 @endif
                             </div>
                         </div>
                     </div>
                     {{-- Linguaggi --}}
-                    <div class="col">
-                        <p class="d-flex gap-1">
-                            <button class="btn border w-100" type="button" data-bs-toggle="collapse"
+                    <div class="col ">
+                        <p class="d-flex gap-1 coverGlass ">
+                            <button class="btn border w-100 gradient-background" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
                                 Linguaggi
                             </button>
@@ -244,13 +249,14 @@
                         <div class="collapse" id="collapseExample3">
                             <div class="card card-body bg-transparent">
                                 @if ($user->programmingLanguages)
-                                    <ul class="border-0 row justify-content-center m-0 p-0">
+                                    <div class=" row m-0 p-0 h-100">
                                         @foreach ($user->programmingLanguages as $language)
-                                            <li
+                                        <img class="iconLanguages p-1" src="{{ asset('languagesIcon/' . $language->language . '.png') }}" alt="{{ $language }}">    
+                                        {{-- <li
                                                 class="col-lg-3 text-white list-group-item border-0 rounded-4 orangeBg p-1 m-1">
-                                                {{ $language->language }}</li>
+                                                {{ $language->language }}</li> --}}
                                         @endforeach
-                                    </ul>
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -259,7 +265,7 @@
                         <div class="flex-shrink-1 p-2">
                             <i class="fa-regular fa-handshake"></i>
                         </div>
-                        <div class="textInputBox w-100">
+                        <div class="textInputBox w-100 gradient-background">
                             <strong>
                                 {{-- Sponsorizzate --}}
                                 @if (empty($user->sponsors))

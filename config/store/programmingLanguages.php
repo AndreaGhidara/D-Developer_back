@@ -6,8 +6,8 @@ return [
     'Python',
     'Java',
     'C',
-    'C++',
-    'C#',
+    'C-plus-plus',
+    'C-sharp',
     'PHP',
     'R',
     'Swift',
@@ -22,7 +22,6 @@ return [
     'MATLAB',
     'Bash (Shell Scripting)',
     'Assembly'
-    
 ]
 
 

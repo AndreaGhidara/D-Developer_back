@@ -18,7 +18,7 @@ return [
                 ['language' => 'JavaScript'],
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Ruby'],
                 ['language' => 'Swift'],
@@ -102,7 +102,7 @@ return [
                 ['language' => 'JavaScript'],
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Swift'],
             ],
@@ -219,7 +219,7 @@ return [
                 ['language' => 'JavaScript'],
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Swift'],
                 ['language' => 'Ruby'],
@@ -475,7 +475,7 @@ return [
                 ['language' => 'JavaScript'],
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'Ruby'],
             ],
             'valuations' => [
@@ -824,13 +824,13 @@ return [
                 ['language' => 'JavaScript'],
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Swift'],
                 ['language' => 'Ruby'],
                 ['language' => 'Kotlin'],
                 ['language' => 'SQL'],
-                ['language' => 'C++'],
+                ['language' => 'C-plus-plus'],
             ],
             'valuations' => [
                 ['valutation_name' => 'ottimo', 'valutation' => 5],
@@ -985,7 +985,7 @@ return [
                 ['language' => 'JavaScript'],
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Swift'],
             ],
@@ -1263,7 +1263,7 @@ return [
                 ['language' => 'JavaScript'],
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Swift'],
             ],
@@ -1583,9 +1583,9 @@ return [
             'phone_number' => '9876543210',
             'soft_skill' => 'Creativo e orientato ai dettagli.',
             'programming_languages' => [
-                ['language' => 'C++'],
+                ['language' => 'C-plus-plus'],
                 ['language' => 'Python'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'JavaScript'],
             ],
             'valuations' => [
@@ -1758,7 +1758,7 @@ return [
                 ['language' => 'Java'],
                 ['language' => 'Python'],
                 ['language' => 'JavaScript'],
-                ['language' => 'C++'],
+                ['language' => 'C-plus-plus'],
                 ['language' => 'PHP'],
             ],
             'valuations' => [
@@ -1838,7 +1838,7 @@ return [
                 ['language' => 'JavaScript'],
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Ruby'],
             ],
@@ -1957,7 +1957,7 @@ return [
                 ['language' => 'JavaScript'],
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
             ],
             'valuations' => [
@@ -2066,7 +2066,7 @@ return [
                 ['language' => 'JavaScript'],
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Swift'],
                 ['language' => 'Ruby'],
@@ -2374,7 +2374,7 @@ return [
                 ['language' => 'PHP'],
                 ['language' => 'SQL'],
                 ['language' => 'Ruby'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
             ],
             'valuations' => [
                 ['valutation_name' => 'ottimo', 'valutation' => 5],
@@ -2489,7 +2489,7 @@ return [
                 ['language' => 'PHP'],
                 ['language' => 'SQL'],
                 ['language' => 'Ruby'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
             ],
             'valuations' => [
                 ['valutation_name' => 'ottimo', 'valutation' => 5],
@@ -2601,7 +2601,7 @@ return [
                 ['language' => 'JavaScript'],
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
             ],
             'valuations' => [
                 ['valutation_name' => 'ottimo', 'valutation' => 5],
@@ -2797,7 +2797,7 @@ return [
                 ['language' => 'PHP'],
                 ['language' => 'Ruby'],
                 ['language' => 'SQL'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
             ],
             'valuations' => [
                 ['valutation_name' => 'ottimo', 'valutation' => 5],
@@ -3392,7 +3392,7 @@ return [
 
                 ['language' => 'SQL'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
             ],
             'valuations' => [
@@ -3491,7 +3491,7 @@ return [
             'programming_languages' => [
                 ['language' => 'Java'],
                 ['language' => 'Python'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'SQL'],
                 ['language' => 'Ruby'],
@@ -3714,7 +3714,7 @@ return [
                 ['language' => 'Python'],
 
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
             ],
             'valuations' => [
@@ -4195,7 +4195,7 @@ return [
                 ['language' => 'Python'],
 
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'SQL'],
             ],
             'valuations' => [
@@ -4347,7 +4347,7 @@ return [
 
                 ['language' => 'PHP'],
                 ['language' => 'Java'],
-                ['language' => 'C++'],
+                ['language' => 'C-plus-plus'],
             ],
             'valuations' => [
                 ['valutation_name' => 'ottimo', 'valutation' => 5],
@@ -4456,7 +4456,7 @@ return [
                 ['language' => 'Python'],
 
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'Swift'],
             ],
             'valuations' => [
@@ -4913,7 +4913,7 @@ return [
 
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'SQL'],
                 ['language' => 'Ruby'],
@@ -5023,7 +5023,7 @@ return [
 
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Ruby'],
             ],
@@ -5329,7 +5329,7 @@ return [
 
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Ruby'],
                 ['language' => 'Swift'],
@@ -5435,7 +5435,7 @@ return [
 
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Ruby'],
             ],
@@ -5634,7 +5634,7 @@ return [
                 ['language' => 'Python'],
                 ['language' => 'Ruby'],
                 ['language' => 'PHP'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'SQL'],
                 ['language' => 'Java'],
             ],
@@ -5717,7 +5717,7 @@ return [
                 ['language' => 'Python'],
                 ['language' => 'Java'],
                 ['language' => 'PHP'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'Swift'],
                 ['language' => 'Ruby'],
                 ['language' => 'SQL'],
@@ -5801,7 +5801,7 @@ return [
 
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Ruby'],
                 ['language' => 'Swift'],
@@ -5903,7 +5903,7 @@ return [
 
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Ruby'],
                 ['language' => 'Swift'],
@@ -5990,7 +5990,7 @@ return [
                 ['language' => 'Java'],
                 ['language' => 'PHP'],
                 ['language' => 'Ruby'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'Swift'],
                 ['language' => 'TypeScript'],
             ],
@@ -6090,7 +6090,7 @@ return [
 
                 ['language' => 'Python'],
                 ['language' => 'Java'],
-                ['language' => 'C#'],
+                ['language' => 'C-sharp'],
                 ['language' => 'PHP'],
                 ['language' => 'Ruby'],
                 ['language' => 'Swift'],

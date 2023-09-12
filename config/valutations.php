@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 return [
     'insufficiente',
-    'suffuciente',
+    'sufficiente',
     'buono',
     'distinto',
     'ottimo'

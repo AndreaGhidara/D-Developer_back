@@ -9,7 +9,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel="icon" type="image/x-icon" src="/logo.png">
+    {{-- logo --}}
+    <link rel="icon" type="image/png" href="{{ asset('favicon-32x32-logo.png') }}">
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

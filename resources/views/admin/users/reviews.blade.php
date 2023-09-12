@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container my-3 gradient-background-blue rounded-3 p-2">
+<div class="container my-3 p-2">
     <div class="row">
         <div class="col text-center p-3">
             <h1 class="text-white orangeBg rounded-5 p-2">
@@ -9,6 +9,8 @@
             </h1>
         </div>
     </div>
+</div>
+<div class="container my-3 gradient-background-blue rounded-3 p-2 overflow-auto h-75">
     @foreach ($reviews as $review)
         <div class="row d-flex justify-content-center text-center m-3 mb-3 rounded-3 bg-light">
             <div class="col-sm-4 p-3">
@@ -37,6 +39,7 @@
         </div>
         <hr class="mandarinText">
     @endforeach
+    <img class="catImgPosition" src="/gatito.png" alt="">
 </div>
 
 <script>

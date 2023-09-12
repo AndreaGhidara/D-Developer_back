@@ -5,7 +5,7 @@
             <div class="row flex-column flex-md-row gap-2">
                 <div class="col-12 col-md-6 text-center welcomeText rounded-2 d-flex justify-content-center align-items-center">
                     <h1 class="display-5 fw-bold w-100">
-                        Benvenuto nel poratale dei <br>
+                        Benvenuto nel portale dei <br>
                         <span class="text-warning">
                             Developer
                         </span>

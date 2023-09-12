@@ -194,8 +194,14 @@
                         </p>
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body bg-transparent">
-                                Some placeholder content for the collapse component. This panel is hidden by default but
-                                revealed when the user activates the relevant trigger.
+                                @if ( $user->bio)
+                                    {{$user->bio}}
+                                @else
+                                   
+                                    Modifica il tuo profilo e aggiungi la tua Biografia
+                                   
+                                @endif
+                               
                             </div>
                         </div>
                     </div>
@@ -209,8 +215,13 @@
                         </p>
                         <div class="collapse" id="collapseExample1">
                             <div class="card card-body bg-transparent">
-                                Some placeholder content for the collapse component. This panel is hidden by default but
-                                revealed when the user activates the relevant trigger.
+                                @if ( $user->soft_skill)
+                                    {{$user->soft_skill}}
+                                @else
+                                   
+                                    Modifica il tuo profilo e aggiungi le tue Soft Skills
+                                   
+                                @endif
                             </div>
                         </div>
                     </div>

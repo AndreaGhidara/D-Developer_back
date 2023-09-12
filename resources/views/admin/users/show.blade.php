@@ -261,14 +261,14 @@
                         </div>
                         <div class="textInputBox w-100">
                             <strong>
-                                {{-- Sponsorizzate --}}
-                                @if (empty($user->sponsors))
+                                @if ($user->sponsors)
                                     <ul class="list-group border-0">
-                                        <h3>Sponsor</h3>
                                         @foreach ($user->sponsors as $sponsor)
                                             <li class="list-group-item border-0">{{ $sponsor->name }}</li>
                                         @endforeach
                                     </ul>
+                                @else
+                                   
                                 @endif
                             </strong>
                             <small class="tagInputBox">Sponsor</small>

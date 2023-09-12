@@ -65,7 +65,7 @@
                                 {{ $sponsorships[1]->price}} €<small>/ {{ $sponsorships[1]->time_sponsor }} H</small>
                             </span>
                         </span>
-                        <h5 class="title mt-3">Piano {{ $sponsorships[0]->name }}</h5>
+                        <h5 class="title mt-3">Piano {{ $sponsorships[1]->name }}</h5>
                         <p class="info">Sponsorizza il tuo profilo per 72h ! Mostrati in home e tra i primi risultati in ricerca</p>
                         <ul class="features">
                             <li>
@@ -108,7 +108,7 @@
                                 {{ $sponsorships[2]->price}} €<small>/ {{ $sponsorships[2]->time_sponsor }} H</small>
                             </span>
                         </span>
-                        <h5 class="title mt-3">Piano {{ $sponsorships[0]->name }}</h5>
+                        <h5 class="title mt-3">Piano {{ $sponsorships[2]->name }}</h5>
                         <p class="info">Sponsorizza il tuo profilo per 144h ! Mostrati in home e tra i primi risultati in ricerca</p>
                         <ul class="features">
                             <li>

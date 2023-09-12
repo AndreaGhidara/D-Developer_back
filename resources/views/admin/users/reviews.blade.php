@@ -27,7 +27,7 @@
             </div>
             <div class="col-sm-3 p-3">
                 <p class="text-white orangeBg rounded-3">Ricevuta in data:</p>
-                <h4>{{$review->date}}</h4>
+                <h4>{{$review->created_at}}</h4>
             </div>
         </div>
         <div class="row m-3 rounded-3 bg-light">

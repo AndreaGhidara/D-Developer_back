@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container my-3 gradient-background-blue rounded-3 p-4">
+<div class="container my-3 gradient-background-blue rounded-3 p-4 ">
     <div class="row text-center text-white m-3">
         {{-- Titolo pagina --}}
         <div class="col">
@@ -10,29 +10,31 @@
             </h1>
         </div>
     </div>
-    {{-- Grafico messaggi --}}
-    <div class="row mb-5">
-        <div class="col">
-            <div style="width: 80%; margin: auto;">
-                <canvas id="messageChart"></canvas>
-            </div>
+    {{-- Grafico messaggi / recensione--}}
+    <div class="row  mb-5 ">
+        
+        <div class="col-auto col-lg-4 m-auto">
+         
+            <canvas id="messageChart"></canvas>
+            
+        </div>
+        
+        <div class="col-auto col-lg-4 m-auto">
+           
+            <canvas id="reviewChart"></canvas>
+
         </div>
     </div>
-    {{-- Grafico recensioni --}}
-    <div class="row mb-5">
-         <div class="col-">
-            <div style="width: 80%; margin: auto;">
-                <canvas id="reviewChart"></canvas>
-            </div>
-        </div>
-    </div>
-    {{-- Grafico valutazioni --}}
+
+    {{-- Grafico per valutazione --}}
     <div class="row">
-        <div class="col">
-            <div style="width: 80%; margin: auto;">
-                <canvas id="valutationChart"></canvas>
-            </div>
+        
+        <div class="col-auto col-md-5 m-auto">
+
+           <canvas id="valutationChart"></canvas>
+        
         </div>
+        
     </div>
 </div>
 
@@ -66,7 +68,7 @@
                     label: 'Messaggi al mese',
                     data: messageValues.map(item => item.numero),
                     borderColor: '#003399',
-                    backgroundColor: '#003399'
+                    backgroundColor: ' rgba(4, 72, 119, 0.8)'
                 }]
             };
 
@@ -76,7 +78,7 @@
                 label: 'Recensioni al mese',
                 data: reviewValues.map(item => item.numero),
                 borderColor: '#FCB457',
-                backgroundColor: '#FCB457'
+                backgroundColor: ' rgba(254, 167, 93, 0.8)'
             }]
         };
     const dataValutationGraph = {

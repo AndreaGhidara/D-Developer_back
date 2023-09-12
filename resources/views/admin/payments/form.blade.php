@@ -3,137 +3,98 @@
 
 
 @section('content')
-    <div class="container bg-warning rounded-2 p-2 mt-5">
-        <div class="col-md-6 offset-md-3">
-            <h1>Payment Form</h1>
+    <div class="container paymentBox rounded-5 py-5 mt-5 gradient-background-blue">
+        <img class="relative duckPosition img-fluid" src="/duckSpecchiata.png" alt="" width="550" height="550">
+        <!--Titolo-->
+        <div class="row">
+            <div class="col text-light text-center">
+                <h1>Procedi con il pagamento</h1>
+                <img src="duckLogoGoldpng.png" alt="">
+                <div class="spacer"></div>
+            </div>
+        </div>
+        @if (session()->has('success_message'))
+            <div class="alert alert-success">
+                {{ session()->get('success_message') }}
+            </div>
+        @endif
+
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form action="{{ route('admin.pay') }}" method="POST" id="payment-form">
+            @csrf
+            <div class="row">
+                <!--Lato sinistro del container-->
+                <div class="col-sm-6 text-center text-light">
+                    <h5>Ci siamo quasi !</h5>
+                    <p>Inserisci i tuoi dati e procedi al pagamento... <br>
+                        la sponsorizzazione sarà attiva fin da subito, <br>
+                        allo scadere del tempo il tuo profilo non
+                        sarà più messo in evidenza ! <br>
+                        <i class="fa-solid fa-hand-holding-dollar text-light"></i>
+                    </p>
+                </div>
+                <!--Lato destro del container-->
+                <div class="col-md-6 p-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="name_on_card">Nome sulla carta</label>
+                            <input value="{{$user->getAttributes()['name']}}" type="text" class="form-control" id="name_on_card" name="name_on_card">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group ">
+                                <label for="amount">Totale</label>
+                                <input type="text" class="form-control text-end" id="amount" name="amount" value="{{$sponsor['price']}}" aria-label="readonly" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Pagamento-->
+                    <div class="row">
+                        <div class="col bgCard rounded-3 m-2 w-50">
+                            <label for="cc_number">Numero carta</label>
+                            <div class="form-group" id="card-number"></div>
+
+                            <label for="expiry">Scadenza</label>
+                            <div class="form-group" id="expiration-date"></div>
+
+                            <label for="cvv">CVC</label>
+                            <div class="form-group" id="cvv"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="spacer"></div>
 
-            @if (session()->has('success_message'))
-                <div class="alert alert-success">
-                    {{ session()->get('success_message') }}
+            <div id="paypal-button"></div>
+
+            <div class="spacer"></div>
+
+            <input name="sponsorTime" value="{{$sponsor['time_sponsor']}}" type="hidden" />
+            <input name="sponsorPrice" value="{{$sponsor['price']}}" type="hidden" />
+            <input name="sponsorID" value="{{$sponsor['id']}}" type="hidden" />
+            <input name="idUserPay" value="{{$user->getAttributes()['id']}}" type="hidden" />
+            <input id="nonce" name="payment_method_nonce" type="hidden" />
+
+            <div class="row">
+                <div class="col text-end mt-3 mx-3">
+                   <button type="submit" class="btn btn-primary">Paga ora</button>
                 </div>
-            @endif
-
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            <form action="{{ route('admin.pay') }}" method="POST" id="payment-form">
-                @csrf
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input value="{{$user->getAttributes()['email']}}" name="email" type="email" class="form-control" id="email">
-                </div>
-
-                <div class="form-group">
-                    <label for="name_on_card">Name on Card</label>
-                    <input value="{{$user->getAttributes()['name']}}" type="text" class="form-control" id="name_on_card" name="name_on_card">
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                            <input value="{{$user->getAttributes()['address']}}" type="text" class="form-control" id="address" name="address">
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" class="form-control" id="city" name="city">
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="province">Province</label>
-                            <input type="text" class="form-control" id="province" name="province">
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="postalcode">Postal Code</label>
-                            <input type="text" class="form-control" id="postalcode" name="postalcode">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="country">Country</label>
-                            <input type="text" class="form-control" id="country" name="country">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input value="{{$user->getAttributes()['phone_number']}}" type="text" class="form-control" id="phone" name="phone">
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group ">
-                            <label for="amount">Amount</label>
-                            <input type="text" class="form-control text-end" id="amount" name="amount" value="{{$sponsor['price']}}" aria-label="readonly" readonly>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row bg-black rounded-3 text-white m-2">
-                    <div class="col-md-6">
-                        <label for="cc_number">Credit Card Number</label>
-
-                        <div class="form-group" id="card-number">
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="expiry">Expiry</label>
-
-                        <div class="form-group" id="expiration-date">
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="cvv">CVV</label>
-
-                        <div class="form-group" id="cvv">
-
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="spacer"></div>
-
-                <div id="paypal-button"></div>
-
-                <div class="spacer"></div>
-
-                <input name="sponsorTime" value="{{$sponsor['time_sponsor']}}" type="hidden" />
-                <input name="sponsorPrice" value="{{$sponsor['price']}}" type="hidden" />
-                <input name="sponsorID" value="{{$sponsor['id']}}" type="hidden" />
-                <input name="idUserPay" value="{{$user->getAttributes()['id']}}" type="hidden" />
-                <input id="nonce" name="payment_method_nonce" type="hidden" />
-                <button type="submit" class="btn btn-success">Submit Payment</button>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
+
+
     <script src="https://js.braintreegateway.com/web/3.38.1/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
 

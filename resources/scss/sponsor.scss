@@ -1,3 +1,7 @@
+.bgSponsorCard{
+    background-color: #c6e2f6;
+}
+
 .plan-chooser {
     background-color: rgba(255, 255, 255, 1);
     max-width: 320px;
@@ -6,31 +10,33 @@
     color: #000;
     box-shadow: 0px 87px 78px -39px rgba(0,0,0,0.4);
   }
-  
+
+  .he
+
   .header-sponsor {
     text-align: center;
     margin-top: 0.75rem;
   }
-  
+
   .plan-chooser .title {
     font-size: 1.875rem;
     font-weight: 700;
     line-height: 1.25rem;
     color: rgba(0, 0, 0, 1);
   }
-  
+
   .plan-chooser .desc {
     margin-top: 0.4rem;
     font-size: 1rem;
     line-height: 1.5rem;
     color: rgba(75, 85, 99, 1);
   }
-  
+
   .plan-option {
     margin-top: 1rem;
     margin-bottom: 15px;
   }
-  
+
   .plan-option label {
     cursor: pointer;
     overflow: hidden;
@@ -44,26 +50,26 @@
     margin: 10px 0;
     transform: all .15s ease;
   }
-  
+
   .plan-option label .plan-info {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
   }
-  
+
   .plan-cost {
     font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 600;
     color: rgba(0, 0, 0, 1);
   }
-  
+
   .plan-name {
     font-size: 0.875rem;
     line-height: 1.25rem;
     color: rgba(75, 85, 99, 1);
   }
-  
+
   .reduction {
     display: inline-block;
     border-radius: 9999px;
@@ -75,11 +81,11 @@
     font-weight: 600;
     color: rgba(22, 163, 74, 1);
   }
-  
+
   .plan-option input:checked + label {
     border-color: rgba(37, 99, 235, 1);
   }
-  
+
   .choose-btn {
     width: 100%;
     display: inline-flex;
@@ -92,11 +98,128 @@
     color: #fff;
     transform: all .15s ease;
   }
-  
+
   .choose-btn:hover {
     opacity: .9;
   }
-  
+
   .plan-option input {
     display: none;
+  }
+
+  .plan {
+    border-radius: 16px;
+    box-shadow: 0 30px 30px -25px rgba(0, 38, 255, 0.205);
+    padding: 10px;
+    background-color: #fff;
+    color: #697e91;
+    max-width: 300px;
+  }
+
+  .plan strong {
+    font-weight: 600;
+    color: #425275;
+  }
+
+  .plan .inner {
+    align-items: center;
+    padding: 20px;
+    padding-top: 40px;
+    background-color: #ecf0ff;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .plan .pricing {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #bed6fb;
+    border-radius: 99em 0 0 99em;
+    display: flex;
+    align-items: center;
+    padding: 0.625em 0.75em;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #425475;
+  }
+
+  .plan .pricing small {
+    color: #707a91;
+    font-size: 0.75em;
+    margin-left: 0.25em;
+  }
+
+  .plan .title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #425675;
+  }
+
+  .plan .title + * {
+    margin-top: 0.75rem;
+  }
+
+  .plan .info + * {
+    margin-top: 1rem;
+  }
+
+  .plan .features {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plan .features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .plan .features li + * {
+    margin-top: 0.75rem;
+  }
+
+  .plan .features .icon {
+    background-color: #2563eb;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+  }
+
+  .plan .features .icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .plan .features + * {
+    margin-top: 1.25rem;
+  }
+
+  .plan .action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .plan .button {
+    background-color: #6558d3;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.125rem;
+    text-align: center;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    padding: 0.625em 0.75em;
+    text-decoration: none;
+  }
+
+  .plan .button:hover, .plan .button:focus {
+    background-color: #4133B7;
   }

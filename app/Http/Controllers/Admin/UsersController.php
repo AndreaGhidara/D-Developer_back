@@ -22,7 +22,7 @@ use function PHPUnit\Framework\isEmpty;
 
 class UsersController extends Controller{
 
-    public function show(Request $request)
+    public function show(Request $request, $user)
     {
         $user = Auth::user();
         
@@ -36,9 +36,9 @@ class UsersController extends Controller{
         
         foreach ($user->valutations as $item ){
             $voti[] = $item->valutation;
-           
+        
         }
-      
+    
         $mediaVoti = count($voti) > 0 ? array_sum($voti) / count($voti) : 0;
         // dd($mediaVoti);
         $mediaVoti = round($mediaVoti);

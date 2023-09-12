@@ -207,7 +207,7 @@
 }
 
 .btnDownloadProfile:hover {
-    background: #6c18ff;
+    background: #FF6600;
 }
 
 .btnDownloadProfile:hover .textBtnDownloadProfile {
@@ -294,14 +294,24 @@
     border-radius: 5px;
 }
 
+
 .textInputBox {
     position: relative;
-    padding: 10px 10px;
+    padding: 20px 10px;
     outline: none;
     border-radius: 5px;
     color: #030303;
-    border: 1px solid#ee8456;
-    font-size: 0.8em;
+    font-size: 1rem;
+    
+}
+.coverIconProfile{
+    display: flex;
+    align-items: center;
+}
+
+.shadowInput{
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 30px 21px rgba(0,0,0,0.1), 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .tagInputBox {
@@ -316,35 +326,6 @@
     border: 1px solid #4953b5;
 }
 
-
-// .labelCoverText .textInputBox {
-//     padding: 15px 20px;
-//     outline: none;
-//     background: transparent;
-//     border-radius: 5px;
-//     color: #fff;
-//     border: 1px solid#ee8456;
-//     font-size: 1em;
-// }
-
-// .labelCoverText .tagInputBox {
-//     position: absolute;
-//     left: 0;
-//     padding: 15px 20px;
-//     pointer-events: none;
-//     font-size: 1em;
-//     transition: 0.4s cubic-bezier(0.05, 0.81, 0, 0.93);
-//     color: #ee8456;
-//     letter-spacing: 0.1em;
-// }
-
-// .labelCoverText .textInputBox:focus~span,
-// .labelCoverText input:valid~span {
-//     font-size: 0.7em;
-//     transform: translateX(14px) translateY(-7.5px);
-//     padding: 0 5px;
-//     border-radius: 2px;
-//     background: #212121;
-//     letter-spacing: 0em;
-//     border: 1px solid #ee8456;
-// }
+hr{
+    margin: 0!important;
+}

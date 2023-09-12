@@ -3,13 +3,11 @@
 
 
 @section('content')
-    <div class="container paymentBox rounded-5 py-5 mt-5 gradient-background-blue">
-        <img class="relative duckPosition img-fluid" src="/duckSpecchiata.png" alt="" width="550" height="550">
+    <div class="container paymentBox rounded-5 py-5 my-5 gradient-background-blue">
         <!--Titolo-->
         <div class="row">
             <div class="col text-light text-center">
                 <h1>Procedi con il pagamento</h1>
-                <img src="duckLogoGoldpng.png" alt="">
                 <div class="spacer"></div>
             </div>
         </div>
@@ -32,7 +30,7 @@
             @csrf
             <div class="row">
                 <!--Lato sinistro del container-->
-                <div class="col-sm-6 text-center text-light">
+                <div class="col-lg-6 text-center text-light p-3">
                     <h5>Ci siamo quasi !</h5>
                     <p>Inserisci i tuoi dati e procedi al pagamento... <br>
                         la sponsorizzazione sarà attiva fin da subito, <br>
@@ -40,57 +38,56 @@
                         sarà più messo in evidenza ! <br>
                         <i class="fa-solid fa-hand-holding-dollar text-light"></i>
                     </p>
+                    <img class="img-fluid" src="/duckSpecchiata.png" alt="" width="550" height="550">
                 </div>
                 <!--Lato destro del container-->
-                <div class="col-md-6 p-3">
+                <div class="col-lg-6 p-3">
                     <div class="row">
                         <div class="col">
                             <label for="name_on_card">Nome sulla carta</label>
-                            <input value="{{$user->getAttributes()['name']}}" type="text" class="form-control" id="name_on_card" name="name_on_card">
+                            <input value="{{$user->getAttributes()['name']}}" type="text" class="paymentFormInput form-control" id="name_on_card" name="name_on_card">
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col">
+                            <label for="email">Email</label>
+                            <input value="{{$user->getAttributes()['email']}}" name="email" type="email" class="paymentFormInput form-control" id="email">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="form-group ">
                                 <label for="amount">Totale</label>
-                                <input type="text" class="form-control text-end" id="amount" name="amount" value="{{$sponsor['price']}}" aria-label="readonly" readonly>
+                                <input type="text" class="form-control paymentFormInput" id="amount" name="amount" value="{{$sponsor['price']}}" aria-label="readonly" readonly>
                             </div>
                         </div>
                     </div>
                     <!--Pagamento-->
-                    <div class="row">
-                        <div class="col bgCard rounded-3 m-2 w-50">
-                            <label for="cc_number">Numero carta</label>
-                            <div class="form-group" id="card-number"></div>
-
-                            <label for="expiry">Scadenza</label>
-                            <div class="form-group" id="expiration-date"></div>
-
+                    <div class="row row-cols-1">
+                        <div class="col">
+                            <label for="card-number">Numero carta</label>
+                            <div class="form-control text-end paymentFormInput" id="card-number"></div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="expiration-date">Scadenza</label>
+                            <div class="form-control text-end paymentFormInput" id="expiration-date"></div>
+                        </div>
+                        <div class="col">
                             <label for="cvv">CVC</label>
-                            <div class="form-group" id="cvv"></div>
-
+                            <div class="form-control text-end paymentFormInput" id="cvv"></div>
+                        </div>
+                        <div class="col mt-5 pe-5 text-end form-group">
+                            <button type="submit" class="btn btn-primary">Paga ora</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="spacer"></div>
-
-            <div id="paypal-button"></div>
-
-            <div class="spacer"></div>
 
             <input name="sponsorTime" value="{{$sponsor['time_sponsor']}}" type="hidden" />
             <input name="sponsorPrice" value="{{$sponsor['price']}}" type="hidden" />
             <input name="sponsorID" value="{{$sponsor['id']}}" type="hidden" />
             <input name="idUserPay" value="{{$user->getAttributes()['id']}}" type="hidden" />
             <input id="nonce" name="payment_method_nonce" type="hidden" />
-
-            <div class="row">
-                <div class="col text-end mt-3 mx-3">
-                   <button type="submit" class="btn btn-primary">Paga ora</button>
-                </div>
-            </div>
         </form>
     </div>
 
@@ -124,7 +121,7 @@
                 styles: {
                     'input': {
                         'font-size': '14px',
-                        'color': 'white'
+                        'color': 'black'
                     },
                     'input.invalid': {
                         'color': 'red'

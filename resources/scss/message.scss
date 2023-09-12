@@ -6,18 +6,22 @@
     width: 400px;
   }
 
+.messageBoxMt{
+    margin-top: 150px;
+}
+
   .imgChatPosition{
     position: absolute;
-    left: 310px;
-    top: 90px;
+    left: 16%;
+    top: 10%;
     width: 150px;
     height: 150px;
   }
 
   .imgMessPosition{
     position: absolute;
-    right: 147px;
-    top: 780px;
+    right: 10%;
+    top: 80%;
     width: 200px;
     height: 200px;
   }
@@ -84,4 +88,9 @@
     font-size: 14px;
     color: #777;
     line-height: 1.4;
+  }
+
+  .cardText{
+    width: 100%;
+    word-wrap: break-word;
   }

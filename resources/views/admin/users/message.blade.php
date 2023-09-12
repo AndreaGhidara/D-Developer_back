@@ -1,36 +1,28 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container d-flex justify-content-center my-3 rounded-3 p-2">
-    <div class="row d-flex text-center text-white m-3">
-        {{-- Titolo pagina --}}
-        <div class="col">
-            <h1 class="text-white mandarinBg rounded-5 p-3 w-100">
-                Posta in arrivo
-            </h1>
-        </div>
-    </div>
-</div>
-<div class="container my-3 gradient-background-blue rounded-3 p-2 overflow-auto h-75">
-    <img class="relative imgChatPosition" src="/notif.png" alt="">
-    <div class="row rounded-5 m-5">
+<div class="container gradient-background-blue rounded-3 p-lg-2 overflow-auto h-75 messageBoxMt">
+    <img class="relative d-none d-xxl-block imgChatPosition img-fluid" src="/notif.png" alt="">
+    <div class="row rounded-5 m-lg-5 m-1">
         {{-- Inizio del ciclo --}}
         @foreach ($messages as $message)
         <div class="col-12 p-2 mb-1 rounded-5">
-            <div class="row p-5">
+            <div class="row p-lg-5">
                 <div class="col">
                     <div class="card">
-                        <h4 class="rounded-3 text-center text-white mandarinBg titleW p-2">
+                        <p class="rounded-4 text-center text-white gradient-background-blue titleW p-2 cardText w-50">
                             Hai ricevuto un <i class="fa-solid fa-envelope"></i> da :
-                            <br>
+                        </p>
+                        <p class="text-center cardText">
                             {{$message->name}} {{$message->surname}}
                             <br>
                             {{$message->email}}
-                        </h4>
+                        </p>
                         <div class="card__content">
                             <p class="card__title"></p>
                             <p class="card__description">
-                                <i class="fa-solid fa-envelope-open"></i> <br>
+                                <i class="fa-solid fa-envelope-open"></i>
+                                <br>
                                 {{$message->text}}
                             </p>
                         </div>
@@ -42,7 +34,7 @@
         @endforeach
         {{-- Fine del ciclo --}}
     </div>
-    <img class="relative imgMessPosition" src="/mess.png" alt="">
+    <img class="d-none d-xxl-block relative imgMessPosition" src="/mess.png" alt="">
 </div>
 
 <script>

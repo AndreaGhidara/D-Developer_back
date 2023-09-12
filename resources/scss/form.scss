@@ -2,13 +2,19 @@
     background-color: #c2eafe;
 }
 
-.duckPosition{
-    position: absolute;
-    left: 420px;
-    top: 240px;
-}
 
 .paymentBox{
-    width: 800px;
-    height: 650px;
+    max-width: 800px;
+}
+
+.paymentFormInput{
+    height: 40px;
+    margin-bottom: 5px;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    color: black !important;
+}
+
+.expirationDate{
+    color: black !important;
 }

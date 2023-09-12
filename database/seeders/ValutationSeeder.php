@@ -15,17 +15,17 @@ class ValutationSeeder extends Seeder
      */
     public function run()
     {
-        $valutations = config('valutations');
-        $num = 1 ;
+        // $valutations = config('valutations');
+        // $num = 1 ;
 
-        foreach($valutations as $valutation){
+        // foreach($valutations as $valutation){
 
-            $NewValutation = new Valutation();
-            $NewValutation->valutation =  $num ;
-            $NewValutation->valutation_name = $valutation;
-            $NewValutation->save();
+        //     $NewValutation = new Valutation();
+        //     $NewValutation->valutation =  $num ;
+        //     $NewValutation->valutation_name = $valutation;
+        //     $NewValutation->save();
 
-            $num = $num + 1;
-        }
+        //     $num = $num + 1;
+        // }
     }
 }
